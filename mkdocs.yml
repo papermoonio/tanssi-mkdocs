@@ -1,0 +1,92 @@
+'site_name': 'Tanssi Docs'
+'site_url': 'https://docs.tanssi.network/'
+'home_url': 'https://tanssi.network/'
+'site_dir': '/var/www/tanssi-docs-static'
+'docs_dir': 'tanssi-docs'
+'copyright': '© 2023 Moondance Labs. All Rights Reserved.'
+'extra_javascript':
+  - 'js/externalLinkModal.js'
+'theme':
+  'name': 'material'
+  'custom_dir': 'material-overrides'
+  'favicon': '/assets/images/tanssi-favicon.png'
+  'logo': '/assets/images/tanssi-logo.png'
+  'font':
+    'text': 'Inter'
+  'features':
+    - 'navigation.tabs'
+    - 'navigation.sections'
+    # Uncomment this when ready to enable index pages
+    # - 'navigation.indexes'
+    - 'content.code.copy'
+  'palette':
+    # Palette toggle for light mode
+    - 'media': "(prefers-color-scheme: light)"
+      'scheme': default
+      'toggle':
+        'icon': material/weather-night
+        'name': Switch to dark mode
+    # Palette toggle for dark mode
+    - 'media': "(prefers-color-scheme: dark)"
+      'scheme': slate
+      'toggle':
+        'icon': material/weather-sunny
+        'name': Switch to light mode
+'markdown_extensions':
+  - 'codehilite'
+  - 'meta'
+  - 'toc':
+      'permalink': !!bool 'true'
+      'title': 'Sections'
+  - 'admonition'
+  - 'pymdownx.snippets':
+      'base_path': 'tanssi-docs/.snippets'
+  - 'pymdownx.tabbed':
+      'alternate_style': !!bool 'true'
+  - 'pymdownx.superfences'
+  - 'pymdownx.details'
+  - 'attr_list'
+'plugins':
+  - 'search'
+  - 'awesome-pages'
+  - 'git-revision-date-localized':
+      'enable_creation_date': !!bool 'true'
+  - 'redirects':
+      'redirect_maps':
+        # Redirects will go here as pages get moved around in the following format:
+        # 'old-page.md': 'new-page.md'
+  - 'macros':
+      'include_yaml':
+        - 'tanssi-docs/variables.yml'
+'extra':
+  'generator': !!bool 'false'
+  'social':
+    - 'icon': 'fontawesome/brands/discord'
+      'link': 'https://discord.gg/kuyPhew2KB'
+      'name': 'Discord'
+    - 'icon': 'fontawesome/brands/telegram'
+      'link': 'https://t.me/tanssiofficial'
+      'name': 'Telegram'
+    - 'icon': 'fontawesome/brands/twitter'
+      'link': 'https://twitter.com/TanssiNetwork'
+      'name': 'Twitter'
+    - 'icon': 'fontawesome/brands/github'
+      'link': 'https://github.com/moondance-labs/tanssi'
+      'name': 'GitHub'
+  'analytics':
+    'provider': 'google'
+    'property': 'G-BT4KVVBH8F'
+    'feedback':
+      'title': 'Was this page helpful?'
+      'ratings':
+        - 'icon': 'material/emoticon-happy-outline'
+          'name': 'This page was helpful'
+          'data': 1
+          'note': >-
+            Thanks for your feedback!
+        - 'icon': 'material/emoticon-sad-outline'
+          'name': 'This page could be improved'
+          'data': 0
+          'note': >-
+            Thanks for your feedback! Help us improve this page by submitting
+            <a href="https://github.com/moondance-labs/tanssi-docs/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">additional feedback</a>.

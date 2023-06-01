@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+
+{% block htmltitle %}
+    {%- if page.is_homepage -%}
+        <title>Tanssi Docs</title>
+    {%- endif -%}
+{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <!-- Start building out the home page here! -->
+    </div>
+{% endblock %}
+
+{% block site_nav %}
+    <!-- Required for smaller screens (where hamburger menu appears) -->
+    {% if nav %}
+        <div class="md-sidebar md-sidebar--primary home" data-md-component="sidebar" data-md-type="navigation" {{ hidden }}>
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    {% include "partials/nav.html" %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if page.toc and not "toc.integrate" in config.theme.features %}
+        {% if page and page.meta and page.meta.hide %}
+            {% set hidden = "hidden" if "toc" in page.meta.hide %}
+        {% endif %}
+        <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" {{ hidden }}>
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                {% include "partials/toc.html" %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

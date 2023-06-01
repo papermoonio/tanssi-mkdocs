@@ -10,11 +10,13 @@
   'name': 'material'
   'custom_dir': 'material-overrides'
   'favicon': '/assets/images/tanssi-favicon.png'
-  'logo': '/assets/images/tanssi-logo.png'
+  'logo': '/assets/images/tanssi-logo-black.png'
+  'logo_dark_mode': '/assets/images/tanssi-logo-white.png'
   'font':
     'text': 'Inter'
   'features':
     - 'navigation.tabs'
+    - 'navigation.tabs.sticky'
     - 'navigation.sections'
     # Uncomment this when ready to enable index pages
     # - 'navigation.indexes'

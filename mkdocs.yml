@@ -18,8 +18,7 @@
     - 'navigation.tabs'
     - 'navigation.tabs.sticky'
     - 'navigation.sections'
-    # Uncomment this when ready to enable index pages
-    # - 'navigation.indexes'
+    - 'navigation.indexes'
     - 'content.code.copy'
   'palette':
     # Palette toggle for light mode

@@ -229,8 +229,10 @@ a.md-header__button.md-logo {
     display: none !important;
 }
 
+/* Make the primary section font larger on left nav */
 .md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link {
     font-size: 1.1em;
+    color: var(--md-default-fg-color);
 }
 
 /* Nav buttons styling */
@@ -257,14 +259,6 @@ a.md-header__button.md-logo {
 .md-nav__link {
     margin-top: .45em;
     font-size: .9em;
-}
-
-/* Make the primary section font larger on left nav (i.e., Build, Node Operators, etc.) */
-#__nav_2:first-child~.md-nav__link a,
-#__nav_3:first-child~.md-nav__link a,
-#__nav_4:first-child~.md-nav__link a,
-#__nav_5:first-child~.md-nav__link a {
-    font-size: 1.2em;
 }
 
 /* Section lines */

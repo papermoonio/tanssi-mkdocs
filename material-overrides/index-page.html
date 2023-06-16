@@ -12,29 +12,53 @@
         <!-- render subsection content -->
         {% if nav_item.is_page %}
           <h1 class="subsection-title">{{ nav_item.parent.title }}</h1>
+          
           <div class="subsection-wrapper">
-            <!-- Start building out the structure for index pages here!  -->
-            <!-- Leaving blank for now, if we want same structure as moonbeam index pages we can copy pasta it over -->
+            <div>
+              {% if nav|length>1 %}
+                {% for nav_item in nav %}
+                  {% if nav_item.is_section and nav_item.active %}
+                    <div class="subsection-wrapper">
+                        {% for nav_item in nav_item.children %}
+                          {% if nav_item.is_section %}
+                          <div class="card">
+                              {% set subsection_path = nav_item.children[0].url %}
+                              {% if subsection_path.startswith(page.url) %}
+                                {% set image_path = '/images/index-pages/' + subsection_path[:-1] + '.png' %}
+                                {% set href_path = subsection_path|replace(page.url, '') %}
+                                <a href="{{ href_path }}">
+                                    <h2 class="title">{{ nav_item.title }}</h2>
+                                    <img class="icon" src="{{ image_path }}"
+                                        onerror="this.onerror = null; this.src='/images/index-pages/blank.png';">
+                                </a>
+                              {% endif %}
+                          </div>
+                          {% endif %}
+                        {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+              <div class="disclaimer">
+                <hr>
+                All information made available, including claims, content, designs, algorithms, estimates,
+                roadmaps, specifications, and performance measurements described in this project are provided for informational
+                purposes only and Tanssi does not endorse any project referenced here. It is up to the reader to check and
+                validate the accuracy and truthfulness. Furthermore, nothing in this project information constitutes a
+                solicitation for investment. No developer or entity involved in creating the Tanssi Network or authoring 
+                this information will be liable for any claims or damages whatsoever associated with your
+                use, inability to use, or your interaction with other users of, the Tanssi Network or any
+                information made available on this website, including any direct, indirect, incidental, special, exemplary,
+                punitive or consequential damages, or loss of profits, cryptocurrencies, tokens, or anything else of value. All
+                information contained herein is subject to modification without notice.
+                <hr>
+              </div>
+            </div>
           </div>
         {% endif %}
       {% endif %}
     {% endif %}
   {% endfor %}
-
-  {% set most_nested_active_element = None %}
-  {% if element.active == True %}
-    {{ element }}
-    {% set most_nested_active_element = element %}
-  {% endif %}
-
-  {% if element.active and element.children %}
-    {% for child in element.children %}
-      {% set nested_active_element = find_active_page(child) %}
-      {% if nested_active_element != none %}
-        {% set most_nested_active_element = nested_active_element %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
 {% endmacro %}
 
 <div class="subsection-page">

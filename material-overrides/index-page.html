@@ -24,12 +24,13 @@
                           <div class="card">
                               {% set subsection_path = nav_item.children[0].url %}
                               {% if subsection_path.startswith(page.url) %}
-                                {% set image_path = '/images/index-pages/' + subsection_path[:-1] + '.png' %}
+                                {% set image_path_light = '/images/index-pages/' + subsection_path[:-1] + '_light.png#only-light' %}
+                                {% set image_path_dark = '/images/index-pages/' + subsection_path[:-1] + '_dark.png#only-dark' %}
                                 {% set href_path = subsection_path|replace(page.url, '') %}
                                 <a href="{{ href_path }}">
                                     <h2 class="title">{{ nav_item.title }}</h2>
-                                    <img class="icon" src="{{ image_path }}"
-                                        onerror="this.onerror = null; this.src='/images/index-pages/blank.png';">
+                                    <img class="icon" alt="{{ nav_item.title }}" src="{{ image_path_light }}">
+                                    <img class="icon" alt="{{ nav_item.title }}" src="{{ image_path_dark }}">
                                 </a>
                               {% endif %}
                           </div>

@@ -550,8 +550,6 @@ li>nav.md-nav[data-md-level="4"] {
     }
 }
 
-/* COPIED STYLES BELOW */
-
 /* Section index page styles */
 .subsection-title {
   display: flex;
@@ -786,10 +784,3 @@ li>nav.md-nav[data-md-level="4"] {
   margin-right: .5em;
   margin-bottom: .75em;
 }
-
-/* Debugging purposes, just delete before PR */
-/*
-* {
-  outline: 1px solid red;
-}
-*/

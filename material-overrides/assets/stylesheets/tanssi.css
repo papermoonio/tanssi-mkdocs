@@ -558,6 +558,7 @@ li>nav.md-nav[data-md-level="4"] {
 
 .md-main__inner {
   height: unset;
+  width: 100%;
 }
 
 .index-page, .subsection-page {

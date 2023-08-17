@@ -615,25 +615,6 @@ li>nav.md-nav[data-md-level="4"] {
   display: none
 }
 
-/* Disclaimer styling */
-.md-content__inner .main-page {
-  display: flex;
-  flex-direction: column;
-  min-height: 75vh;
-  margin-bottom: 0.5rem;
-}
-
-.disclaimer,
-.page-disclaimer {
-  margin-top: auto;
-  font-size: x-small;
-  font-style: italic;
-}
-
-.page-disclaimer {
-  margin-top: 3em;
-}
-
 @media screen and (max-width: 76.1875em) {
   .md-sidebar.md-sidebar--primary.home {
     display: block;
@@ -663,8 +644,14 @@ li>nav.md-nav[data-md-level="4"] {
   }
 }
 
-.disclaimer {
+/* Disclaimer styling */
+.disclaimer,
+.page-disclaimer {
   margin-top: auto;
   font-size: x-small;
   font-style: italic;
+}
+  
+.page-disclaimer {
+  margin-top: 3em;
 }

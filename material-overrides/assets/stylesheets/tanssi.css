@@ -644,9 +644,14 @@ li>nav.md-nav[data-md-level="4"] {
   }
 }
 
-.disclaimer {
+/* Disclaimer styling */
+.disclaimer,
+.page-disclaimer {
   margin-top: auto;
   font-size: x-small;
   font-style: italic;
 }
-
+  
+.page-disclaimer {
+  margin-top: 3em;
+}

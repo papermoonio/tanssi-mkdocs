@@ -533,7 +533,7 @@ li>nav.md-nav[data-md-level="4"] {
 
 .external-link-modal-header {
     margin-bottom: 1em;
-    font-family: 'Open Sans';
+    font-family: var(--md-text-font-family);
     font-size: .9em;
     font-weight: normal;
     font-weight: 600;

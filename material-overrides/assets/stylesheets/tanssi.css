@@ -344,6 +344,7 @@ li>nav.md-nav[data-md-level="4"] {
 /* Styling for Tables */
 .md-typeset table:not([class]) {
     border-radius: .3em;
+    display: inline-table;
 }
 
 .md-typeset .md-typeset__table table th {
@@ -359,6 +360,19 @@ li>nav.md-nav[data-md-level="4"] {
 /* Tables centered */
 .md-typeset__scrollwrap {
     text-align: center;
+}
+
+/* Tables in tabs */
+.tabbed-content .md-typeset__scrollwrap {
+    margin: 0;
+}
+
+.tabbed-content .md-typeset__table {
+    display: inline-table;
+    margin-bottom: 0;
+    padding: 0.5em;
+    background-color: var(--md-code-bg-color);
+    width: 100%;
 }
 
 /* Tabbed Styling */

@@ -52,9 +52,14 @@
       <div class="column hero-img-column">
         <img
           class="hero-img"
-          src="{{ '/assets/images/home-hero.png' }}"
+          src="{{ '/assets/images/home-hero-light.png' }}#only-light"
           alt="representation of the Moonbeam docs site"
         />
+        <img
+        class="hero-img"
+        src="{{ '/assets/images/home-hero-dark.png' }}#only-dark"
+        alt="representation of the Moonbeam docs site"
+      />
       </div>
     </div>
     <div class="full-background">
@@ -66,9 +71,11 @@
         </div>
         <div class="row feature-items">
           <div class="feature-item">
-            <img src="{{ '/assets/images/builders.png' }}#only-light" alt="logo">
-            <img src="{{ '/assets/images/builders-dark.png' }}#only-dark" alt="logo">
-            <h2 class="subtitle">Build with Tanssi</h2>
+            <div class="row feature-item-header">
+              <h2 class="subtitle">Build with Tanssi</h2>
+              <img src="{{ '/assets/images/builders.png' }}#only-light" alt="logo">
+              <img src="{{ '/assets/images/builders-dark.png' }}#only-dark" alt="logo">
+            </div>
             <p class="info">
               Learn how to deploy your appchain connected to Tanssi and transition
               to a ContainerChain, leveraging a wide range of infrastructure 
@@ -79,9 +86,11 @@
             </a>
           </div>
           <div class="feature-item">
-            <img src="{{ '/assets/images/learn.png' }}#only-light" alt="logo">
-            <img src="{{ '/assets/images/learn-dark.png' }}#only-dark" alt="logo">
-            <h2 class="subtitle">Learn Essentials</h2>
+            <div class="row feature-item-header">
+              <h2 class="subtitle">Learn Essentials</h2>
+              <img src="{{ '/assets/images/learn.png' }}#only-light" alt="logo">
+              <img src="{{ '/assets/images/learn-dark.png' }}#only-dark" alt="logo">
+            </div>
             <p class="info">
               Deep dive into Tanssi protocol details, features, and a technical
               glossary designed to enhance your building experience.
@@ -91,9 +100,11 @@
             </a>
           </div>
           <div class="feature-item">
-            <img src="{{ '/assets/images/resources.png' }}#only-light" alt="logo">
-            <img src="{{ '/assets/images/resources-dark.png' }}#only-dark" alt="logo">
-            <h2 class="subtitle">Resource Center</h2>
+            <div class="row feature-item-header">
+              <h2 class="subtitle">Resource Center</h2>
+              <img src="{{ '/assets/images/resources.png' }}#only-light" alt="logo">
+              <img src="{{ '/assets/images/resources-dark.png' }}#only-dark" alt="logo">
+            </div>
             <p class="info">
               Access an expansive collection of educational resources tailored for
               the Tanssi community, including announcements, educational blog posts,
@@ -104,9 +115,11 @@
             </a>
           </div>
           <div class="feature-item">
-            <img src="{{ '/assets/images/tanssi-icon.png' }}#only-light" alt="logo">
-            <img src="{{ '/assets/images/tanssi-icon-dark.png' }}#only-dark" alt="logo">
-            <h2 class="subtitle">About Tanssi</h2>
+            <div class="row feature-item-header">
+              <h2 class="subtitle">About Tanssi</h2>
+              <img src="{{ '/assets/images/tanssi-icon.png' }}#only-light" alt="logo">
+              <img src="{{ '/assets/images/tanssi-icon-dark.png' }}#only-dark" alt="logo">
+            </div>
             <p class="info">
               Discover the Tanssi Network and its steadfast commitment to 
               transforming the appchain deployment landscape.

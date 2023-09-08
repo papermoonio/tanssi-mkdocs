@@ -15,24 +15,31 @@
     <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
       {% include "partials/logo.html" %}
     </a>
-    {% if config.theme.palette %}
-      {% if not config.theme.palette is mapping %}
-        <form class="md-header__option" data-md-component="palette">
-          {% for option in config.theme.palette %}
-            {% set scheme  = option.scheme  | d("default", true) %}
-            <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ primary | replace(' ', '-') }}" data-md-color-accent="{{ accent | replace(' ', '-') }}" {% if option.toggle %} aria-label="{{ option.toggle.name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette" id="__palette_{{ loop.index }}">
-            {% if option.toggle %}
-              <label class="md-header__button md-icon" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
-                {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
-              </label>
-            {% endif %}
-          {% endfor %}
-        </form>
+    {% if "navigation.tabs.sticky" in features %}
+      {% if "navigation.tabs" in features %}
+        {% include "partials/tabs.html" %}
       {% endif %}
     {% endif %}
-    <a href="https://discord.gg/kuyPhew2KB" class="md-header__button md-typeset" aria-label="Join our Developer Community">
-      <button class="md-button join-community">Join our Developer Community</button>
-    </a>
+    <div class="md-header__buttons">
+      {% if config.theme.palette %}
+        {% if not config.theme.palette is mapping %}
+          <form class="md-header__option" data-md-component="palette">
+            {% for option in config.theme.palette %}
+              {% set scheme  = option.scheme  | d("default", true) %}
+              <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ primary | replace(' ', '-') }}" data-md-color-accent="{{ accent | replace(' ', '-') }}" {% if option.toggle %} aria-label="{{ option.toggle.name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette" id="__palette_{{ loop.index }}">
+              {% if option.toggle %}
+                <label class="md-header__button md-icon" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
+                  {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
+                </label>
+              {% endif %}
+            {% endfor %}
+          </form>
+        {% endif %}
+      {% endif %}
+      <a href="https://discord.gg/kuyPhew2KB" class="md-header__button md-typeset" aria-label="Join our Developer Community">
+        <button class="md-button join-community">Join our Developer Community</button>
+      </a>
+    </div>
     {% if config.extra.alternate %}
       <div class="md-header__option">
         <div class="md-select">
@@ -66,9 +73,4 @@
       </div>
     {% endif %}
   </nav>
-  {% if "navigation.tabs.sticky" in features %}
-    {% if "navigation.tabs" in features %}
-      {% include "partials/tabs.html" %}
-    {% endif %}
-  {% endif %}
 </header>

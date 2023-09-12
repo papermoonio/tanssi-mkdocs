@@ -34,11 +34,12 @@
                   <!-- add '/' to end of path to match all of the other urls -->
                   {% set image_path = image_path + '/' %}
                 {% endif %}
-                {% set image_path = '/images/index-pages/' + image_path[:-1] + '.png' %}
+                {% set image_path = '/images/index-pages/' + image_path[:-1] %}
                 <div class="card">
                   <a href="{{ subsection_path|replace(page.url, '') }}">
                     <h2 class="title">{{ nav_item.title }}</h2> 
-                    <img class="icon" alt="{{ nav_item.title }}" src="{{ image_path }}">
+                    <img class="icon" alt="{{ nav_item.title }}" src="{{ image_path }}.png#only-light">
+                    <img class="icon" alt="{{ nav_item.title }}" src="{{ image_path }}-dark.png#only-dark">
                   </a>    
                 </div>
               {% endfor %}

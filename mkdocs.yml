@@ -6,6 +6,8 @@
 'copyright': '© 2023 Moondance Labs. All Rights Reserved.'
 'extra_javascript':
   - 'js/externalLinkModal.js'
+'extra_css':
+  - '/assets/stylesheets/extra.css'
 'theme':
   'name': 'material'
   'custom_dir': 'material-overrides'

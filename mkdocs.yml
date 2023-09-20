@@ -21,6 +21,7 @@
     - 'navigation.tabs.sticky'
     - 'navigation.sections'
     - 'navigation.indexes'
+    - 'navigation.instant'
     - 'content.code.copy'
   'palette':
     # Palette toggle for light mode

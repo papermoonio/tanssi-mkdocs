@@ -25,7 +25,7 @@ import tinify
 from PIL.PngImagePlugin import PngImageFile, PngInfo
 
 # https://tinypng.com/developers
-tinify.key = "ADD YOUR API KEY HERE"
+tinify.key = "ADD_YOUR_API_KEY_HERE"
 
 # function to resize large images
 def compress_image(image, original_size):

@@ -21,16 +21,17 @@
     - 'navigation.tabs.sticky'
     - 'navigation.sections'
     - 'navigation.indexes'
+    - 'navigation.instant'
     - 'content.code.copy'
   'palette':
     # Palette toggle for light mode
-    - 'media': "(prefers-color-scheme: light)"
+    - 'media': '(prefers-color-scheme: light)'
       'scheme': default
       'toggle':
         'icon': material/weather-night
         'name': Switch to dark mode
     # Palette toggle for dark mode
-    - 'media': "(prefers-color-scheme: dark)"
+    - 'media': '(prefers-color-scheme: dark)'
       'scheme': slate
       'toggle':
         'icon': material/weather-sunny
@@ -49,6 +50,10 @@
   - 'pymdownx.superfences'
   - 'pymdownx.details'
   - 'attr_list'
+'validation':
+  'absolute_links': 'ignore'
+  'unrecognized_links': 'ignore'
+'exclude_docs': 'README.md'
 'plugins':
   - 'search'
   - 'awesome-pages'

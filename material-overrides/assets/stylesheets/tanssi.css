@@ -336,6 +336,14 @@ a.md-header__button.md-logo img {
   color: var(--md-default-fg-color);
 }
 
+@media screen and (min-width: 76.25em) {
+  /* Allow section headers to be clickable */
+  .md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link:not(.md-nav__container),
+  .md-nav__item--section>.md-nav__link:not(.md-nav__container) {
+    pointer-events: auto;
+  }
+}
+
 /* Nav buttons styling */
 .md-header__button.md-typeset .md-button.join-community {
   padding: 0.75em;
@@ -369,6 +377,12 @@ a.md-header__button.md-logo img {
 li > nav.md-nav[data-md-level='3'],
 li > nav.md-nav[data-md-level='4'] {
   border-left: 1px solid var(--md-accent-fg-color);
+}
+
+/* Render arrow next to expandable sections */
+.md-nav__link>* {
+  cursor: pointer;
+  display: flex;
 }
 
 @media screen and (max-width: 76.1875em) {

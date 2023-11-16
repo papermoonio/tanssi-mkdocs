@@ -442,21 +442,15 @@ li > nav.md-nav[data-md-level='4'] {
 
 /* Styling for custom Admonition notes used for remember */
 .md-typeset .admonition.remember,
-.md-typeset details.remember,
-.md-typeset .admonition.请记住,
-.md-typeset details.请记住 {
+.md-typeset details.remember {
   border-color: rgb(255, 195, 42);
 }
 .md-typeset .remember > .admonition-title,
-.md-typeset .remember > summary,
-.md-typeset .请记住 > .admonition-title,
-.md-typeset .请记住 > summary {
+.md-typeset .remember > summary {
   background-color: rgba(255, 195, 42, 0.1);
 }
 .md-typeset .remember > .admonition-title::before,
-.md-typeset .remember > summary::before,
-.md-typeset .请记住 > .admonition-title::before,
-.md-typeset .请记住 > summary::before {
+.md-typeset .remember > summary::before {
   background-color: rgb(255, 195, 42);
 }
 

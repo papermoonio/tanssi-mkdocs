@@ -64,6 +64,8 @@
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:
         # 'old-page.md': 'new-page.md'
+        'builders/deploy-manage/dapp/deploy.md': 'builders/deploy/dapp.md'
+        'builders/deploy-manage/dapp/index.md': 'builders/deploy/index.md'
   - 'macros':
       'include_yaml':
         - 'tanssi-docs/variables.yml'

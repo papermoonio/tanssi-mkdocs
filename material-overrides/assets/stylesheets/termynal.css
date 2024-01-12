@@ -66,11 +66,11 @@
 [data-ty="input"]:before,
 [data-ty-prompt]:before {
     margin-right: 0.75em;
-    color: #53cbc9;
+    color: #189b9b;
 }
 
 [data-ty="input"]:before {
-    content: 'moonbeam@ubuntu-jammy:~$';
+    content: 'tanssi@ubuntu-jammy:~$';
 }
 
 [data-ty][data-ty-prompt]:before {

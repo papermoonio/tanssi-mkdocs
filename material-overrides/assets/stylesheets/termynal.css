@@ -17,10 +17,10 @@
     max-width: 100%;
     background: var(--color-bg);
     color: var(--color-text);
-    font-size: 12px;
+    font-size: 13px;
     font-family: 'Fira Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace;
     border-radius: 4px;
-    padding: 55px 45px 35px;
+    padding: 50px 30px 20px;
     position: relative;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -65,12 +65,15 @@
 
 [data-ty="input"]:before,
 [data-ty-prompt]:before {
-    margin-right: 0.75em;
+    content: 'tanssi@ubuntu-jammy:';
     color: #189b9b;
+    size: 14px;
 }
 
-[data-ty="input"]:before {
-    content: 'tanssi@ubuntu-jammy:~$';
+.file-path:before {
+    content: '~$';
+    color: #FF8055;
+    margin-right: 0.75em;
 }
 
 [data-ty][data-ty-prompt]:before {

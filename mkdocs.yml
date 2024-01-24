@@ -14,9 +14,9 @@
 'theme':
   'name': 'material'
   'custom_dir': 'material-overrides'
-  'favicon': '/assets/images/tanssi-favicon.png'
-  'logo': '/assets/images/tanssi-logo-black.png'
-  'logo_dark_mode': '/assets/images/tanssi-logo-white.png'
+  'favicon': '/assets/images/tanssi-favicon.webp'
+  'logo': '/assets/images/tanssi-logo-black.webp'
+  'logo_dark_mode': '/assets/images/tanssi-logo-white.webp'
   'font':
     'text': 'Inter'
   'features':

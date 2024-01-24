@@ -29,6 +29,10 @@ def convert_images(input_dir):
 
             print(f"Converted {png_file} to {os.path.splitext(png_file)[0]}.webp")
 
+            # Delete the original PNG file
+            os.remove(png_path)
+            print(f"Deleted {png_file}")
+
 # function to get all directories and subdirectories
 def listdirs(root_dir):
     # iterate over each directory and check and resize image sizes as needed

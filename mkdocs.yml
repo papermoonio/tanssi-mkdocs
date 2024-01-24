@@ -62,6 +62,7 @@
   - 'awesome-pages'
   - 'git-revision-date-localized':
       'enable_creation_date': !!bool 'true'
+  - 'privacy'
   - 'redirects':
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:

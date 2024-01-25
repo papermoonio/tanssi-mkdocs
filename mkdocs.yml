@@ -7,7 +7,6 @@
 'extra_javascript':
   - 'js/externalLinkModal.js'
   - 'js/fixCreatedDate.js'
-  - 'js/termynal.min.js'
 'extra_css':
   - '/assets/stylesheets/extra.css'
   - '/assets/stylesheets/termynal.css'

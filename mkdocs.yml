@@ -9,6 +9,7 @@
   - 'js/fixCreatedDate.js'
   - 'js/termynal.min.js'
 'extra_css':
+  - '/assets/stylesheets/tanssi.css'
   - '/assets/stylesheets/extra.css'
   - '/assets/stylesheets/termynal.css'
 'theme':
@@ -62,6 +63,17 @@
   - 'awesome-pages'
   - 'git-revision-date-localized':
       'enable_creation_date': !!bool 'true'
+  - 'minify':
+      'minify_html': !!bool 'true'
+      'minify_js': !!bool 'true'
+      'minify_css': !!bool 'true'
+      'js_files':
+        - 'js/externalLinkModal.js'
+        - 'js/fixCreatedDate.js'
+      'css_files': 
+        - '/assets/stylesheets/tanssi.css'
+        - '/assets/stylesheets/extra.css'
+        - '/assets/stylesheets/termynal.css'
   - 'redirects':
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:

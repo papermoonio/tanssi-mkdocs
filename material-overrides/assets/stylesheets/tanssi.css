@@ -343,6 +343,16 @@ a.md-header__button.md-logo img {
   .md-nav__item--section>.md-nav__link:not(.md-nav__container) {
     pointer-events: auto;
   }
+
+  /* Create spacing between subsections on left nav */
+  .md-nav__item--section {
+    margin: 2em 0;
+  }
+
+  /* Remove arrow (dropdown) icon next to the section header (i.e., Builders, Learn, etc.) */
+  .md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link label span.md-nav__icon:after {
+    display: none;
+  }
 }
 
 /* Nav buttons styling */
@@ -375,9 +385,15 @@ a.md-header__button.md-logo img {
 }
 
 /* Section lines */
-li > nav.md-nav[data-md-level='3'],
-li > nav.md-nav[data-md-level='4'] {
+li > nav.md-nav[data-md-level='3'] ul.md-nav__list,
+li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
   border-left: 1px solid var(--md-accent-fg-color);
+}
+
+/* Add space below the section lines */
+.md-nav--primary .md-nav__list {
+  padding-bottom: 0;
+  margin-bottom: .5em;
 }
 
 /* Render arrow next to expandable sections */

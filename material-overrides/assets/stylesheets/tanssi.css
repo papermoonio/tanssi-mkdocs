@@ -487,6 +487,56 @@ li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
           mask-image: var(--md-admonition-icon--remember);
 }
 
+/* Styling for function description admonition */
+.md-typeset details.function {
+  border: none; /* Keep as is for the default state */
+  margin: 0.1rem;
+}
+
+/* Add styles for when details.function is open */
+.md-typeset details.function[open] {
+  border: 2px solid #189a9a; /*  Border color expandable section */
+  border-radius: 5px; /* Optional: adds rounded corners to the border */
+}
+
+.md-typeset .function > summary {
+  background-color: unset;
+}
+
+.md-typeset .function > summary::before {
+  display: none;
+}
+
+.md-typeset .function > summary::after {
+  left: 0.6rem;
+}
+
+.md-typeset .function summary {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+html .md-typeset details.function div.tabbed-set,
+.md-typeset .function p,
+.md-typeset .function .admonition {
+  margin: 1em 2em;
+}
+
+.md-typeset .function .admonition * {
+  margin: 0 -0.6rem;
+  padding-top: 0.4rem;
+}
+
+.md-typeset .function .admonition > p:not(:first-child) {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+.md-typeset .function summary code {
+  box-shadow: none;
+}
+
+
 /* Styling for the Copy to Clipboard message */
 .md-clipboard {
   color: var(--md-accent-fg-color);

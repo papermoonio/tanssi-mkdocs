@@ -501,6 +501,8 @@ li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
 
 .md-typeset .function > summary {
   background-color: unset;
+  font-weight: 400;
+  font-size: 0.8rem;
 }
 
 .md-typeset .function > summary::before {
@@ -511,31 +513,41 @@ li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
   left: 0.6rem;
 }
 
-.md-typeset .function summary {
-  font-weight: 400;
-  font-size: 0.8rem;
-}
-
-html .md-typeset details.function div.tabbed-set,
-.md-typeset .function p,
-.md-typeset .function .admonition {
+details.function .tabbed-set {
+  border: 1px solid var(--md-default-fg-color--lightest);
   margin: 1em 2em;
 }
 
-.md-typeset .function .admonition * {
-  margin: 0 -0.6rem;
-  padding-top: 0.4rem;
+.function .tabbed-block p,
+.function .tabbed-block ul,
+.function .tabbed-block ol {
+  padding: 0 1em;
 }
 
+.function .tabbed-block .admonition {
+  margin: 1em;
+}
+
+.md-typeset .function .admonition-title {
+  margin: 0 -0.6rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+/* Modify the text except for the .admonition-title */
 .md-typeset .function .admonition > p:not(:first-child) {
-  padding-left: 0.6rem;
+  padding-left: 0;
   padding-right: 0.6rem;
 }
 
-.md-typeset .function summary code {
+details.function,
+.md-typeset details.function:focus-within {
   box-shadow: none;
 }
 
+.md-typeset details.function[open] {
+  border: none;
+}
 
 /* Styling for the Copy to Clipboard message */
 .md-clipboard {
@@ -595,6 +607,15 @@ html .md-typeset details.function div.tabbed-set,
 
 .md-typeset .tabbed-set {
   background-color: var(--md-accent-bg-color);
+}
+
+[dir=ltr] .md-typeset ol, [dir=ltr] .md-typeset ul {
+  margin-right: 0.625em;
+}
+
+.md-typeset .tabbed-content {
+  background: var(--md-default-bg-color);
+  box-shadow: var(--md-shadow-z1);
 }
 
 /* Document date styling */

@@ -7,16 +7,16 @@
 'extra_javascript':
   - 'js/externalLinkModal.js'
   - 'js/fixCreatedDate.js'
-  - 'js/termynal.min.js'
 'extra_css':
+  - '/assets/stylesheets/tanssi.css'
   - '/assets/stylesheets/extra.css'
   - '/assets/stylesheets/termynal.css'
 'theme':
   'name': 'material'
   'custom_dir': 'material-overrides'
-  'favicon': '/assets/images/tanssi-favicon.png'
-  'logo': '/assets/images/tanssi-logo-black.png'
-  'logo_dark_mode': '/assets/images/tanssi-logo-white.png'
+  'favicon': '/assets/images/tanssi-favicon.webp'
+  'logo': '/assets/images/tanssi-logo-black.webp'
+  'logo_dark_mode': '/assets/images/tanssi-logo-white.webp'
   'font':
     'text': 'Inter'
   'features':
@@ -63,6 +63,17 @@
   - 'git-revision-date-localized':
       'enable_creation_date': !!bool 'true'
   - 'privacy'
+  - 'minify':
+      'minify_html': !!bool 'true'
+      'minify_js': !!bool 'true'
+      'minify_css': !!bool 'true'
+      'js_files':
+        - 'js/externalLinkModal.js'
+        - 'js/fixCreatedDate.js'
+      'css_files': 
+        - '/assets/stylesheets/tanssi.css'
+        - '/assets/stylesheets/extra.css'
+        - '/assets/stylesheets/termynal.css'
   - 'redirects':
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:

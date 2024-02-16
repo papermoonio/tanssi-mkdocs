@@ -70,15 +70,17 @@
         - 'js/externalLinkModal.js'
         - 'js/fixCreatedDate.js'
       'css_files': 
-        - '/assets/stylesheets/tanssi.css'
-        - '/assets/stylesheets/extra.css'
-        - '/assets/stylesheets/termynal.css'
+        - './output/assets/stylesheets/tanssi.css'
+        - './output/assets/stylesheets/extra.css'
+        - './output/assets/stylesheets/termynal.css'
   - 'redirects':
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:
         # 'old-page.md': 'new-page.md'
         'builders/deploy-manage/dapp/deploy.md': 'builders/deploy/dapp.md'
         'builders/deploy-manage/dapp/index.md': 'builders/deploy/index.md'
+        'builders/tutorials/index.md': 'builders/tooling/index.md'
+        'builders/tutorials/subsquid.md': 'builders/tooling/indexers/subsquid.md'
   - 'macros':
       'include_yaml':
         - 'tanssi-docs/variables.yml'

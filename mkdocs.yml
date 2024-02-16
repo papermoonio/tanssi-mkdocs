@@ -70,9 +70,9 @@
         - 'js/externalLinkModal.js'
         - 'js/fixCreatedDate.js'
       'css_files': 
-        - './output/assets/stylesheets/tanssi.css'
-        - './output/assets/stylesheets/extra.css'
-        - './output/assets/stylesheets/termynal.css'
+        - '/assets/stylesheets/tanssi.css'
+        - '/assets/stylesheets/extra.css'
+        - '/assets/stylesheets/termynal.css'
   - 'redirects':
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:

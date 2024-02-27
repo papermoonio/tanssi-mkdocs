@@ -1295,3 +1295,9 @@ h2.subtitle.mobile-subtitle {
   -webkit-mask-image: var(--md-admonition-icon--code);
   mask-image: var(--md-admonition-icon--code);
 }
+
+/* Styling to prevent code blocks from overlapping the Copy to Clipboard button */
+.md-typeset pre>code {
+  white-space: break-spaces;
+  padding-right: 3em;
+}

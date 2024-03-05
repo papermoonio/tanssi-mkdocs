@@ -1301,3 +1301,51 @@ h2.subtitle.mobile-subtitle {
   white-space: break-spaces;
   padding-right: 3em;
 }
+
+/* Styling for function admonition */
+
+.md-typeset details.function {
+  border: none;
+  margin: 0.1rem;
+}
+
+.md-typeset .function > summary {
+  background-color: unset;
+}
+
+.md-typeset .function > summary::before {
+  display: none;
+}
+
+.md-typeset .function > summary::after {
+  left: 0.6rem;
+}
+
+.md-typeset .function summary {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+html .md-typeset details.function div.tabbed-set,
+.md-typeset .function p,
+.md-typeset .function .admonition {
+  margin: 1em 2em;
+}
+
+.md-typeset .function .admonition * {
+  margin: 0 -0.6rem;
+  padding-top: 0.4rem;
+}
+
+.md-typeset .function .admonition > p:not(:first-child) {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+.md-typeset .function summary code {
+  box-shadow: none;
+}
+
+details.function .tabbed-set .tabbed-labels {
+  background: var(--md-default-bg-color); 
+}

@@ -402,7 +402,7 @@ li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
 
 /* Add space below the section lines */
 .md-nav--primary .md-nav__list {
-  padding-bottom: 0;
+  padding-bottom: 0.01em;
   margin-bottom: 0.5em;
 }
 

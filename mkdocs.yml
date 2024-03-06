@@ -3,7 +3,7 @@
 'home_url': 'https://tanssi.network/'
 'site_dir': '/var/www/tanssi-docs-static'
 'docs_dir': 'tanssi-docs'
-'copyright': '© 2023 Moondance Labs. All Rights Reserved.'
+'copyright': '© 2024 Moondance Labs. All Rights Reserved.'
 'extra_javascript':
   - 'js/externalLinkModal.js'
   - 'js/fixCreatedDate.js'

@@ -960,9 +960,27 @@ h2.subtitle.mobile-subtitle {
   margin: auto 2em;
 }
 
+@media screen and (max-width: 91.1875em) and (min-width: 86.1875em) {
+  nav.md-tabs {
+    left: 48%;
+  }
+}
+
 @media screen and (max-width: 86.1875em) and (min-width: 76.1875em) {
   .md-typeset img.hero-img {
     max-width: 92.5%;
+  }
+  nav.md-tabs {
+    left: 46%;
+  }
+}
+
+@media screen and (max-width: 81.1875em) and (min-width: 76.1875em) {
+  nav.md-tabs {
+    left: 44%;
+  }
+  .md-header__buttons {
+    right: 1em;
   }
 }
 

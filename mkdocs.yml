@@ -113,6 +113,7 @@
         'builders/tooling/oracles/phala.md': 'dapp-developers/integrations/oracles/phala.md'     
         'builders/tutorials/index.md': 'dapp-developers/integrations/index.md'
         'builders/tutorials/subsquid.md': 'dapp-developers/integrations/indexers/subsquid/index.md'
+        'node-operators/block-producers/onboarding/proxy-accounts.md': '/node-operators/block-producers/operational-tasks/proxy-accounts.md'
   - 'macros':
       'include_yaml':
         - 'tanssi-docs/variables.yml'

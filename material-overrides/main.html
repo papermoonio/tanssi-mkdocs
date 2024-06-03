@@ -19,6 +19,11 @@
   {%- endif -%} 
 {%- endblock -%} 
 
+{% block fonts %}
+  {{ super() }}
+  <link rel="preload" href="/assets/stylesheets/fonts/Kilimanjaro-Sans.otf" as="font" type="font/otf">
+{% endblock %}
+
 {%- block container -%} 
   <div class="md-content" data-md-component="content">
     {% set class = "index-page" if not page.content and not page.is_homepage %}

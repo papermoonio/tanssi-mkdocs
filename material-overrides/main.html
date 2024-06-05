@@ -4,6 +4,7 @@
   {{ super() }}
     {% if page and page.meta and page.meta.keywords %}
       <meta name="keywords" content="{{ page.meta.keywords }}">
+      <meta name="google-site-verification" content="Owdrdc86b73FM35ZvpM4fiP-d5RcXz2uD9qSIsdXYKU" />
     {% endif %}
 {% endblock %}
 
@@ -18,6 +19,11 @@
     <title>{{ config.site_name }}</title> 
   {%- endif -%} 
 {%- endblock -%} 
+
+{% block fonts %}
+  {{ super() }}
+  <link rel="preload" href="/assets/stylesheets/fonts/Kilimanjaro-Sans.otf" as="font" type="font/otf">
+{% endblock %}
 
 {%- block container -%} 
   <div class="md-content" data-md-component="content">

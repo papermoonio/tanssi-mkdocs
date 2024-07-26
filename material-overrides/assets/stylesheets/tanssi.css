@@ -365,6 +365,12 @@ a.md-header__button.md-logo img {
   }
 }
 
+@media screen and (min-width: 60em) {
+  .md-nav--secondary .md-nav__title {
+      box-shadow: unset;
+  }
+}
+
 /* Nav buttons styling */
 .md-header__button.md-typeset .md-button.join-community {
   padding: 0.75em;
@@ -515,6 +521,12 @@ li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
   font-size: 0.8rem;
 }
 
+html .md-typeset details.function div.tabbed-set,
+.md-typeset .function p,
+.md-typeset .function .admonition {
+  margin: 1em 2em;
+}
+
 .md-typeset .function > summary::before {
   display: none;
 }
@@ -528,13 +540,9 @@ details.function .tabbed-set {
   margin: 1em 2em;
 }
 
-.function .tabbed-block p,
-.function .tabbed-block ul,
-.function .tabbed-block ol {
-  padding: 0 1em;
-}
-
-.function .tabbed-block .admonition {
+.md-typeset .function .tabbed-block p,
+.md-typeset .function .tabbed-block ul,
+.md-typeset .function .tabbed-block ol {
   margin: 1em;
 }
 

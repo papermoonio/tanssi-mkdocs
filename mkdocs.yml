@@ -40,19 +40,23 @@
         'icon': material/weather-sunny
         'name': Switch to light mode
 'markdown_extensions':
+  - 'admonition'
+  - 'attr_list'
   - 'codehilite'
   - 'meta'
+  - 'pymdownx.details'
+  - 'pymdownx.emoji':
+      'emoji_index': !!python/name:material.extensions.emoji.twemoji
+      'emoji_generator': !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - 'pymdownx.snippets':
+      'base_path': 'tanssi-docs/.snippets'
+  - 'pymdownx.superfences'
+  - 'pymdownx.tabbed':
+      'alternate_style': !!bool 'true'
   - 'toc':
       'permalink': !!bool 'true'
       'title': 'Sections'
-  - 'admonition'
-  - 'pymdownx.snippets':
-      'base_path': 'tanssi-docs/.snippets'
-  - 'pymdownx.tabbed':
-      'alternate_style': !!bool 'true'
-  - 'pymdownx.superfences'
-  - 'pymdownx.details'
-  - 'attr_list'
 'validation':
   'absolute_links': 'ignore'
   'unrecognized_links': 'ignore'

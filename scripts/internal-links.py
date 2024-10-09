@@ -1,42 +1,69 @@
-# ------------- 👋 Welcome to the script for calculating redirect mappings ---------------#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
-# The purpose of this script is to add backslashes to the end of all internal links. This #
-# is required because if there isn't a backslash, a redirect occurs and adds one.         #
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
-# To use the script, ensure that the `tanssi-docs` repo is nestled inside of the          #
-#  `tanssi-mkdocs` repo and on your branch with the latest changes. Then simply run       #
-# `python scripts/internal-links.py` in your terminal. There will be logs printed to the  #
-# terminal. When the script is complete, you can review all of the changes in the         #
-# `tanssi-docs` repo.                                                                     #
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+# ---------------------- 👋 Welcome to the script for updating Markdown links ----------------------- #
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+# The purpose of this script is to search through all Markdown (.md) files in a given directory       #
+# and modify certain URL links that follow the `](/...` syntax. Specifically, it searches for links   #
+# that do not start with `](/images/` and either contain a `#` or don't. For links containing a `#`,  #
+# the script adds a `/` before the `#` symbol if one is not already present. For links without a `#`, #
+# it adds a `/` before the closing parenthesis. URLs starting with `](/images/` are ignored.          #
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+# To use this script, provide the path to the directory containing your Markdown files. The script    #
+# will process each `.md` file in the directory, making the necessary URL modifications directly      #
+# in the files. Simply run the script in your terminal, and any relevant URLs will be updated.        #
+# --------------------------------------------------------------------------------------------------- #
 
 import os
 import re
 
-# Function to recursively traverse directories
-def traverse_dir(dir_path):
-    print("👀 Scanning and updating links...")
-    for root, dirs, files in os.walk(dir_path):
+# Function to process each .md file and update URLs
+def process_md_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # Regex to match the ](/ syntax
+    pattern = r'\]\(/\S+?\)'
+
+    def replace_url(match):
+        url = match.group(0)
+        # Check if the URL starts with ](/images/
+        if url.startswith('](/images/'):
+            return url
+        
+        # Find the URL inside the parentheses
+        inner_url = re.search(r'\(/\S+?\)', url).group(0)
+
+        # Check if the URL contains a #
+        if '#' in inner_url:
+            # Add a / before the # if it's not already there
+            if '/#' not in inner_url:
+                inner_url = inner_url.replace('#', '/#')
+        else:
+            # Add a / before the closing parenthesis if not already present
+            if not inner_url.endswith('/)'):
+                inner_url = inner_url[:-1] + '/)'
+
+        # Replace the old URL with the updated one
+        url = re.sub(r'\(/\S+?\)', inner_url, url)
+
+        return url
+
+    # Apply the regex replacement
+    updated_content = re.sub(pattern, replace_url, content)
+
+    # Write the updated content back to the file
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(updated_content)
+
+# Function to walk through the directory and process each .md file
+def process_directory(directory):
+    for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith('.md'):
                 file_path = os.path.join(root, file)
-                modify_links(file_path)
-    print("✅ All links have been updated")
+                process_md_file(file_path)
+                print(f"Processed: {file_path}")
 
-# Function to modify links in Markdown content
-def modify_links(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+# Directory to search through
+directory_to_process = './tanssi-docs/'
 
-    # Regular expression to match links that start with "](/"
-    regex = r'\]\((?!/images/)(/[^#\s)]+)(?=[\s)]|$)'
-
-    # Replace links according to the specified format
-    modified_content = re.sub(regex, lambda match: match.group(0) + '/' if not match.group(0).endswith('/') else match.group(0), content)
-
-    # Write modified content back to the file
-    with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(modified_content)
-
-# Start traversing from the current directory
-traverse_dir('tanssi-docs')
+# Run the script on the directory
+process_directory(directory_to_process)

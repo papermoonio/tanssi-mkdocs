@@ -62,6 +62,7 @@
   'unrecognized_links': 'ignore'
 'exclude_docs': 'README.md'
 'plugins':
+  - include-markdown
   - 'search'
   - 'awesome-pages'
   - 'git-revision-date-localized':
@@ -74,9 +75,9 @@
         - 'js/externalLinkModal.js'
         - 'js/fixCreatedDate.js'
       'css_files': 
-        - '/assets/stylesheets/tanssi.css'
-        - '/assets/stylesheets/extra.css'
-        - '/assets/stylesheets/termynal.css'
+        # - '/assets/stylesheets/tanssi.css'
+        # - '/assets/stylesheets/extra.css'
+        # - '/assets/stylesheets/termynal.css'
   - 'redirects':
       'redirect_maps':
         # Redirects will go here as pages get moved around in the following format:

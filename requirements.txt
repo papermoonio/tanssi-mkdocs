@@ -28,3 +28,4 @@ termcolor==2.4.0
 tornado==6.4
 tqdm==4.66.1
 zipp==3.17.0
+mkdocs-include-markdown-plugin[cache]

@@ -1390,3 +1390,9 @@ border: o solid
   transform: translateX(10px);
   transition: 0.3s ease;
 }
+.md-typeset .grid.cards a {
+  display: block;
+  text-align: center;
+  margin: 0.5em 0;
+  padding: 0.1em 0;
+}

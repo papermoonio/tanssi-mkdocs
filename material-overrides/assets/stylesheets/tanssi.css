@@ -1396,3 +1396,30 @@ border: o solid
   margin: 0.5em 0;
   padding: 0.1em 0;
 }
+/* Dropdown styling */
+ul.md-tab__list {
+  display: none; /* Hides the dropdown by default */
+  position: absolute; /* Positions relative to the container */
+  top: 100%; /* Places the dropdown just below the parent */
+  left: 0;
+  background-color: yellow; /* Yellow background to confirm visibility */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light border */
+  z-index: 1000; /* Ensures it appears above other elements */
+}
+
+.md-tabs__item--custom {
+  position: relative; /* Necessary to position the dropdown */
+  background-color: red; /* Initial color for testing */
+  
+}
+
+/* Show the dropdown on hover */
+.md-tabs__item--custom:hover ul.md-tab__list {
+  display: block; /* Makes the dropdown visible */
+}
+
+/* Change the container's background color on hover */
+.md-tabs__item--custom:hover {
+  background-color: green; /* Green background to confirm hover */
+}

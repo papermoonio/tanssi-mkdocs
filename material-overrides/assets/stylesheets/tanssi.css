@@ -1373,5 +1373,7 @@ h2.subtitle.mobile-subtitle {
   display: flex;
   flex-direction: column;
   list-style: none;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 

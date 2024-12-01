@@ -1398,30 +1398,34 @@ h2.subtitle.mobile-subtitle {
  }
  
 /* Dropdown styling */
+
 .md-tabs .md-grid {
   display: flex;
 }
-
 .md-tabs__list {
   contain: none;
   padding: 0 12px 0 0;
 }
-
 .md-tabs__item--custom {
+  position: relative;
   padding: 0 12px;
   transition: border 0.3s ease;
   color: var(--black);
   align-content: center;
+  background-color: #0d83d8; /* test how big the box is */
+  border: 1px solid #d31212; /* test border */
+  border-radius: 4px; /* test */
 }
-
 .md-tabs__item--custom:hover {
   cursor: pointer;
 }
-
 .md-tab__list {
-  display: none;
+  display: block; /*just for debugging*/
+  position: relative;
+  background-color: #189a9a;
+  border: 1px solid purple;
+  
 }
-
 .md-tabs__item--custom:hover .md-tab__list {
   display: flex;
   flex-direction: column;
@@ -1429,7 +1433,6 @@ h2.subtitle.mobile-subtitle {
   flex-wrap: nowrap;
   justify-content: center;
 }
-
 .md-tabs__link{
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -1440,5 +1443,4 @@ h2.subtitle.mobile-subtitle {
   outline-offset: .2rem;
   transition: transform .4s cubic-bezier(.1,.7,.1,1), opacity .25s;
   margin-top: 3rem;
-
 }

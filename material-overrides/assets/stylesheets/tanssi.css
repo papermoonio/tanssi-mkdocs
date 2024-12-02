@@ -1401,13 +1401,29 @@ h2.subtitle.mobile-subtitle {
 
 .md-tabs .md-grid {
   display: flex;
+  overflow: visible; /*just for debugging */
+}
+.md-tabs{
+  overflow: visible; /*just for debugging */
 }
 .md-tabs__list {
+  position: relative; /*seting up position*/
+  display: flex;
   contain: none;
   padding: 0 12px 0 0;
+  overflow: visible; /*just for debugging */
 }
+.md-tab__list{
+  display: none;
+  padding: 0;
+}
+
+li.md-tab__item {
+  padding: 0.5em;
+}
+
 .md-tabs__item--custom {
-  position: relative;
+  position: relative; /*seting up position*/
   padding: 0 12px;
   transition: border 0.3s ease;
   color: var(--black);
@@ -1420,8 +1436,8 @@ h2.subtitle.mobile-subtitle {
   cursor: pointer;
 }
 .md-tab__list {
-  display: block; /*just for debugging*/
-  position: relative;
+  overflow: visible;
+  position: absolute;
   background-color: #189a9a;
   border: 1px solid purple;
   

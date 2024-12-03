@@ -1343,3 +1343,8 @@ h2.subtitle.mobile-subtitle {
   vertical-align: baseline;
   box-shadow: none;
 }
+
+.mermaid {
+  display: flex; 
+  justify-content: center;
+}

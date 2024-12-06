@@ -42,6 +42,7 @@
 'markdown_extensions':
   - 'admonition'
   - 'attr_list'
+  - 'md_in_html'
   - 'codehilite'
   - 'meta'
   - 'pymdownx.details'
@@ -54,6 +55,11 @@
   - 'pymdownx.superfences'
   - 'pymdownx.tabbed':
       'alternate_style': !!bool 'true'
+  - 'pymdownx.superfences':
+      'custom_fences':
+        - 'name': mermaid
+          'class': mermaid
+          'format': !!python/name:pymdownx.superfences.fence_code_format    
   - 'toc':
       'permalink': !!bool 'true'
       'title': 'Sections'

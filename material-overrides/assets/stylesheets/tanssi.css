@@ -80,12 +80,18 @@ h1 {
   --md-code-hl-comment-color: #168b8b;
 
   /* Home page colors */
-  --md-home-fg-color: #262626;
+  --md-home-fg-color: #696767;
   --md-home-accent-bg-color: #e2fbfb;
   --md-home-card-bg-color: #ffffff;
   --md-home-link-hover-color: #189a9a;
   --md-home-link-hover-dkbg-color: #189a9a;
   --md-home-button-fg-color: #ffffff;
+
+ /*Cards colors*/ 
+ --card-border-color: #636161; 
+ --card-bg-color: #FFFFFF; 
+ --card-border-hover-color: #189A9A; 
+ --card-bg-hover-color: #F0F0F0;
 }
 
 /* Dark mode modifications */
@@ -151,6 +157,12 @@ h1 {
   --md-home-accent-bg-color: #189b9b;
   --md-home-card-bg-color: #3c3c3c;
   --md-home-link-hover-color: #0f0f0f;
+
+ /*Dark mode cards*/
+ --card-border-color:  #FFFAFA;
+ --card-bg-color: #3D3D3D;
+ --card-border-hover-color: #189A9A;
+ --card-bg-hover-color: #1B1B1B;
 }
 
 /* General styling */
@@ -1346,29 +1358,20 @@ h2.subtitle.mobile-subtitle {
 
 /* Cards Styling */
 .md-typeset .grid.cards>ul>li {
-  border: 1px solid #FFFAFA;
-  background-color: #3D3D3D;
+  border: 1px solid var(--card-border-color);
+  background-color: var(--card-bg-color);
  }
  .md-typeset .grid.cards>ul>li:hover {
-  border: 1px solid #189A9A;
-  background-color: #1B1B1B;
+  border: 1px solid var(--card-border-hover-color);
+  background-color: var(--card-bg-hover-color);
  }
- .md-typeset a:hover {
+ .grid.cards > ul > li:hover > p:first-child,
+.grid.cards > ul > li:hover > p:last-child,
+.grid.cards > ul > li a:hover {
   transform: translateX(10px);
   transition: 0.3s ease;
- }
- .grid.cards > ul > li:hover >p:first-child {
-  transform: translateX(10px);
-  transition: 0.3s ease;
- }
- .md-typeset .grid {
-  grid-gap: 1rem;
- }
- .md-typeset .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-    margin: 1em 0;
- }
+}
+
  .md-typeset .grid.cards > ul > li:hover >p:first-child .twemoji svg {
   fill:  #189A9A;
  }
@@ -1383,10 +1386,7 @@ h2.subtitle.mobile-subtitle {
   display: flex;
   flex-direction: column;
  }
- .md-typeset .grid.cards>ul>li:hover >p:last-child{
-  transform: translateX(10px);
-  transition: 0.3s ease;
- }
+
  .md-typeset .grid.cards a {
   display: block;
   text-align: center;
@@ -1414,11 +1414,9 @@ h2.subtitle.mobile-subtitle {
   display: none;
   padding: 0;
 }
-
 li.md-tab__item {
   padding: 0.5em;
 }
-
 .md-tabs__item--custom {
   position: relative; /*seting up position*/
   padding: 0 12px;

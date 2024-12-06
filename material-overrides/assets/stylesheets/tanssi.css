@@ -1361,9 +1361,6 @@ h2.subtitle.mobile-subtitle {
   transform: translateX(10px);
   transition: 0.3s ease;
  }
- .md-typeset hr {
- border: o solid
- }
  .md-typeset .grid {
   grid-gap: 1rem;
  }

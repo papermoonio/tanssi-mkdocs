@@ -80,12 +80,18 @@ h1 {
   --md-code-hl-comment-color: #168b8b;
 
   /* Home page colors */
-  --md-home-fg-color: #262626;
+  --md-home-fg-color: #696767;
   --md-home-accent-bg-color: #e2fbfb;
   --md-home-card-bg-color: #ffffff;
   --md-home-link-hover-color: #189a9a;
   --md-home-link-hover-dkbg-color: #189a9a;
   --md-home-button-fg-color: #ffffff;
+
+ /*Cards colors*/ 
+ --card-border-color: #636161; 
+ --card-bg-color: #FFFFFF; 
+ --card-border-hover-color: #189A9A; 
+ --card-bg-hover-color: #F0F0F0;
 }
 
 /* Dark mode modifications */
@@ -151,6 +157,12 @@ h1 {
   --md-home-accent-bg-color: #189b9b;
   --md-home-card-bg-color: #3c3c3c;
   --md-home-link-hover-color: #0f0f0f;
+
+ /*Dark mode cards*/
+ --card-border-color:  #FFFAFA;
+ --card-bg-color: #3D3D3D;
+ --card-border-hover-color: #189A9A;
+ --card-bg-hover-color: #1B1B1B;
 }
 
 /* General styling */
@@ -1344,55 +1356,102 @@ h2.subtitle.mobile-subtitle {
   box-shadow: none;
 }
 
-/* Cards Styling */ 
+/* Cards Styling */
 .md-typeset .grid.cards>ul>li {
-  border: 1px solid #FFFAFA;
-  background-color: #3D3D3D;
-}
-.md-typeset .grid.cards>ul>li:hover {
-  border: 1px solid #189A9A;
-  background-color: #1B1B1B;
-}
-.md-typeset a:hover {
+  border: 1px solid var(--card-border-color);
+  background-color: var(--card-bg-color);
+ }
+ .md-typeset .grid.cards>ul>li:hover {
+  border: 1px solid var(--card-border-hover-color);
+  background-color: var(--card-bg-hover-color);
+ }
+ .grid.cards > ul > li:hover > p:first-child,
+.grid.cards > ul > li:hover > p:last-child,
+.grid.cards > ul > li a:hover {
   transform: translateX(10px);
   transition: 0.3s ease;
 }
-.grid.cards > ul > li:hover >p:first-child {
-  transform: translateX(10px);
-  transition: 0.3s ease;
-}
-.md-typeset hr {
-border: o solid 
-}
-.md-typeset .grid {
-  grid-gap: 1rem;
-}
-.md-typeset .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-    margin: 1em 0;
-}
-.md-typeset .grid.cards > ul > li:hover >p:first-child .twemoji svg {
+
+ .md-typeset .grid.cards > ul > li:hover >p:first-child .twemoji svg {
   fill:  #189A9A;
-}
-.md-typeset .grid.cards>ol>li>:last-child,
-.md-typeset .grid.cards>ul>li>:last-child,
-.md-typeset .grid>.card>:last-child {
+ }
+ .md-typeset .grid.cards>ol>li>:last-child,
+ .md-typeset .grid.cards>ul>li>:last-child,
+ .md-typeset .grid>.card>:last-child {
   margin-top: auto;
-}
-.md-typeset .grid.cards>ol>li,
-.md-typeset .grid.cards>ul>li,
-.md-typeset .grid>.card {
+ }
+ .md-typeset .grid.cards>ol>li,
+ .md-typeset .grid.cards>ul>li,
+ .md-typeset .grid>.card {
   display: flex;
   flex-direction: column;
-}
-.md-typeset .grid.cards>ul>li:hover >p:last-child{
-  transform: translateX(10px);
-  transition: 0.3s ease;
-}
-.md-typeset .grid.cards a {
+ }
+
+ .md-typeset .grid.cards a {
   display: block;
   text-align: center;
   margin: 0.5em 0;
   padding: 0.1em 0;
+ }
+ 
+/* Dropdown styling */
+
+.md-tabs .md-grid {
+  display: flex;
+  overflow: visible; /*just for debugging */
+}
+.md-tabs{
+  overflow: visible; /*just for debugging */
+}
+.md-tabs__list {
+  position: relative; /*seting up position*/
+  display: flex;
+  contain: none;
+  padding: 0 12px 0 0;
+  overflow: visible; /*just for debugging */
+}
+.md-tab__list{
+  display: none;
+  padding: 0;
+}
+li.md-tab__item {
+  padding: 0.5em;
+}
+.md-tabs__item--custom {
+  position: relative; /*seting up position*/
+  padding: 0 12px;
+  transition: border 0.3s ease;
+  color: var(--black);
+  align-content: center;
+  background-color: #0d83d8; /* test how big the box is */
+  border: 1px solid #d31212; /* test border */
+  border-radius: 4px; /* test */
+}
+.md-tabs__item--custom:hover {
+  cursor: pointer;
+}
+.md-tab__list {
+  overflow: visible;
+  position: absolute;
+  background-color: #189a9a;
+  border: 1px solid purple;
+  
+}
+.md-tabs__item--custom:hover .md-tab__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.md-tabs__link{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  font-size: .7rem;
+  opacity: .7;
+  outline-color: var(--md-accent-fg-color);
+  outline-offset: .2rem;
+  transition: transform .4s cubic-bezier(.1,.7,.1,1), opacity .25s;
+  margin-top: 3rem;
 }

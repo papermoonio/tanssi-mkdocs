@@ -70,8 +70,8 @@
 'plugins':
   - 'search'
   - 'awesome-pages'
-  - 'git-revision-date-localized':
-      'enable_creation_date': !!bool 'true'
+  # - 'git-revision-date-localized':
+  #     'enable_creation_date': !!bool 'true'
   - 'minify':
       'minify_html': !!bool 'true'
       'minify_js': !!bool 'true'

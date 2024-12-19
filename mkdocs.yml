@@ -167,7 +167,7 @@
         'node-operators/appchain-node/rpc-docker.md': 'node-operators/network-node/rpc-docker.md'
         'node-operators/appchain-node/rpc-systemd.md': 'node-operators/network-node/rpc-systemd.md'
         'builders/tanssi-network/testnet/demo-evm-appchain.md': 'builders/tanssi-network/testnet/demo-evm-network.md'
-        
+        'learn/tanssi/included-templates.md': 'learn/decentralized-networks/included-templates.md'
   - 'macros':
       'include_yaml':
         - 'tanssi-docs/variables.yml'

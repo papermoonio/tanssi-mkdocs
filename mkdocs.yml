@@ -57,6 +57,11 @@
   - 'toc':
       'permalink': !!bool 'true'
       'title': 'Sections'
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 'validation':
   'absolute_links': 'ignore'
   'unrecognized_links': 'ignore'
@@ -152,6 +157,17 @@
         'dapp-developers/integrations/oracles/index.md': 'builders/toolkit/integrations/oracles/index.md'
         'dapp-developers/integrations/oracles/phala.md': 'builders/toolkit/integrations/oracles/phala.md'
         'node-operators/block-producers/onboarding/proxy-accounts.md': 'node-operators/block-producers/operational-tasks/proxy-accounts.md'
+        'learn/appchains/index.md': 'learn/networks/index.md'
+        'learn/appchains/overview.md': 'learn/decentralized-networks/overview.md'
+        'learn/appchains/runtime-features.md': 'learn/decentralized-networks/runtime-features.md'
+        'learn/appchains/tx-fees.md': 'learn/decentralized-networks/tx-fees.md'
+        'learn/tanssi/appchain-services/index.md': 'learn/tanssi/network-services/index.md'
+        'learn/tanssi/appchain-services/block-production.md': 'learn/tanssi/network-services/block-production.md'
+        'node-operators/appchain-node/index.md': 'node-operators/network-node/index.md'
+        'node-operators/appchain-node/rpc-docker.md': 'node-operators/network-node/rpc-docker.md'
+        'node-operators/appchain-node/rpc-systemd.md': 'node-operators/network-node/rpc-systemd.md'
+        'builders/tanssi-network/testnet/demo-evm-appchain.md': 'builders/tanssi-network/testnet/demo-evm-network.md'
+        'learn/tanssi/included-templates.md': 'learn/decentralized-networks/included-templates.md'
   - 'macros':
       'include_yaml':
         - 'tanssi-docs/variables.yml'

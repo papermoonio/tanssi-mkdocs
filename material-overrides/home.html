@@ -6,214 +6,88 @@
   {%- endif -%} 
 {% endblock %} 
 
-{% block content %}
-  <div class="home">
-    <h1 class="title mobile-title">
-      Welcome to the Tanssi Network Documentation Site
-    </h1>
-    <h2 class="subtitle mobile-subtitle">
-      Your Gateway to Rapid, Efficient, and Effortless Appchain Deployment
-    </h2>
-    <div class="row hero">
-      <div class="column hero-column">
-        <h1 class="title">
-          Welcome to the Tanssi Network Documentation Site
-        </h1>
-        <h2 class="subtitle">
-          Your Gateway to Rapid, Efficient, and Effortless Appchain Deployment
-        </h2>
-        <p class="info">
-          Tanssi is an appchain infrastructure protocol that equips developers
-          with a broad set of infrastructure tools and services specifically
-          designed to make appchain deployment swift and effortless. <br /><br />
-          By transforming appchain deployment time from months to under an hour,
-          Tanssi is driving a major shift in the blockchain space, unlocking
-          unparalleled efficiency and scalability.
-        </p>
-        <div class="row hero-buttons">
-          <a href="/builders/">
-            <button class="primary-button md-button">
-              Get Started
-              <span class="md-icon"
-                >{% include ".icons/material/arrow-right.svg" %}</span
-              >
-            </button>
-          </a>
-          <a href="https://apps.tanssi.network/">
-            <button class="primary-button md-button">
-              Tanssi TestNet
-              <span class="md-icon"
-                >{% include ".icons/material/arrow-right.svg" %}</span
-              >
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="column hero-img-column">
-        <img
-          class="hero-img"
-          src="{{ '/assets/images/home-hero-light.webp' }}#only-light"
-          alt="representation of the Moonbeam docs site"
-        />
-        <img
-        class="hero-img"
-        src="{{ '/assets/images/home-hero-dark.webp' }}#only-dark"
-        alt="representation of the Moonbeam docs site"
-      />
-      </div>
-    </div>
-    <div class="full-background">
-      <div class="column features-column">
-        <div>
-          <h1 class="title">
-            Inside the Tanssi Documentation Site
-          </h1>
-        </div>
-        <div class="row feature-items">
-          <div class="feature-item">
-            <div class="row feature-item-header">
-              <h2 class="subtitle">Build with Tanssi</h2>
-              <img src="{{ '/assets/images/builders.webp' }}#only-light" alt="logo">
-              <img src="{{ '/assets/images/builders-dark.webp' }}#only-dark" alt="logo">
-            </div>
-            <p class="info">
-              Learn how to deploy your appchain connected to Tanssi and transition
-              to a ContainerChain, leveraging a wide range of infrastructure 
-              resources for your project.
-            </p>          
-            <a class="learn-more" href="/builders/">
-              Learn More <span>{% include ".icons/material/arrow-right.svg" %}</span>
-            </a>
-          </div>
-          <div class="feature-item">
-            <div class="row feature-item-header">
-              <h2 class="subtitle">Learn Essentials</h2>
-              <img src="{{ '/assets/images/learn.webp' }}#only-light" alt="logo">
-              <img src="{{ '/assets/images/learn-dark.webp' }}#only-dark" alt="logo">
-            </div>
-            <p class="info">
-              Deep dive into Tanssi protocol details, features, and a technical
-              glossary designed to enhance your building experience.
-            </p>          
-            <a class="learn-more" href="/learn/">
-              Learn More <span>{% include ".icons/material/arrow-right.svg" %}</span>
-            </a>
-          </div>
-          <div class="feature-item">
-            <div class="row feature-item-header">
-              <h2 class="subtitle">Resource Center</h2>
-              <img src="{{ '/assets/images/resources.webp' }}#only-light" alt="logo">
-              <img src="{{ '/assets/images/resources-dark.webp' }}#only-dark" alt="logo">
-            </div>
-            <p class="info">
-              Access an expansive collection of educational resources tailored for
-              the Tanssi community, including announcements, educational blog posts,
-              and more.
-            </p>          
-            <a class="learn-more" href="https://www.tanssi.network/resources">
-              Learn More <span>{% include ".icons/material/arrow-right.svg" %}</span>
-            </a>
-          </div>
-          <div class="feature-item">
-            <div class="row feature-item-header">
-              <h2 class="subtitle">About Tanssi</h2>
-              <img src="{{ '/assets/images/tanssi-icon.webp' }}#only-light" alt="logo">
-              <img src="{{ '/assets/images/tanssi-icon-dark.webp' }}#only-dark" alt="logo">
-            </div>
-            <p class="info">
-              Discover the Tanssi Network and its steadfast commitment to 
-              transforming the appchain deployment landscape.
-            </p>          
-            <a class="learn-more" href="https://www.tanssi.network/">
-              Learn More <span>{% include ".icons/material/arrow-right.svg" %}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="full-background downward-curve">
-      <div class="full-background downward-curve-overlap">
-      </div>
-    </div>
-    <div class="row community">
-      <div class="column img-column">
-        <img
-          class="home-img"
-          src="{{ '/assets/images/home-community.webp' }}"
-          alt="representation of the Moonbeam docs site"
-        />
-      </div>
-      <div class="column community-column">
-        <h1 class="title">
-          Join the Tanssi Developer Community
-        </h1>
-        <div class="community-items">
-          <div class="row community-item">
-            <img
-              src="{{ '/assets/images/discord.webp' }}"
-              alt="representation of the Moonbeam docs site"
-            />
-            <div class="column">
-              <p class="info">
-                Connect with a dynamic community of developers, exchange ideas, and keep
-                pace with the latest developments at Tanssi. 
-              </p>
-              <a class="learn-more" href="https://discord.gg/kuyPhew2KB">
-                Join Now <span>{% include ".icons/material/arrow-right.svg" %}</span>
-              </a>
-            </div>
-          </div>
-          <div class="row community-item">
-            <img
-              src="{{ '/assets/images/newsletter.webp' }}"
-              alt="representation of the Moonbeam docs site"
-            />
-            <div class="column">
-              <p class="info">
-                Stay up-to-date with our latest updates, resources, and community events.
-              </p>
-              <a class="learn-more" href="https://www.tanssi.network/newsletter">
-                Subscribe <span>{% include ".icons/material/arrow-right.svg" %}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+{% block styles %}
+	{{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css' | url }}">
 {% endblock %}
 
-{% block site_nav %}
-  <!-- Required for smaller screens (where hamburger menu appears) -->
-  {% if nav %}
-  <div
-    class="md-sidebar md-sidebar--primary home"
-    data-md-component="sidebar"
-    data-md-type="navigation"
-    {{
-    hidden
-    }}
-  >
-    <div class="md-sidebar__scrollwrap">
-      <div class="md-sidebar__inner">{% include "partials/nav.html" %}</div>
-    </div>
-  </div>
-  {% endif %} 
-  {% if page.toc and not "toc.integrate" in config.theme.features %}
-    {% if page and page.meta and page.meta.hide %} 
-      {% set hidden = "hidden" if "toc" in page.meta.hide %} 
-    {% endif %}
-    <div
-      class="md-sidebar md-sidebar--secondary"
-      data-md-component="sidebar"
-      data-md-type="toc"
-      {{
-      hidden
-      }}
-    >
-      <div class="md-sidebar__scrollwrap">
-        <div class="md-sidebar__inner">{% include "partials/toc.html" %}</div>
+{% block content %}
+  <div class="home md-typeset">
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Tanssi <span class="shadow">&lt;Dev&gt;</span> Site</h1>
+        <h2>Build, launch, and scale Symbiotic Networks faster with Tanssi's infrastructure, tools, and integrations.</h2>
+        <div class="hero-grid">
+          <div class="hero-card">
+            <h3>Launch a Tanssi-Powered Network</h3>
+            <p>Get tools and guides to launch your network in minutes.</p>
+            <a href="/builders/build/">
+              <button class="md-button">Get Started</button>
+            </a>
+          </div>
+          <div class="hero-card">
+            <h3>Develop using EVM Tools</h3>
+            <p>Leverage popular EVM tools to accelerate your development.</p>
+            <a href="/builders/toolkit/ethereum-api/">
+              <button class="md-button">Learn More</button>
+            </a>
+          </div>
+          <div class="hero-card">
+            <h3>Explore Technical Concepts</h3>
+            <p>Learn Tanssi's features, services, and security via Symbiotic.</p>
+            <a href="/learn/tanssi/">
+              <button class="md-button">Learn More</button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  {% endif %} 
+    <div class="feature-section">
+      <div class="column">
+        <h2>The One Stop-Hub For Tanssi <span class="highlight">Builders</span></h2>
+        <p>Explore more ways to engage with the Tanssi ecosystem—access funding, resources, and visibility for your project.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="column">
+          <div class="feature-card-background one">
+            <a class="feature-card" href="https://www.tanssi.foundation/tanssi-grants-program/tanssi-grants-application" target="_blank">
+              <div class="feature-badge">Ecosystem</div>
+              <h3>Apply for a Grant</h3>
+              <img src="{{ '/assets/images/arrow.png' }}"/>
+            </a>
+          </div>
+        </div>
+        <div class="column">
+          <div class="feature-card-background two">
+            <a class="feature-card" href="https://apps.tanssi.network/dancebox" target="_blank">
+              <div class="feature-badge">Start Building</div>
+              <h3>Visit the TestNet</h3>
+              <img src="{{ '/assets/images/arrow.png' }}"/>
+            </a>
+          </div>
+          <div class="feature-card-background three">
+            <a class="feature-card" href="https://www.tanssi.network/blog" target="_blank">
+              <div class="feature-badge">Industry Insights</div>
+              <h3>Ecosystem Updates</h3>
+              <img src="{{ '/assets/images/arrow.png' }}"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-separator">
+      <img src="{{ '/assets/images/feature-background.png' }}"/>
+    </div>
+    <div class="community-section">
+      <h2>Join the Tanssi <span class="highlight">Dev</span> Community</h2>
+      <div class="community-buttons">
+        <a href="https://discord.gg/tanssi" target="_blank">
+          <button class="md-button primary">Join Discord</button>
+        </a>
+        <a href="https://www.tanssi.network/newsletter" target="_blank">
+          <button class="md-button secondary">Subscribe</button>
+        </a>
+      </div>
+    </div>
+  </div>
 {% endblock %}

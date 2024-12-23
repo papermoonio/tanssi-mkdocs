@@ -30,9 +30,14 @@
   cursor: pointer;
 }
 
+.md-typeset .subsection-wrapper .card a:hover .title {
+  color: var(--teal);
+}
+
 .subsection-wrapper .title {
   margin: 0;
   font-size: 1.15em;
+  color: var(--white);
 }
 
 .subsection-wrapper .description {

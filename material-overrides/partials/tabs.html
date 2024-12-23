@@ -16,14 +16,30 @@
                   {% if section_item.is_section %}
                     <li class="md-tab__item">
                       <a href="{{ section_item.children[0].url | url }}">
-                        <span class="dropdown-title">{{ section_item.title }}</span>
+                        <div class="icon-col">
+                          {% set icon_url = "/assets/images/dropdown-icons/" + section_item.children[0].url.split('/')[1] + ".png" %}
+                          <img class="dropdown-icon" src="{{ icon_url }}" alt="{{ section_item.title }}" loading="lazy">
+                        </div>
+                        <div class="text-col">
+                          <span class="dropdown-title">{{ section_item.title }}</span>
+                        </div>
                       </a>
                     </li>
-                  {% elif section_item.is_page and not section_item == nav_item.children[0] %}
+                  {% elif section_item.is_link or section_item.is_page and not section_item == nav_item.children[0] %}
                     <li class="md-tab__item">
-                        {{ nav_item }}
                       <a href="{{ section_item.url | url }}">
-                        <span class="dropdown-title">{{ section_item.title }}</span>
+                        <div class="icon-col">
+                          {% set icon_url = "/assets/images/dropdown-icons/" + section_item.url.split('/')[1] + ".png" %}
+                          {% if section_item.title == "About Tanssi" %}
+                            {% set icon_url = "/assets/images/dropdown-icons/about-tanssi.png" %}
+                          {% elif section_item.title == "Tanssi TestNet" %}
+                            {% set icon_url = "/assets/images/dropdown-icons/tanssi-testnet.png" %}
+                          {% endif %}
+                          <img class="dropdown-icon" src="{{ icon_url }}" alt="{{ section_item.title }}" loading="lazy">
+                        </div>
+                        <div class="text-col">
+                          <span class="dropdown-title">{{ section_item.title }}</span>
+                        </div>
                       </a>
                     </li>
                   {% endif %}

@@ -71,15 +71,15 @@ plugins:
       redirect_maps:
         builders/deploy-manage/dapp/deploy.md: builders/deploy/dapp.md
         builders/deploy-manage/dapp/index.md: builders/deploy/index.md
-        builders/interact/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         builders/interact/ethereum-api/dev-env/foundry.md: builders/toolkit/ethereum-api/dev-env/foundry.md
         builders/interact/ethereum-api/dev-env/hardhat.md: builders/toolkit/ethereum-api/dev-env/hardhat.md
+        builders/interact/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         builders/interact/ethereum-api/dev-env/remix.md: builders/toolkit/ethereum-api/dev-env/remix.md
         builders/interact/ethereum-api/index.md: builders/toolkit/ethereum-api/index.md
         builders/interact/ethereum-api/indexers/index.md: builders/toolkit/integrations/indexers/index.md
         builders/interact/ethereum-api/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/subsquid/index.md
-        builders/interact/ethereum-api/libraries/index.md: builders/toolkit/ethereum-api/libraries/index.md
         builders/interact/ethereum-api/libraries/ethersjs.md: builders/toolkit/ethereum-api/libraries/ethersjs.md
+        builders/interact/ethereum-api/libraries/index.md: builders/toolkit/ethereum-api/libraries/index.md
         builders/interact/ethereum-api/libraries/viem.md: builders/toolkit/ethereum-api/libraries/viem.md
         builders/interact/ethereum-api/libraries/web3js.md: builders/toolkit/ethereum-api/libraries/web3js.md
         builders/interact/ethereum-api/libraries/web3py.md: builders/toolkit/ethereum-api/libraries/web3py.md
@@ -97,10 +97,10 @@ plugins:
         builders/interact/substrate-api/wallets/index.md: builders/toolkit/substrate-api/wallets/index.md
         builders/interact/substrate-api/wallets/subwallet.md: builders/toolkit/substrate-api/wallets/subwallet.md
         builders/interact/substrate-api/wallets/talisman.md: builders/toolkit/substrate-api/wallets/talisman.md
-        builders/tanssi-network/networks/index.md: builders/tanssi-network/index.md
         builders/tanssi-network/networks/dancebox/demo-evm-containerchain.md: builders/tanssi-network/testnet/demo-evm-network.md
         builders/tanssi-network/networks/dancebox/index.md: builders/tanssi-network/testnet/dancebox.md
         builders/tanssi-network/networks/dancebox/overview.md: builders/tanssi-network/testnet/dancebox.md
+        builders/tanssi-network/networks/index.md: builders/tanssi-network/index.md
         builders/tanssi-network/testnet/demo-evm-appchain.md: builders/tanssi-network/testnet/demo-evm-network.md
         builders/tooling/index.md: builders/toolkit/integrations/index.md
         builders/tooling/indexers/index.md: builders/toolkit/integrations/indexers/index.md
@@ -110,9 +110,9 @@ plugins:
         builders/tooling/oracles/phala.md: builders/toolkit/integrations/oracles/phala.md
         builders/tutorials/index.md: builders/toolkit/integrations/index.md
         builders/tutorials/subsquid.md: builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md
-        dapp-developers/developer-toolkit/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/foundry.md: builders/toolkit/ethereum-api/dev-env/foundry.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat.md: builders/toolkit/ethereum-api/dev-env/hardhat.md
+        dapp-developers/developer-toolkit/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/remix.md: builders/toolkit/ethereum-api/dev-env/remix.md
         dapp-developers/developer-toolkit/ethereum-api/index.md: builders/toolkit/ethereum-api/index.md
         dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs.md: builders/toolkit/ethereum-api/libraries/ethersjs.md
@@ -136,7 +136,6 @@ plugins:
         dapp-developers/integrations/indexers/index.md: builders/toolkit/integrations/indexers/index.md
         dapp-developers/integrations/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/subsquid/index.md
         dapp-developers/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/subsquid/quick-start.md
-        dapp-developers/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md
         dapp-developers/integrations/oracles/acurast.md: builders/toolkit/integrations/oracles/acurast.md
         dapp-developers/integrations/oracles/index.md: builders/toolkit/integrations/oracles/index.md
         dapp-developers/integrations/oracles/phala.md: builders/toolkit/integrations/oracles/phala.md
@@ -144,8 +143,8 @@ plugins:
         learn/appchains/overview.md: learn/decentralized-networks/overview.md
         learn/appchains/runtime-features.md: learn/decentralized-networks/runtime-features.md
         learn/appchains/tx-fees.md: learn/decentralized-networks/tx-fees.md
-        learn/tanssi/appchain-services/index.md: learn/tanssi/network-services/index.md
         learn/tanssi/appchain-services/block-production.md: learn/tanssi/network-services/block-production.md
+        learn/tanssi/appchain-services/index.md: learn/tanssi/network-services/index.md
         learn/tanssi/included-templates.md: learn/decentralized-networks/included-templates.md
         node-operators/appchain-node/index.md: node-operators/network-node/index.md
         node-operators/appchain-node/rpc-docker.md: node-operators/network-node/rpc-docker.md

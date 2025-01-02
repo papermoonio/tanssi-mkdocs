@@ -17,6 +17,7 @@
   display: flex;
   grid-gap: .75em;
   padding: 1.5em 1.5em 0.5em 1.2em;
+  align-items: start;
 }
 
 .subsection-wrapper .card .card-header svg {

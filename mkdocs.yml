@@ -3,7 +3,7 @@
 'home_url': 'https://tanssi.network/'
 'site_dir': '/var/www/tanssi-docs-static'
 'docs_dir': 'tanssi-docs'
-'copyright': '© 2024 Moondance Labs. All Rights Reserved.'
+'copyright': '© 2025 Moondance Labs. All Rights Reserved.'
 'extra_javascript':
   - 'js/externalLinkModal.js'
   - 'js/fixCreatedDate.js'
@@ -75,8 +75,6 @@
         - '/assets/stylesheets/termynal.css'
   - 'redirects':
       'redirect_maps':
-        # Redirects will go here as pages get moved around in the following format:
-        # 'old-page.md': 'new-page.md'
         'builders/deploy-manage/dapp/deploy.md': 'builders/deploy/dapp.md'
         'builders/deploy-manage/dapp/index.md': 'builders/deploy/index.md'
         'builders/interact/ethereum-api/dev-env/index.md': 'builders/toolkit/ethereum-api/dev-env/index.md'
@@ -109,6 +107,7 @@
         'builders/tanssi-network/networks/dancebox/demo-evm-containerchain.md': 'builders/tanssi-network/testnet/demo-evm-appchain.md'
         'builders/tanssi-network/networks/dancebox/index.md': 'builders/tanssi-network/testnet/dancebox.md'
         'builders/tanssi-network/networks/dancebox/overview.md': 'builders/tanssi-network/testnet/dancebox.md'
+        'builders/tanssi-network/testnet/demo-evm-appchain.md': 'builders/tanssi-network/testnet/demo-evm-network.md'
         'builders/tooling/index.md': 'builders/toolkit/integrations/index.md'
         'builders/tooling/indexers/index.md': 'builders/toolkit/integrations/indexers/index.md'
         'builders/tooling/indexers/subsquid.md': 'builders/toolkit/integrations/indexers/subsquid/index.md'
@@ -147,18 +146,17 @@
         'dapp-developers/integrations/oracles/acurast.md': 'builders/toolkit/integrations/oracles/acurast.md'
         'dapp-developers/integrations/oracles/index.md': 'builders/toolkit/integrations/oracles/index.md'
         'dapp-developers/integrations/oracles/phala.md': 'builders/toolkit/integrations/oracles/phala.md'
-        'node-operators/block-producers/onboarding/proxy-accounts.md': 'node-operators/block-producers/operational-tasks/proxy-accounts.md'
         'learn/appchains/index.md': 'learn/networks/index.md'
-        'learn/appchains/overview.md': 'learn/decentralized-networks/overview.md'
-        'learn/appchains/runtime-features.md': 'learn/decentralized-networks/runtime-features.md'
-        'learn/appchains/tx-fees.md': 'learn/decentralized-networks/tx-fees.md'
-        'learn/tanssi/appchain-services/index.md': 'learn/tanssi/network-services/index.md'
+        'learn/appchains/overview.md': 'learn/networks/overview.md'
+        'learn/appchains/runtime-features.md': 'learn/networks/runtime-features.md'
+        'learn/appchains/tx-fees.md': 'learn/networks/tx-fees.md'
         'learn/tanssi/appchain-services/block-production.md': 'learn/tanssi/network-services/block-production.md'
+        'learn/tanssi/appchain-services/index.md': 'learn/tanssi/network-services/index.md'
+        'learn/tanssi/included-templates.md': 'learn/networks/included-templates.md'
         'node-operators/appchain-node/index.md': 'node-operators/network-node/index.md'
         'node-operators/appchain-node/rpc-docker.md': 'node-operators/network-node/rpc-docker.md'
         'node-operators/appchain-node/rpc-systemd.md': 'node-operators/network-node/rpc-systemd.md'
-        'builders/tanssi-network/testnet/demo-evm-appchain.md': 'builders/tanssi-network/testnet/demo-evm-network.md'
-        'learn/tanssi/included-templates.md': 'learn/decentralized-networks/included-templates.md'
+        'node-operators/block-producers/onboarding/proxy-accounts.md': 'node-operators/block-producers/operational-tasks/proxy-accounts.md'
   - 'macros':
       'include_yaml':
         - 'tanssi-docs/variables.yml'

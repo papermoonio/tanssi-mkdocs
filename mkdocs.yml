@@ -69,6 +69,7 @@ plugins:
         - /assets/stylesheets/termynal.css
   - redirects:
       redirect_maps:
+        about/index.md: https://www.tanssi.network/
         builders/deploy-manage/dapp/deploy.md: builders/deploy/dapp.md
         builders/deploy-manage/dapp/index.md: builders/deploy/index.md
         builders/interact/ethereum-api/dev-env/foundry.md: builders/toolkit/ethereum-api/dev-env/foundry.md

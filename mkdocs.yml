@@ -3,7 +3,7 @@ site_url: https://docs.tanssi.network/
 home_url: https://tanssi.network/
 site_dir: /var/www/tanssi-docs-static
 docs_dir: tanssi-docs
-copyright: © 2024 Moondance Labs. All Rights Reserved.
+copyright: © 2025 Moondance Labs. All Rights Reserved.
 extra_javascript:
   - js/externalLinkModal.js
   - js/fixCreatedDate.js
@@ -28,13 +28,13 @@ theme:
     - content.code.copy
   palette:
     # Palette toggle for light mode
-    - media: (prefers-color-scheme: light)
+    - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     # Palette toggle for dark mode
-    - media: (prefers-color-scheme: dark)
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/weather-sunny
@@ -51,7 +51,6 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.snippets:
       base_path: tanssi-docs/.snippets
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - toc:

@@ -17,7 +17,7 @@
                     <li class="md-tab__item">
                       <a href="{{ section_item.children[0].url | url }}">
                         <div class="icon-col">
-                          {% set icon_url = "/assets/images/dropdown-icons/" + section_item.children[0].url.split('/')[1] + ".png" %}
+                          {% set icon_url = "/assets/images/dropdown-icons/" + section_item.children[0].url.split('/')[1] + ".webp" %}
                           <img class="dropdown-icon" src="{{ icon_url }}" alt="{{ section_item.title }}" loading="lazy">
                         </div>
                         <div class="text-col">
@@ -29,11 +29,11 @@
                     <li class="md-tab__item">
                       <a href="{{ section_item.url | url }}">
                         <div class="icon-col">
-                          {% set icon_url = "/assets/images/dropdown-icons/" + section_item.url.split('/')[1] + ".png" %}
+                          {% set icon_url = "/assets/images/dropdown-icons/" + section_item.url.split('/')[1] + ".webp" %}
                           {% if section_item.title == "About Tanssi" %}
-                            {% set icon_url = "/assets/images/dropdown-icons/about-tanssi.png" %}
+                            {% set icon_url = "/assets/images/dropdown-icons/about-tanssi.webp" %}
                           {% elif section_item.title == "Tanssi TestNet" %}
-                            {% set icon_url = "/assets/images/dropdown-icons/tanssi-testnet.png" %}
+                            {% set icon_url = "/assets/images/dropdown-icons/tanssi-testnet.webp" %}
                           {% endif %}
                           <img class="dropdown-icon" src="{{ icon_url }}" alt="{{ section_item.title }}" loading="lazy">
                         </div>

@@ -5,7 +5,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
 # To use the script, ensure that the `tanssi-docs` repo is        #
 # nestled inside of the `tanssi-mkdocs` repo. Then simply run     #
-# `python scripts/convert-png-to-webp.py` in your terminal. The   #
+# `python scripts/convert-png-webp.py` in your terminal. The      #
 # script will check all of the images to see if there are any in  #
 # png format and convert those to webp format. After the          #
 # conversion is complete, the png image will be deleted. Once the #

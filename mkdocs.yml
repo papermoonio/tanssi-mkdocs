@@ -9,7 +9,6 @@ extra_javascript:
   - js/fixCreatedDate.js
 extra_css:
   - /assets/stylesheets/tanssi.css
-  - /assets/stylesheets/extra.css
   - /assets/stylesheets/termynal.css
 theme:
   name: material
@@ -56,6 +55,7 @@ plugins:
   - awesome-pages
   - git-revision-date-localized:
       enable_creation_date: true
+      enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
   - minify:
       minify_html: true
       minify_js: true
@@ -65,7 +65,6 @@ plugins:
         - js/fixCreatedDate.js
       css_files: 
         - /assets/stylesheets/tanssi.css
-        - /assets/stylesheets/extra.css
         - /assets/stylesheets/termynal.css
   - redirects:
       redirect_maps:

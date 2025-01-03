@@ -1,5 +1,5 @@
 .md-main {
-  background-color: var(--dark);
+  background-color: var(--md-home-bg-color);
 }
 
 .md-main__inner {
@@ -19,6 +19,13 @@
   height: 0;
 }
 
+.md-typeset p,
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--md-home-fg-color);
+}
+
 .home {
   gap: 5em;
   display: flex;
@@ -26,7 +33,7 @@
 }
 
 .hero-section {
-  background-image: url('../images/home-background.png');
+  background-image: url('../images/home-background.webp');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -42,8 +49,6 @@
 
 .md-typeset .hero-content h1 {
   font-size: 5em;
-  font-weight: 800;
-  font-family: 'Epilogue';
   line-height: 110%;
   margin-bottom: 0;
   margin-top: 5rem;
@@ -57,7 +62,7 @@
 
 .md-typeset .hero-content h2 {
   width: 50%;
-  font-family: 'Inter';
+  font-family: var(--md-text-font);
   font-weight: 500;
   font-size: 1.87em;
   line-height: 120%;
@@ -69,8 +74,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5em;
-  background-color: rgba(245, 245, 245, 0.35);
-  border-radius: 20px;
+  background-color: var(--white-smoke-transparent-35);
+  border-radius: var(--border-radius-20);
   padding: 1.5em;
   box-sizing: border-box;
   width: 100%;
@@ -79,8 +84,8 @@
 }
 
 .hero-card {
-  background: #222222;
-  border-radius: 16px;
+  background: var(--card-bg-color);
+  border-radius: var(--border-radius-card);
   padding: 2em;
   display: flex;
   flex-direction: column;
@@ -91,31 +96,25 @@
 }
 
 .md-typeset .hero-card h3 {
-  font-family: 'Epilogue';
-  font-weight: 800;
   font-size: 1.7em;
   line-height: 120%;
-  color: #ffffff;
   margin: 0;
 }
 
 .md-typeset .hero-card p {
-  font-family: 'Inter';
-  font-weight: 400;
   font-size: 0.96em;
   line-height: 130%;
-  color: #ffffff;
   margin: 0;
 }
 
 .md-typeset .hero-card a {
   padding-top: 1em;
   width: fit-content;
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill-button);
 }
 
 .md-typeset .hero-card a button.md-button {
-  border-radius: 100px;
+  border-radius: var(--border-radius-pill-button);
   padding: 0.5em 1.5em;
   display: flex;
   flex-direction: row;
@@ -123,9 +122,8 @@
   align-items: center;
   font-size: 0.85em;
   line-height: 120%;
-  font-weight: 800;
-  font-family: 'Epilogue';
-  border: none;
+  font-weight: var(--md-header-weight);
+  font-family: var(--md-header-font);
 }
 
 .md-typeset .hero-card a:hover {
@@ -133,24 +131,24 @@
 }
 
 .md-typeset .hero-card:first-child a button.md-button {
-  background-color: #00b0af;
-  border: 0.5px solid #00b0af;
+  background-color: var(--teal);
+  border: var(--border-width-thin) solid var(--teal);
 }
 
 .md-typeset .hero-card:nth-child(2) a button.md-button {
-  background-color: #ffb21f;
-  border: 0.5px solid #ffb21f;
+  background-color: var(--yellow);
+  border: var(--border-width-thin) solid var(--yellow);
 }
 
 .md-typeset .hero-card:nth-child(3) a button.md-button {
-  background-color: #ff6036;
-  border: 0.5px solid #ff6036;
+  background-color: var(--coral);
+  border: var(--border-width-thin) solid var(--coral);
 }
 
 .md-typeset .hero-card a:hover button.md-button {
   background-color: transparent;
-  color: #ffffff;
-  border: 0.5px solid #ffffff;
+  color: var(--md-home-fg-color);
+  border: var(--border-width-thin) solid var(--md-home-fg-color);
 }
 
 .md-typeset .feature-section {
@@ -164,19 +162,16 @@
 }
 
 .md-typeset .feature-section h2 {
-  font-family: 'Epilogue';
-  font-weight: 800;
   font-size: 2.9em;
   line-height: 102%;
   margin: 0;
 }
 
 .md-typeset .feature-section h2 span.highlight {
-  color: #ffc154;
+  color: var(--yellow-light);
 }
 
 .md-typeset .feature-section p {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 1.14em;
@@ -201,7 +196,7 @@
 }
 
 .md-typeset .feature-card-background {
-  border-radius: 16px;
+  border-radius: var(--border-radius-card);
   width: 100%;
   max-width: 357px;
   background-size: cover;
@@ -213,26 +208,26 @@
 }
 
 .md-typeset .feature-card-background.one {
-  background-image: url('../images/card-1-background.png');
+  background-image: url('../images/card-1-background.webp');
   height: 558px;
 }
 
 .md-typeset .feature-card-background.two {
-  background-image: url('../images/card-2-background.png');
+  background-image: url('../images/card-2-background.webp');
   height: 268px;
 }
 
 .md-typeset .feature-card-background.three {
-  background-image: url('../images/card-3-background.png');
+  background-image: url('../images/card-3-background.webp');
   height: 268px;
 }
 
 .md-typeset .feature-section .feature-grid .feature-card {
-  background-color: #ffffff;
+  background-color: var(--white);
   width: 90%;
   max-width: 240px;
   height: auto;
-  border-radius: 16px;
+  border-radius: var(--border-radius-card);
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -247,7 +242,7 @@
 }
 
 .md-typeset .feature-section .feature-grid .feature-card:hover h3 {
-  color: #00b0af;
+  color: var(--card-fg-hover-color);
 }
 
 .md-typeset .feature-section .feature-grid .feature-card img {
@@ -264,22 +259,19 @@
   align-items: flex-start;
   padding: 0.5em;
   width: fit-content;
-  border-radius: 16px;
-  font-family: 'Inter';
+  border-radius: var(--border-radius-card);
   font-weight: 600;
   font-size: 0.625em;
   line-height: 130%;
   text-align: center;
-  color: #101010;
-  border: 1px solid #101010;
+  color: var(--cod-grey);
+  border: var(--border-width) solid var(--cod-grey);
 }
 
 .md-typeset .feature-section .feature-card h3 {
-  font-family: 'Epilogue';
-  font-weight: 800;
   font-size: 1.59em;
   line-height: 120%;
-  color: #101010;
+  color: var(--cod-grey);
   margin: 0;
 }
 
@@ -303,17 +295,14 @@
 }
 
 .md-typeset .community-section h2 {
-  font-family: 'Epilogue';
-  font-weight: 800;
   font-size: 2.9em;
   line-height: 102%;
   text-align: center;
   margin: 0;
-  color: #ffffff;
 }
 
 .md-typeset .community-section h2 span.highlight {
-  color: #ff6036;
+  color: var(--coral);
 }
 
 .md-typeset .community-section .community-buttons {
@@ -326,7 +315,6 @@
 
 .md-typeset .community-section .community-buttons a {
   width: 100%;
-  border-radius: 15px;
 }
 
 .md-typeset .community-section .community-buttons a button.md-button {
@@ -335,19 +323,21 @@
   padding: 1em;
 }
 
-.md-typeset .community-section .community-buttons a button.md-button.primary {
-  background-color: #00b0af;
+.md-typeset .community-section .community-buttons a .md-button.primary {
+  background-color: var(--button-primary-bg-color);
+  color: var(--button-primary-fg-color);
 }
 
-.md-typeset .community-section .community-buttons a button.md-button.secondary {
-  background-color: #ffffff;
-  color: #000000;
+.md-typeset .community-section .community-buttons a .md-button.secondary {
+  background-color: var(--button-secondary-bg-color);
+  color: var(--button-secondary-fg-color);
   height: 100%;
 }
 
-.md-typeset .community-section .community-buttons a button.md-button:hover {
-  background-color: #ffb21f;
-  color: #000000;
+
+.md-typeset .community-section .community-buttons a:hover .md-button {
+  background-color: var(--button-hover-bg-color);
+  color: var(--button-hover-fg-color);
 }
 
 @media screen and (max-width: 73em) {

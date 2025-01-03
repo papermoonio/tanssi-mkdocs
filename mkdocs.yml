@@ -9,14 +9,12 @@ extra_javascript:
   - js/fixCreatedDate.js
 extra_css:
   - /assets/stylesheets/tanssi.css
-  - /assets/stylesheets/extra.css
   - /assets/stylesheets/termynal.css
 theme:
   name: material
   custom_dir: material-overrides
   favicon: /assets/images/tanssi-favicon.webp
-  logo: /assets/images/tanssi-logo-black.webp
-  logo_dark_mode: /assets/images/tanssi-logo-white.webp
+  logo: /assets/images/tanssi-logo-white.webp
   font:
     text: Inter
   features:
@@ -24,25 +22,12 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
-    - navigation.instant
     - content.code.copy
-  palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
 markdown_extensions:
   - admonition
   - attr_list
   - codehilite
+  - md_in_html
   - meta
   - pymdownx.details
   - pymdownx.emoji:
@@ -51,16 +36,16 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.snippets:
       base_path: tanssi-docs/.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format    
   - pymdownx.tabbed:
       alternate_style: true
   - toc:
       permalink: true
       title: Sections
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
 validation:
   absolute_links: ignore
   unrecognized_links: ignore
@@ -70,6 +55,7 @@ plugins:
   - awesome-pages
   - git-revision-date-localized:
       enable_creation_date: true
+      enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
   - minify:
       minify_html: true
       minify_js: true
@@ -79,23 +65,21 @@ plugins:
         - js/fixCreatedDate.js
       css_files: 
         - /assets/stylesheets/tanssi.css
-        - /assets/stylesheets/extra.css
         - /assets/stylesheets/termynal.css
   - redirects:
       redirect_maps:
-        # Redirects will go here as pages get moved around in the following format:
-        # old-page.md: new-page.md
+        about/index.md: https://www.tanssi.network/
         builders/deploy-manage/dapp/deploy.md: builders/deploy/dapp.md
         builders/deploy-manage/dapp/index.md: builders/deploy/index.md
-        builders/interact/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         builders/interact/ethereum-api/dev-env/foundry.md: builders/toolkit/ethereum-api/dev-env/foundry.md
         builders/interact/ethereum-api/dev-env/hardhat.md: builders/toolkit/ethereum-api/dev-env/hardhat.md
+        builders/interact/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         builders/interact/ethereum-api/dev-env/remix.md: builders/toolkit/ethereum-api/dev-env/remix.md
         builders/interact/ethereum-api/index.md: builders/toolkit/ethereum-api/index.md
         builders/interact/ethereum-api/indexers/index.md: builders/toolkit/integrations/indexers/index.md
         builders/interact/ethereum-api/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/subsquid/index.md
-        builders/interact/ethereum-api/libraries/index.md: builders/toolkit/ethereum-api/libraries/index.md
         builders/interact/ethereum-api/libraries/ethersjs.md: builders/toolkit/ethereum-api/libraries/ethersjs.md
+        builders/interact/ethereum-api/libraries/index.md: builders/toolkit/ethereum-api/libraries/index.md
         builders/interact/ethereum-api/libraries/viem.md: builders/toolkit/ethereum-api/libraries/viem.md
         builders/interact/ethereum-api/libraries/web3js.md: builders/toolkit/ethereum-api/libraries/web3js.md
         builders/interact/ethereum-api/libraries/web3py.md: builders/toolkit/ethereum-api/libraries/web3py.md
@@ -113,10 +97,11 @@ plugins:
         builders/interact/substrate-api/wallets/index.md: builders/toolkit/substrate-api/wallets/index.md
         builders/interact/substrate-api/wallets/subwallet.md: builders/toolkit/substrate-api/wallets/subwallet.md
         builders/interact/substrate-api/wallets/talisman.md: builders/toolkit/substrate-api/wallets/talisman.md
-        builders/tanssi-network/networks/index.md: builders/tanssi-network/index.md
-        builders/tanssi-network/networks/dancebox/demo-evm-containerchain.md: builders/tanssi-network/testnet/demo-evm-appchain.md
+        builders/tanssi-network/networks/dancebox/demo-evm-containerchain.md: builders/tanssi-network/testnet/demo-evm-network.md
         builders/tanssi-network/networks/dancebox/index.md: builders/tanssi-network/testnet/dancebox.md
         builders/tanssi-network/networks/dancebox/overview.md: builders/tanssi-network/testnet/dancebox.md
+        builders/tanssi-network/networks/index.md: builders/tanssi-network/index.md
+        builders/tanssi-network/testnet/demo-evm-appchain.md: builders/tanssi-network/testnet/demo-evm-network.md
         builders/tooling/index.md: builders/toolkit/integrations/index.md
         builders/tooling/indexers/index.md: builders/toolkit/integrations/indexers/index.md
         builders/tooling/indexers/subsquid.md: builders/toolkit/integrations/indexers/subsquid/index.md
@@ -125,9 +110,9 @@ plugins:
         builders/tooling/oracles/phala.md: builders/toolkit/integrations/oracles/phala.md
         builders/tutorials/index.md: builders/toolkit/integrations/index.md
         builders/tutorials/subsquid.md: builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md
-        dapp-developers/developer-toolkit/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/foundry.md: builders/toolkit/ethereum-api/dev-env/foundry.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat.md: builders/toolkit/ethereum-api/dev-env/hardhat.md
+        dapp-developers/developer-toolkit/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/remix.md: builders/toolkit/ethereum-api/dev-env/remix.md
         dapp-developers/developer-toolkit/ethereum-api/index.md: builders/toolkit/ethereum-api/index.md
         dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs.md: builders/toolkit/ethereum-api/libraries/ethersjs.md
@@ -151,40 +136,57 @@ plugins:
         dapp-developers/integrations/indexers/index.md: builders/toolkit/integrations/indexers/index.md
         dapp-developers/integrations/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/subsquid/index.md
         dapp-developers/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/subsquid/quick-start.md
-        dapp-developers/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md
         dapp-developers/integrations/oracles/acurast.md: builders/toolkit/integrations/oracles/acurast.md
         dapp-developers/integrations/oracles/index.md: builders/toolkit/integrations/oracles/index.md
         dapp-developers/integrations/oracles/phala.md: builders/toolkit/integrations/oracles/phala.md
-        node-operators/block-producers/onboarding/proxy-accounts.md: node-operators/block-producers/operational-tasks/proxy-accounts.md
-        learn/appchains/index.md: learn/networks/index.md
+        learn/appchains/index.md: learn/decentralized-networks/index.md
         learn/appchains/overview.md: learn/decentralized-networks/overview.md
         learn/appchains/runtime-features.md: learn/decentralized-networks/runtime-features.md
         learn/appchains/tx-fees.md: learn/decentralized-networks/tx-fees.md
-        learn/tanssi/appchain-services/index.md: learn/tanssi/network-services/index.md
         learn/tanssi/appchain-services/block-production.md: learn/tanssi/network-services/block-production.md
+        learn/tanssi/appchain-services/index.md: learn/tanssi/network-services/index.md
+        learn/tanssi/included-templates.md: learn/decentralized-networks/included-templates.md
         node-operators/appchain-node/index.md: node-operators/network-node/index.md
         node-operators/appchain-node/rpc-docker.md: node-operators/network-node/rpc-docker.md
         node-operators/appchain-node/rpc-systemd.md: node-operators/network-node/rpc-systemd.md
-        builders/tanssi-network/testnet/demo-evm-appchain.md: builders/tanssi-network/testnet/demo-evm-network.md
-        learn/tanssi/included-templates.md: learn/decentralized-networks/included-templates.md
+        node-operators/block-producers/index.md: node-operators/sequencers/index.md
+        node-operators/block-producers/offboarding/account.md: node-operators/sequencers/offboarding/account.md
+        node-operators/block-producers/offboarding/index.md: node-operators/sequencers/offboarding/index.md
+        node-operators/block-producers/onboarding/account-setup.md: node-operators/sequencers/onboarding/account-setup.md
+        node-operators/block-producers/onboarding/index.md: node-operators/sequencers/onboarding/index.md
+        node-operators/block-producers/onboarding/proxy-accounts.md: node-operators/sequencers/operational-tasks/proxy-accounts.md
+        node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker.md: node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker.md
+        node-operators/block-producers/onboarding/run-a-block-producer/block-producer-systemd.md: node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd.md
+        node-operators/block-producers/onboarding/run-a-block-producer/index.md: node-operators/sequencers/onboarding/run-a-sequencer/index.md
+        node-operators/block-producers/operational-tasks/index.md: node-operators/sequencers/operational-tasks/index.md
+        node-operators/block-producers/operational-tasks/proxy-accounts.md: node-operators/sequencers/operational-tasks/proxy-accounts.md
+        node-operators/block-producers/operational-tasks/upgrade-your-node/index.md: node-operators/sequencers/operational-tasks/upgrade-your-node/index.md
+        node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-docker.md: node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker.md
+        node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-systemd.md: node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd.md
   - macros:
       include_yaml:
         - tanssi-docs/variables.yml
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/kuyPhew2KB
-      name: Discord
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/TanssiNetwork
+      name: Twitter
     - icon: fontawesome/brands/telegram
       link: https://t.me/tanssiofficial
       name: Telegram
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/TanssiNetwork
-      name: Twitter
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/tanssi
+      name: Discord
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/tanssi
+      name: LinkedIn
     - icon: fontawesome/brands/github
       link: https://github.com/moondance-labs/tanssi
       name: GitHub
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@TanssiNetwork
+      name: YouTube
   analytics:
     provider: google
     property: G-BT4KVVBH8F

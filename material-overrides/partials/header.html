@@ -12,18 +12,17 @@
     <label class="md-header__button md-icon" for="__drawer">
       {% include ".icons/material/menu" ~ ".svg" %}
     </label>
-    <a href="{{ config.home_url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
-      {% include "partials/logo.html" %}
-    </a>
+    <div class="logo-container">
+      <a href="{{ config.site_url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+        {% include "partials/logo.html" %}
+      </a>
+    </div>
     {% if "navigation.tabs.sticky" in features %}
       {% if "navigation.tabs" in features %}
         {% include "partials/tabs.html" %}
       {% endif %}
     {% endif %}
     <div class="md-header__buttons">
-      <a href="https://discord.gg/kuyPhew2KB" class="md-header__button md-typeset wrapper" aria-label="Join our Developer Community">
-        <button class="md-button join-community">Join Our Developer Community</button>
-      </a>
       {% if "material/search" in config["plugins"] %}
         <label class="md-header__button md-icon" for="__search">
           {% include ".icons/material/magnify.svg" %}

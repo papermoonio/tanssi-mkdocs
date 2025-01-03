@@ -6,7 +6,7 @@
 
 .subsection-wrapper .card {
   background-color: var(--card-bg-color);
-  border-radius: var(--border-radius-16);
+  border-radius: var(--border-radius-card);
   text-decoration: none;
   align-content: start;
   flex: 1 0 48%;

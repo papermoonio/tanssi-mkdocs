@@ -404,22 +404,24 @@ a.md-header__button.md-logo img {
   font-size: 0.9em;
 }
 
-/* Section lines */
-li > nav.md-nav[data-md-level='3'] ul.md-nav__list,
-li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
-  border-left: 1px solid var(--md-accent-fg-color);
-}
-
-/* Add space below the section lines */
-.md-nav--primary .md-nav__list {
-  padding-bottom: 0.01em;
-  margin-bottom: 0.5em;
-}
-
 /* Render arrow next to expandable sections */
 .md-nav__link > * {
   cursor: pointer;
   display: flex;
+}
+
+@media screen and (min-width: 60em) {
+  /* Section lines */
+  li > nav.md-nav[data-md-level='3'] ul.md-nav__list,
+  li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
+    border-left: 1px solid var(--md-accent-fg-color);
+  }
+
+  /* Add space below the section lines */
+  .md-nav--primary .md-nav__list {
+    padding-bottom: 0.01em;
+    margin-bottom: 0.5em;
+  }
 }
 
 @media screen and (max-width: 76.1875em) {

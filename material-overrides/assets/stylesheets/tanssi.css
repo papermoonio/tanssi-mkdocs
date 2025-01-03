@@ -384,15 +384,6 @@ a.md-header__button.md-logo img {
 }
 
 /* Nav buttons styling */
-.md-header__button.md-typeset .md-button.join-community {
-  padding: 0.75em;
-  margin-right: 0.5em;
-  font-size: 0.8em;
-  color: var(--md-default-fg-color--dark);
-  border: var(--md-border-width) solid;
-  font-weight: 500;
-}
-
 .md-header__button:hover {
   opacity: unset;
 }
@@ -520,7 +511,7 @@ a.md-header__button.md-logo img {
 
 /* Add styles for when details.function is open */
 .md-typeset details.function[open] {
-  border: var(--md-border-width-thick) solid var(--teal);
+  border: var(--border-width-thick) solid var(--teal);
   /*  Border color expandable section */
   border-radius: 5px;
   /* Optional: adds rounded corners to the border */
@@ -547,7 +538,7 @@ html .md-typeset details.function div.tabbed-set,
 }
 
 details.function .tabbed-set {
-  border: var(--md-border-width) solid var(--md-default-fg-color--lightest);
+  border: var(--border-width) solid var(--md-default-fg-color--lightest);
   margin: 1em 2em;
 }
 
@@ -691,7 +682,7 @@ details.function,
 .md-feedback {
   margin: 2em auto;
   text-align: center;
-  border: var(--md-border-width) solid var(--md-accent-fg-color);
+  border: var(--border-width) solid var(--md-accent-fg-color);
   border-radius: 0.2em;
   width: 30%;
   padding: 0.7em;
@@ -755,7 +746,7 @@ details.function,
 }
 
 .md-social a {
-  border: var(--md-border-width) solid var(--white);
+  border: var(--border-width) solid var(--white);
   border-radius: 8px;
   height: 3em;
   width: 3em;
@@ -802,7 +793,7 @@ details.function,
 .external-link-modal {
   background-color: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
-  border: var(--md-border-width-thick) solid var(--md-default-fg-color);
+  border: var(--border-width-thick) solid var(--md-default-fg-color);
   border-radius: 0.2em;
   margin: 15% auto;
   font-size: 2em;

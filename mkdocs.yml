@@ -77,7 +77,7 @@ plugins:
         builders/interact/ethereum-api/dev-env/remix.md: builders/toolkit/ethereum-api/dev-env/remix.md
         builders/interact/ethereum-api/index.md: builders/toolkit/ethereum-api/index.md
         builders/interact/ethereum-api/indexers/index.md: builders/toolkit/integrations/indexers/index.md
-        builders/interact/ethereum-api/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/subsquid/index.md
+        builders/interact/ethereum-api/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/sqd/index.md
         builders/interact/ethereum-api/libraries/ethersjs.md: builders/toolkit/ethereum-api/libraries/ethersjs.md
         builders/interact/ethereum-api/libraries/index.md: builders/toolkit/ethereum-api/libraries/index.md
         builders/interact/ethereum-api/libraries/viem.md: builders/toolkit/ethereum-api/libraries/viem.md
@@ -108,8 +108,11 @@ plugins:
         builders/tooling/oracles/acurast.md: builders/toolkit/integrations/oracles/acurast.md
         builders/tooling/oracles/index.md: builders/toolkit/integrations/oracles/index.md
         builders/tooling/oracles/phala.md: builders/toolkit/integrations/oracles/phala.md
+        builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md: builders/toolkit/integrations/indexers/sqd/erc20-transfers.md
+        builders/toolkit/integrations/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/sqd/index.md
+        builders/toolkit/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/sqd/quick-start.md
         builders/tutorials/index.md: builders/toolkit/integrations/index.md
-        builders/tutorials/subsquid.md: builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md
+        builders/tutorials/subsquid.md: builders/toolkit/integrations/indexers/sqd/erc20-transfers.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/foundry.md: builders/toolkit/ethereum-api/dev-env/foundry.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat.md: builders/toolkit/ethereum-api/dev-env/hardhat.md
         dapp-developers/developer-toolkit/ethereum-api/dev-env/index.md: builders/toolkit/ethereum-api/dev-env/index.md
@@ -135,7 +138,7 @@ plugins:
         dapp-developers/integrations/index.md: builders/toolkit/integrations/index.md
         dapp-developers/integrations/indexers/index.md: builders/toolkit/integrations/indexers/index.md
         dapp-developers/integrations/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/subsquid/index.md
-        dapp-developers/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/subsquid/quick-start.md
+        dapp-developers/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/sqd/quick-start.md
         dapp-developers/integrations/oracles/acurast.md: builders/toolkit/integrations/oracles/acurast.md
         dapp-developers/integrations/oracles/index.md: builders/toolkit/integrations/oracles/index.md
         dapp-developers/integrations/oracles/phala.md: builders/toolkit/integrations/oracles/phala.md

@@ -163,6 +163,9 @@ plugins:
         node-operators/block-producers/operational-tasks/upgrade-your-node/index.md: node-operators/sequencers/operational-tasks/upgrade-your-node/index.md
         node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-docker.md: node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker.md
         node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-systemd.md: node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd.md
+        builders/toolkit/integrations/indexers/subsquid/index.md: builders/toolkit/integrations/indexers/sqd/index.md
+        builders/toolkit/integrations/indexers/subsquid/quick-start.md: builders/toolkit/integrations/indexers/sqd/quick-start.md
+        builders/toolkit/integrations/indexers/subsquid/erc20-transfers.md: builders/toolkit/integrations/indexers/sqd/erc20-transfers.md
   - macros:
       include_yaml:
         - tanssi-docs/variables.yml

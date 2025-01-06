@@ -6,6 +6,9 @@
 # at all. If any content has been moved, the script will try to match the moved content   #
 # and add it to the `redirect_maps` config in `mkdocs.yml`.                               #
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+# Make sure you have ssh enabled in GitHub before running this script. Otherwise, you'll  #
+# receive a 403 from the GitHub API when you run the script.                              #
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
 # To use the script, ensure that the `tanssi-docs` repo is nestled inside of the          #
 # `tanssi-mkdocs` repo and on your branch with the latest changes. Then simply run        #
 # `python scripts/calculate-redirects.py <base_branch> <compare_branch>` in your terminal.#
@@ -22,10 +25,12 @@ import os
 import yaml
 import argparse
 import requests
+from yaml.nodes import ScalarNode, SequenceNode
+
 
 def update_redirects(redirect_mappings, yaml_file):
     # Open the YAML file and read its lines
-    with open(yaml_file, 'r') as file:
+    with open(yaml_file, "r") as file:
         lines = file.readlines()
 
     # Initialize a flag to track if the redirect_maps section is found
@@ -35,10 +40,10 @@ def update_redirects(redirect_mappings, yaml_file):
 
     # Find the start and end indices of the redirect_maps section
     for i, line in enumerate(lines):
-        if 'redirect_maps' in line:
+        if "redirect_maps" in line:
             redirect_maps_found = True
             redirect_maps_start = i + 1  # Start after the redirect_maps line
-        elif redirect_maps_start != -1 and line.strip() == '- macros:':
+        elif redirect_maps_start != -1 and line.strip() == "- macros:":
             redirect_maps_end = i
             break
 
@@ -53,25 +58,26 @@ def update_redirects(redirect_mappings, yaml_file):
     if sorted_redirect_mappings:
         if not redirect_maps_found:
             # Find the index of the last line before the plugins section
-            plugins_index = lines.index('plugins:\n') + 1
+            plugins_index = lines.index("plugins:\n") + 1
             # Insert redirect_maps section before the plugins section
-            lines.insert(plugins_index, '  - redirects:\n')
-            lines.insert(plugins_index + 1, '      redirect_maps:\n')
+            lines.insert(plugins_index, "  - redirects:\n")
+            lines.insert(plugins_index + 1, "      redirect_maps:\n")
 
         # Find the index of the redirect_maps section
-        redirect_maps_index = lines.index('      redirect_maps:\n') + 1
+        redirect_maps_index = lines.index("      redirect_maps:\n") + 1
 
         # Insert the sorted redirect mappings
         for source, destination in sorted_redirect_mappings.items():
-            mapping_line = f'        {source}: {destination}\n'
+            mapping_line = f"        {source}: {destination}\n"
             lines.insert(redirect_maps_index, mapping_line)
             redirect_maps_index += 1
 
     # Write the updated lines back to the file
-    with open(yaml_file, 'w') as file:
+    with open(yaml_file, "w") as file:
         file.writelines(lines)
 
     print("✅ Process complete! You can review the redirects in the mkdocs.yml file")
+
 
 # Function to check if a file name is a key or a value
 def check_file_in_redirects(file_name, redirects):
@@ -98,13 +104,19 @@ def generate_redirects(github_repo, base_branch, compare_branch):
                 result = check_file_in_redirects(filename, redirects)
                 if result:
                     key, value = result
-                    redirects[key] = "index.md"  # Set the original redirect to index.md
+                    print(
+                        f"❌ New page to redirect to cannot be found for: {filename}, so index.md was used as a fallback. Please review and update the redirect manually if needed."
+                    )
+                    redirects[key] = "index.md # TODO: Double-check me!"  # Set the original redirect to index.md
                     redirects[value] = (
-                        "index.md"  # Set the redirected redirect to index.md
+                        "index.md # TODO: Double-check me!"  # Set the redirected redirect to index.md
                     )
                 else:
                     # Create a new redirect
-                    redirects[filename] = "index.md"
+                    print(
+                        f"❌ New page to redirect to cannot be found for: {filename}, so index.md was used as a fallback. Please review and update the redirect manually if needed."
+                    )
+                    redirects[filename] = "index.md # TODO: Double-check me!"
             elif file["status"] == "renamed":
                 prev_file = file["previous_filename"]
                 result = check_file_in_redirects(prev_file, redirects)
@@ -117,7 +129,6 @@ def generate_redirects(github_repo, base_branch, compare_branch):
                         filename  # Set the redirected redirect to the new file name
                     )
                 else:
-                    # Create a new redirect
                     redirects[prev_file] = filename
 
     # Save updated redirects to mkdocs.yml
@@ -126,8 +137,18 @@ def generate_redirects(github_repo, base_branch, compare_branch):
 
 # Define custom constructor for !ENV tag
 def env_constructor(loader, node):
-    value = loader.construct_scalar(node)
-    return os.environ.get(value, "")
+    if isinstance(node, ScalarNode):  # Handle simple scalar values
+        value = loader.construct_scalar(node)
+        return os.getenv(value, "") or value
+    elif isinstance(node, SequenceNode):  # Handle sequences like `[VAR, default]`
+        values = loader.construct_sequence(node)
+        if len(values) == 2:
+            env_var, default_value = values
+            return os.getenv(env_var, default_value)
+        raise ValueError(
+            "!ENV sequence must have exactly two elements: [ENV_VAR, default_value]"
+        )
+    raise ValueError("Unsupported YAML node type for !ENV")
 
 
 # Add the custom constructor to the SafeLoader
@@ -186,4 +207,6 @@ if __name__ == "__main__":
 
     # Generate redirects
     print("⏱️ Generating redirects... just a few moments...")
-    generate_redirects("moondance-labs/tanssi-docs", args.base_branch, args.compare_branch)
+    generate_redirects(
+        "moondance-labs/tanssi-docs", args.base_branch, args.compare_branch
+    )

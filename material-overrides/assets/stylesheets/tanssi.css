@@ -1,11 +1,11 @@
 :root {
   --black: #000000;
   --rich-black: #040404;
-  --rich-black-transparent-30:rgba(4, 4, 4, .30);
+  --rich-black-transparent-30: rgba(4, 4, 4, 0.3);
   --charcoal: #404040;
   --white: #ffffff;
   --white-smoke: #e9e9e9;
-  --white-smoke-transparent-35: rgba(233, 233, 233, .35);
+  --white-smoke-transparent-35: rgba(233, 233, 233, 0.35);
   --chinese-silver: #cccccc;
   --grey: #7f7f7f;
   --cod-grey: #101010;
@@ -139,7 +139,7 @@ a:hover {
 
 /* Button Styling */
 .md-typeset .md-button {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: var(--button-secondary-bg-color);
   color: var(--button-secondary-fg-color);
   text-decoration: none;
@@ -680,22 +680,21 @@ details.function,
 
 /* Feedback widget styling */
 .feedback-actions-container {
-    margin-top: 4rem;
-    display: flex;
-    background-color: var(--raisin-black);
-    border: var(--border-width) solid var(--md-accent-fg-color);
-    border-radius: var(--border-radius-card);
-    padding: 1.5em;
-    width: calc(100% - 2em);
-    flex-direction: column;
+  margin-top: 4rem;
+  display: flex;
+  background-color: var(--raisin-black);
+  border: var(--border-width) solid var(--md-accent-fg-color);
+  border-radius: var(--border-radius-card);
+  padding: 1.5em;
+  width: calc(100% - 2em);
+  flex-direction: column;
 }
 
 .md-feedback {
   margin-top: 0;
   margin-bottom: 0;
   justify-content: center;
-  display: flex
-;
+  display: flex;
 }
 
 .md-feedback__title {
@@ -704,7 +703,7 @@ details.function,
   margin: 0;
 }
 
-.md-feedback__note>* {
+.md-feedback__note > * {
   font-size: 12px;
   font-weight: 400;
   font-family: 'Inter';
@@ -727,7 +726,7 @@ details.function,
   display: flex;
   align-items: center;
   justify-content: center;
-}
+}ß
 
 a.md-content__button.md-icon {
   margin: 1em auto 0;
@@ -1056,7 +1055,8 @@ div.mermaid {
     display: none;
   }
 
-  .root-level-index + .md-sidebar--primary
+  .root-level-index
+    + .md-sidebar--primary
     nav.md-nav--primary
     > .md-nav__list
     > .md-nav__item--active
@@ -1066,4 +1066,3 @@ div.mermaid {
     display: block;
   }
 }
-

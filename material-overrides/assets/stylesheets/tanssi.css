@@ -680,31 +680,28 @@ details.function,
 
 /* Feedback widget styling */
 .feedback-actions-container {
-  margin-top: 2rem;
-  display: flex;
-  background-color: var(--raisin-black);
-  border: var(--border-width) solid var(--md-accent-fg-color);
-  border-radius: var(--border-radius-card);
-  padding: 2em;
-  width: 80%;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
+    margin-top: 4rem;
+    display: flex;
+    background-color: var(--raisin-black);
+    border: var(--border-width) solid var(--md-accent-fg-color);
+    border-radius: var(--border-radius-card);
+    padding: 1.5em;
+    width: calc(100% - 2em);
+    flex-direction: column;
 }
 
 .md-feedback {
+  margin-top: 0;
+  margin-bottom: 0;
   justify-content: center;
-  display: flex;
-  margin: 0;
-  text-align: center;
-  padding: 0;
-  font-family: var(--md-header-font);
-  font-weight: var(--md-header-weight);
+  display: flex
+;
 }
 
 .md-feedback__title {
   font-weight: 400;
   font-size: 12px;
+  margin: 0;
 }
 
 .md-feedback__note>* {
@@ -714,18 +711,16 @@ details.function,
 }
 
 .md-feedback__list {
-  gap: 10px;
-  margin: 12px;
-  display: flex;
-  place-content: baseline center;
-  position: relative;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  gap: 1em;
 }
 /* Divider Styling */
 .divider {
   width: 100%;
   height: 1px;
   background-color: var(--button-primary-bg-color);
-  margin: 12px 0;
+  margin: 1em 0;
 }
 /*Edit this page button Styling*/
 .edit-section {
@@ -735,13 +730,11 @@ details.function,
 }
 
 a.md-content__button.md-icon {
-  margin: 12px 12px 0;
-  font-weight: 400;
+  margin: 1em auto 0;
   font-size: 12px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 a.md-content__button.md-icon:hover {

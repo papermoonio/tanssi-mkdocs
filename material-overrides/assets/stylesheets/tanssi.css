@@ -680,9 +680,8 @@ details.function,
 
 /* Feedback widget styling */
 .feedback-actions-container {
-  margin-top: 4rem;
+  margin: 3rem .5rem 0;
   display: flex;
-  background-color: var(--raisin-black);
   border: var(--border-width) solid var(--md-accent-fg-color);
   border-radius: var(--border-radius-card);
   padding: 1.5em;
@@ -714,6 +713,7 @@ details.function,
   margin-top: 1em;
   gap: 1em;
 }
+
 /* Divider Styling */
 .divider {
   width: 100%;
@@ -721,6 +721,7 @@ details.function,
   background-color: var(--button-primary-bg-color);
   margin: 1em 0;
 }
+
 /*Edit this page button Styling*/
 .edit-section {
   display: flex;

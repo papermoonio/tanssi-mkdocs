@@ -682,7 +682,7 @@ details.function,
 .feedback-actions-container {
   margin: 3rem .5rem 0;
   display: flex;
-  border: var(--border-width) solid var(--md-accent-fg-color);
+  border: var(--border-width) solid var(--charcoal);
   border-radius: var(--border-radius-card);
   padding: 1.5em;
   width: calc(100% - 2em);
@@ -692,45 +692,41 @@ details.function,
 .md-feedback {
   margin-top: 0;
   margin-bottom: 0;
-  justify-content: center;
-  display: flex;
 }
 
 .md-feedback__title {
   font-weight: 400;
   font-size: 12px;
-  margin: 0;
+  margin: 0.75em auto;
 }
 
 .md-feedback__note > * {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   font-family: 'Inter';
 }
 
 .md-feedback__list {
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
   gap: 1em;
 }
 
 /* Divider Styling */
 .divider {
-  width: 100%;
   height: 1px;
-  background-color: var(--button-primary-bg-color);
-  margin: 1em 0;
+  background-color: var(--charcoal);
+  margin-bottom: 1.5em;
+  margin-top: 0.75em;
 }
 
 /*Edit this page button Styling*/
 .edit-section {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 a.md-content__button.md-icon {
-  margin: 1em auto 0;
+  margin: 0 auto;
   font-size: 12px;
   display: flex;
   align-items: center;

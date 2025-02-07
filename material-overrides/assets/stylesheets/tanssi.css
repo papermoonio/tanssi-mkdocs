@@ -680,12 +680,12 @@ details.function,
 
 /* Feedback widget styling */
 .feedback-actions-container {
-  margin: 3rem .5rem 0;
+  margin: 3rem 0.5rem 0;
   display: flex;
   border: var(--border-width) solid var(--charcoal);
   border-radius: var(--border-radius-card);
   padding: 1.5em;
-  width: calc(100% - 2em);
+  width: 80%;
   flex-direction: column;
 }
 
@@ -716,8 +716,7 @@ details.function,
 .divider {
   height: 1px;
   background-color: var(--charcoal);
-  margin-bottom: 1.5em;
-  margin-top: 0.75em;
+  margin: 0.75em auto 0;
 }
 
 /*Edit this page button Styling*/
@@ -736,6 +735,20 @@ a.md-content__button.md-icon {
 a.md-content__button.md-icon:hover {
   color: var(--md-accent-fg-color);
   text-decoration: none;
+}
+
+.feedback-actions-container
+  .feedback-section
+  ~ .edit-section
+  a.md-content__button.md-icon {
+  margin: 0.75em auto 0;
+}
+
+.feedback-actions-container
+  .feedback-section:has(.md-feedback[hidden])
+  ~ .edit-section
+  a.md-content__button.md-icon {
+  margin: auto;
 }
 
 /* Footer Styling */

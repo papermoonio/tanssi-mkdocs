@@ -17,7 +17,7 @@ theme:
   favicon: /assets/images/tanssi-favicon.webp
   logo: /assets/images/tanssi-logo-white.webp
   icon:
-    edit: fontawesome/brands/github
+    edit: material/github
   font:
     text: Inter
   features:

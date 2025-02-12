@@ -1,6 +1,7 @@
 site_name: Tanssi Docs
 site_url: https://docs.tanssi.network/
 home_url: https://tanssi.network/
+edit_uri: https://github.com/moondance-labs/tanssi-docs/edit/main/
 site_dir: /var/www/tanssi-docs-static
 docs_dir: tanssi-docs
 copyright: © 2025 Moondance Labs. All Rights Reserved.
@@ -15,6 +16,8 @@ theme:
   custom_dir: material-overrides
   favicon: /assets/images/tanssi-favicon.webp
   logo: /assets/images/tanssi-logo-white.webp
+  icon:
+    edit: material/github
   font:
     text: Inter
   features:
@@ -23,6 +26,7 @@ theme:
     - navigation.sections
     - navigation.indexes
     - content.code.copy
+    - content.action.edit
 markdown_extensions:
   - admonition
   - attr_list

@@ -1,11 +1,15 @@
 name: Deploy Docs
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       branch:
         description: "Branch to build and deploy documentation from"
         required: true
-        default: "main"
+        default: "master"
+        
 permissions:
   contents: write
 jobs:
@@ -20,13 +24,12 @@ jobs:
       - name: Pull docs repository
         uses: actions/checkout@v4
         with:
-          repository: papermoonio/tanssi-mkdocs
+          repository: moondance-labs/tanssi-docs
           path: tanssi-docs
-          ref: ${{ inputs.branch }}
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -47,5 +50,8 @@ jobs:
         run: |
           # Replace old image paths with new paths in Markdown files
           find tanssi-docs -type f -name "*.md" -exec sed -i -e 's|](/|](/tanssi-mkdocs/|g' -e 's|href="/|href="/tanssi-mkdocs/|g' {} \;
+      - name: Replace `/assets` with `assets`
+        run: |
+          find . -type f -exec sed -i 's|/assets|assets|g' {} +
       - name: Deploy Docs
         run: mkdocs gh-deploy --force --clean --site-dir ./site

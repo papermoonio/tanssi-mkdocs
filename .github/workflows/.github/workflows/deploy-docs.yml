@@ -8,7 +8,7 @@ on:
       branch:
         description: "Branch to build and deploy documentation from"
         required: true
-        default: "master"
+        default: "main"
         
 permissions:
   contents: write

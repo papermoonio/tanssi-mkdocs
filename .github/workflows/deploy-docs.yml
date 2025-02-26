@@ -21,42 +21,37 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      
       - name: Pull docs repository
         uses: actions/checkout@v4
         with:
           repository: moondance-labs/tanssi-docs
           path: tanssi-docs
-      
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      
       - name: Install System Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y python3-dev build-essential
-      
       - name: Install pip requirements
         run: |
           # upgrade pip
           python -m pip install --upgrade pip setuptools 'cython<3.0.0' wheel
           # install dependencies quietly
           python -m pip install -r requirements.txt
-     
       - name: Update image paths in Markdown files
         run: |
-          # Replace image/asset paths with new paths in Markdown/HTML files
+          # Replace old image paths with new paths in Markdown files
           find tanssi-docs -type f -name "*.md" -exec sed -i -e 's|](/|](/tanssi-mkdocs/|g' -e 's|href="/|href="/tanssi-mkdocs/|g' {} \;
-          find material-overrides -type f -name "*.html" -exec sed -i -e 's|/assets|/tanssi-mkdocs/assets|g' {} \;
-      
+      - name: Replace `/assets` with `assets`
+        run: |
+          find . -type f -exec sed -i 's|/assets|assets|g' {} +
       - name: Deploy Docs
         run: mkdocs gh-deploy --force --clean --site-dir ./site

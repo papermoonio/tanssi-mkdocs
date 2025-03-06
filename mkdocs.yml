@@ -11,6 +11,7 @@ extra_javascript:
 extra_css:
   - /assets/stylesheets/tanssi.css
   - /assets/stylesheets/termynal.css
+  - /assets/stylesheets/mermaid-custom.css
 theme:
   name: material
   custom_dir: material-overrides
@@ -44,7 +45,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format    
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - toc:
@@ -67,7 +68,7 @@ plugins:
       js_files:
         - js/externalLinkModal.js
         - js/fixCreatedDate.js
-      css_files: 
+      css_files:
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css
   - macros:

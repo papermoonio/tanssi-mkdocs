@@ -1,0 +1,5 @@
+/* Hide bottom actors in Mermaid sequence diagrams */
+.mermaid g[id^="actor"] > rect:last-of-type,
+.mermaid g[id^="actor"] > text:last-of-type {
+  display: none !important;
+}

@@ -139,7 +139,7 @@ a:hover {
 }
 
 .md-typeset h4 {
-  font-weight: 300;
+  font-size: 1.05em;
 }
 
 .md-typeset h1 {
@@ -257,7 +257,7 @@ a:hover {
     background-color: var(--charcoal);
     border-radius: var(--border-radius-20);
   }
-  
+
   .md-search__scrollwrap,
   .md-search__scrollwrap:hover {
     scrollbar-color: var(--chinese-silver);

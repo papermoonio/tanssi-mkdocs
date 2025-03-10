@@ -34,11 +34,6 @@
   --md-default-fg-color: var(--chinese-silver);
   --md-default-fg-color--light: var(--white-smoke);
   --md-default-fg-color--dark: var(--white-smoke);
-
-  /* This is set specifically for mermaid diagrams 
-     Note: Could impact tooltips, scrollbars, search suggestions. Be cautious of this
-     when doing dependency upgrades
-  */
   --md-default-fg-color--lighter: var(--charcoal);
 
   /* Code block color shades */
@@ -262,9 +257,10 @@ a:hover {
     background-color: var(--charcoal);
     border-radius: var(--border-radius-20);
   }
-
+  
+  .md-search__scrollwrap,
   .md-search__scrollwrap:hover {
-    scrollbar-color: var(--md-default-fg-color--lighter) var(--black);
+    scrollbar-color: var(--chinese-silver);
   }
 
   .md-search-result mark {

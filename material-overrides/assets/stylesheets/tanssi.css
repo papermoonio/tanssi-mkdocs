@@ -34,6 +34,12 @@
   --md-default-fg-color--light: var(--white-smoke);
   --md-default-fg-color--dark: var(--white-smoke);
 
+  /* This is set specifically for mermaid diagrams 
+     Note: Could impact tooltips, scrollbars, search suggestions. Be cautious of this
+     when doing dependency upgrades
+  */
+  --md-default-fg-color--lighter: var(--charcoal);
+
   /* Code block color shades */
   --md-code-bg-color: var(--rich-black);
   --md-code-fg-color: var(--white-smoke);
@@ -103,6 +109,17 @@
   --button-secondary-bg-color: var(--white);
   --button-hover-fg-color: var(--black);
   --button-hover-bg-color: var(--yellow);
+}
+
+:root > * {
+  /** Branded Mermaid Flowchart Diagrams **/
+  --md-mermaid-edge-color: var(--grey);
+
+  /** Branded Mermaid Sequence Diagrams **/
+  --md-mermaid-sequence-actor-line-color: var(--white-smoke-transparent-20);
+  --md-mermaid-sequence-message-fg-color: var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-label-fg-color: var(--black);
+  --md-mermaid-sequence-label-bg-color: var(--md-accent-fg-color);
 }
 
 /* Basic font styling */

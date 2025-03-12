@@ -6,6 +6,7 @@
   --white: #ffffff;
   --white-smoke: #e9e9e9;
   --white-smoke-transparent-35: rgba(233, 233, 233, 0.35);
+  --white-smoke-transparent-20: rgba(233, 233, 233, 0.2);
   --chinese-silver: #cccccc;
   --grey: #7f7f7f;
   --cod-grey: #101010;
@@ -15,7 +16,7 @@
   --yellow-light: #ffc154;
   --coral: #ff6036;
 
-  --md-header-font: 'Epilogue';
+  --md-header-font: "Epilogue";
   --md-header-weight: 800;
 
   --border-width-thin: 0.5px;
@@ -28,11 +29,12 @@
 
 /* Dark mode modifications */
 :root,
-[data-md-color-scheme='default'] {
+[data-md-color-scheme="default"] {
   --md-default-bg-color: var(--cod-grey);
   --md-default-fg-color: var(--chinese-silver);
   --md-default-fg-color--light: var(--white-smoke);
   --md-default-fg-color--dark: var(--white-smoke);
+  --md-default-fg-color--lighter: var(--charcoal);
 
   /* Code block color shades */
   --md-code-bg-color: var(--rich-black);
@@ -105,6 +107,17 @@
   --button-hover-bg-color: var(--yellow);
 }
 
+:root > * {
+  /** Branded Mermaid Flowchart Diagrams **/
+  --md-mermaid-edge-color: var(--grey);
+
+  /** Branded Mermaid Sequence Diagrams **/
+  --md-mermaid-sequence-actor-line-color: var(--white-smoke-transparent-20);
+  --md-mermaid-sequence-message-fg-color: var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-label-fg-color: var(--black);
+  --md-mermaid-sequence-label-bg-color: var(--md-accent-fg-color);
+}
+
 /* Basic font styling */
 .md-typeset h1,
 .md-typeset h2,
@@ -126,7 +139,7 @@ a:hover {
 }
 
 .md-typeset h4 {
-  font-weight: 300;
+  font-size: 1.05em;
 }
 
 .md-typeset h1 {
@@ -176,13 +189,13 @@ a:hover {
     padding: 0;
   }
 
-  [data-md-toggle='search']:checked ~ .md-header .md-search__form {
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
     width: 100%;
     background: var(--charcoal);
     border-radius: var(--border-radius-20);
   }
 
-  [dir='ltr'] .md-search__icon[for='__search'] {
+  [dir="ltr"] .md-search__icon[for="__search"] {
     left: unset;
     right: 0.5rem;
     top: unset;
@@ -196,8 +209,8 @@ a:hover {
     height: 1.5rem;
   }
 
-  [dir='ltr'] .md-search__icon[for='__search'] svg,
-  [data-md-toggle='search']:checked
+  [dir="ltr"] .md-search__icon[for="__search"] svg,
+  [data-md-toggle="search"]:checked
     ~ .md-header
     .md-search__input:valid
     ~ .md-search__options
@@ -213,20 +226,20 @@ a:hover {
     padding-left: 1.5em;
   }
 
-  [dir='ltr'] .md-search__input {
+  [dir="ltr"] .md-search__input {
     font-size: 0.65rem;
     color: var(--white-smoke);
     padding-left: 1.5em;
   }
 
-  [dir='ltr'] .md-search__input::placeholder {
+  [dir="ltr"] .md-search__input::placeholder {
     color: transparent;
   }
 
-  [data-md-toggle='search']:checked
+  [data-md-toggle="search"]:checked
     ~ .md-header
     .md-search__input:valid
-    ~ .md-search__icon[for='__search'] {
+    ~ .md-search__icon[for="__search"] {
     display: none;
   }
 
@@ -240,13 +253,14 @@ a:hover {
     transition: none;
   }
 
-  [data-md-toggle='search']:checked ~ .md-header .md-search__scrollwrap {
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__scrollwrap {
     background-color: var(--charcoal);
     border-radius: var(--border-radius-20);
   }
 
+  .md-search__scrollwrap,
   .md-search__scrollwrap:hover {
-    scrollbar-color: var(--md-default-fg-color--lighter) var(--black);
+    scrollbar-color: var(--chinese-silver);
   }
 
   .md-search-result mark {
@@ -309,7 +323,7 @@ a.md-header__button.md-logo img {
   transform: translate(-50%);
 }
 
-[dir='ltr'] .md-tabs__list {
+[dir="ltr"] .md-tabs__list {
   margin-left: 0;
 }
 
@@ -403,8 +417,8 @@ a.md-header__button.md-logo img {
 
 @media screen and (min-width: 60em) {
   /* Section lines */
-  li > nav.md-nav[data-md-level='3'] ul.md-nav__list,
-  li > nav.md-nav[data-md-level='4'] ul.md-nav__list {
+  li > nav.md-nav[data-md-level="3"] ul.md-nav__list,
+  li > nav.md-nav[data-md-level="4"] ul.md-nav__list {
     border-left: 1px solid var(--md-accent-fg-color);
   }
 
@@ -470,6 +484,10 @@ a.md-header__button.md-logo img {
 }
 
 /* Admonition styling */
+.md-typeset .admonition {
+  background-color: var(--md-default-bg-color);
+}
+
 .md-typeset .admonition.note {
   border-color: var(--md-accent-fg-color--light);
 }
@@ -629,8 +647,8 @@ details.function,
   background-color: var(--md-accent-bg-color);
 }
 
-[dir='ltr'] .md-typeset ol,
-[dir='ltr'] .md-typeset ul {
+[dir="ltr"] .md-typeset ol,
+[dir="ltr"] .md-typeset ul {
   margin-right: 0.625em;
 }
 
@@ -703,7 +721,7 @@ details.function,
 .md-feedback__note > * {
   font-size: 13px;
   font-weight: 400;
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 .md-feedback__list {
@@ -1048,10 +1066,14 @@ li.md-tab__item {
   align-items: center;
 }
 
-/* Mermaid styling */
+/** Mermaid styling **/
 div.mermaid {
   display: flex !important;
   justify-content: center !important;
+}
+
+rect[style] {
+  border-radius: 0.5em !important;
 }
 
 /* Left navigation styling */

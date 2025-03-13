@@ -11,6 +11,7 @@ extra_javascript:
 extra_css:
   - /assets/stylesheets/tanssi.css
   - /assets/stylesheets/termynal.css
+  - /assets/stylesheets/timeline-neoteroi.css
 theme:
   name: material
   custom_dir: material-overrides
@@ -33,6 +34,7 @@ markdown_extensions:
   - codehilite
   - md_in_html
   - meta
+  - neoteroi.timeline
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji

@@ -1,0 +1,396 @@
+{
+    "data": [
+      {
+        "key": "/about/",
+        "value": "https://www.tanssi.network/"
+      },
+      {
+        "key": "/builders/deploy-manage/dapp/deploy/",
+        "value": "/builders/deploy/dapp/"
+      },
+      {
+        "key": "/builders/deploy-manage/dapp/",
+        "value": "/builders/deploy/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/dev-env/foundry/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/foundry/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/dev-env/hardhat/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/hardhat/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/dev-env/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/dev-env/remix/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/remix/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/",
+        "value": "/builders/toolkit/ethereum-api/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/indexers/",
+        "value": "/builders/toolkit/integrations/indexers/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/indexers/subsquid/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/libraries/ethersjs/",
+        "value": "/builders/toolkit/ethereum-api/libraries/ethersjs/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/libraries/",
+        "value": "/builders/toolkit/ethereum-api/libraries/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/libraries/viem/",
+        "value": "/builders/toolkit/ethereum-api/libraries/viem/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/libraries/web3js/",
+        "value": "/builders/toolkit/ethereum-api/libraries/web3js/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/libraries/web3py/",
+        "value": "/builders/toolkit/ethereum-api/libraries/web3py/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/wallets/",
+        "value": "/builders/toolkit/ethereum-api/wallets/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/wallets/metamask/",
+        "value": "/builders/toolkit/ethereum-api/wallets/metamask/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/wallets/subwallet/",
+        "value": "/builders/toolkit/ethereum-api/wallets/subwallet/"
+      },
+      {
+        "key": "/builders/interact/ethereum-api/wallets/talisman/",
+        "value": "/builders/toolkit/ethereum-api/wallets/talisman/"
+      },
+      {
+        "key": "/builders/interact/",
+        "value": "/builders/toolkit/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/chopsticks/",
+        "value": "/builders/toolkit/substrate-api/dev-env/chopsticks/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/",
+        "value": "/builders/toolkit/substrate-api/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/indexers/",
+        "value": "/builders/toolkit/integrations/indexers/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/indexers/subsquid/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/polkadot-js-api/",
+        "value": "/builders/toolkit/substrate-api/libraries/polkadot-js-api/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/sidecar-api/",
+        "value": "/builders/toolkit/substrate-api/libraries/sidecar-api/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/wallets/",
+        "value": "/builders/toolkit/substrate-api/wallets/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/wallets/subwallet/",
+        "value": "/builders/toolkit/substrate-api/wallets/subwallet/"
+      },
+      {
+        "key": "/builders/interact/substrate-api/wallets/talisman/",
+        "value": "/builders/toolkit/substrate-api/wallets/talisman/"
+      },
+      {
+        "key": "/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/",
+        "value": "/builders/tanssi-network/testnet/demo-evm-network/"
+      },
+      {
+        "key": "/builders/tanssi-network/networks/dancebox/",
+        "value": "/builders/tanssi-network/testnet/dancebox/"
+      },
+      {
+        "key": "/builders/tanssi-network/networks/dancebox/overview/",
+        "value": "/builders/tanssi-network/testnet/dancebox/"
+      },
+      {
+        "key": "/builders/tanssi-network/networks/",
+        "value": "/builders/tanssi-network/"
+      },
+      {
+        "key": "/builders/tanssi-network/testnet/demo-evm-appchain/",
+        "value": "/builders/tanssi-network/testnet/demo-evm-network/"
+      },
+      {
+        "key": "/builders/tooling/",
+        "value": "/builders/toolkit/integrations/"
+      },
+      {
+        "key": "/builders/tooling/indexers/",
+        "value": "/builders/toolkit/integrations/indexers/"
+      },
+      {
+        "key": "/builders/tooling/indexers/subsquid/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/"
+      },
+      {
+        "key": "/builders/tooling/oracles/acurast/",
+        "value": "/builders/toolkit/integrations/oracles/acurast/"
+      },
+      {
+        "key": "/builders/tooling/oracles/",
+        "value": "/builders/toolkit/integrations/oracles/"
+      },
+      {
+        "key": "/builders/tooling/oracles/phala/",
+        "value": "/builders/toolkit/integrations/oracles/phala/"
+      },
+      {
+        "key": "/builders/toolkit/integrations/indexers/subsquid/erc20-transfers/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/erc20-transfers/"
+      },
+      {
+        "key": "/builders/toolkit/integrations/indexers/subsquid/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/"
+      },
+      {
+        "key": "/builders/toolkit/integrations/indexers/subsquid/quick-start/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/quick-start/"
+      },
+      {
+        "key": "/builders/tutorials/",
+        "value": "/builders/toolkit/integrations/"
+      },
+      {
+        "key": "/builders/tutorials/subsquid/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/erc20-transfers/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/dev-env/foundry/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/foundry/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/hardhat/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/dev-env/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/dev-env/remix/",
+        "value": "/builders/toolkit/ethereum-api/dev-env/remix/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/",
+        "value": "/builders/toolkit/ethereum-api/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs/",
+        "value": "/builders/toolkit/ethereum-api/libraries/ethersjs/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/libraries/",
+        "value": "/builders/toolkit/ethereum-api/libraries/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/libraries/viem/",
+        "value": "/builders/toolkit/ethereum-api/libraries/viem/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/libraries/web3js/",
+        "value": "/builders/toolkit/ethereum-api/libraries/web3js/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/libraries/web3py/",
+        "value": "/builders/toolkit/ethereum-api/libraries/web3py/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/wallets/",
+        "value": "/builders/toolkit/ethereum-api/wallets/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/",
+        "value": "/builders/toolkit/ethereum-api/wallets/metamask/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/wallets/subwallet/",
+        "value": "/builders/toolkit/ethereum-api/wallets/subwallet/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/ethereum-api/wallets/talisman/",
+        "value": "/builders/toolkit/ethereum-api/wallets/talisman/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/chopsticks/",
+        "value": "/builders/toolkit/substrate-api/dev-env/chopsticks/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/",
+        "value": "/builders/toolkit/substrate-api/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/",
+        "value": "/builders/toolkit/substrate-api/libraries/polkadot-js-api/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/sidecar-api/",
+        "value": "/builders/toolkit/substrate-api/libraries/sidecar-api/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/wallets/",
+        "value": "/builders/toolkit/substrate-api/wallets/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/wallets/subwallet/",
+        "value": "/builders/toolkit/substrate-api/wallets/subwallet/"
+      },
+      {
+        "key": "/dapp-developers/developer-toolkit/substrate-api/wallets/talisman/",
+        "value": "/builders/toolkit/substrate-api/wallets/talisman/"
+      },
+      {
+        "key": "/dapp-developers/",
+        "value": "/builders/toolkit/"
+      },
+      {
+        "key": "/dapp-developers/integrations/",
+        "value": "/builders/toolkit/integrations/"
+      },
+      {
+        "key": "/dapp-developers/integrations/indexers/",
+        "value": "/builders/toolkit/integrations/indexers/"
+      },
+      {
+        "key": "/dapp-developers/integrations/indexers/subsquid/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/"
+      },
+      {
+        "key": "/dapp-developers/integrations/indexers/subsquid/quick-start/",
+        "value": "/builders/toolkit/integrations/indexers/sqd/quick-start/"
+      },
+      {
+        "key": "/dapp-developers/integrations/oracles/acurast/",
+        "value": "/builders/toolkit/integrations/oracles/acurast/"
+      },
+      {
+        "key": "/dapp-developers/integrations/oracles/",
+        "value": "/builders/toolkit/integrations/oracles/"
+      },
+      {
+        "key": "/dapp-developers/integrations/oracles/phala/",
+        "value": "/builders/toolkit/integrations/oracles/phala/"
+      },
+      {
+        "key": "/learn/appchains/",
+        "value": "/learn/decentralized-networks/"
+      },
+      {
+        "key": "/learn/appchains/overview/",
+        "value": "/learn/decentralized-networks/overview/"
+      },
+      {
+        "key": "/learn/appchains/runtime-features/",
+        "value": "/learn/decentralized-networks/runtime-features/"
+      },
+      {
+        "key": "/learn/appchains/tx-fees/",
+        "value": "/learn/decentralized-networks/tx-fees/"
+      },
+      {
+        "key": "/learn/tanssi/appchain-services/block-production/",
+        "value": "/learn/tanssi/network-services/block-production/"
+      },
+      {
+        "key": "/learn/tanssi/appchain-services/",
+        "value": "/learn/tanssi/network-services/"
+      },
+      {
+        "key": "/learn/tanssi/included-templates/",
+        "value": "/learn/decentralized-networks/included-templates/"
+      },
+      {
+        "key": "/node-operators/appchain-node/",
+        "value": "/node-operators/network-node/"
+      },
+      {
+        "key": "/node-operators/appchain-node/rpc-docker/",
+        "value": "/node-operators/network-node/rpc-docker/"
+      },
+      {
+        "key": "/node-operators/appchain-node/rpc-systemd/",
+        "value": "/node-operators/network-node/rpc-systemd/"
+      },
+      {
+        "key": "/node-operators/block-producers/",
+        "value": "/node-operators/sequencers/"
+      },
+      {
+        "key": "/node-operators/block-producers/offboarding/account/",
+        "value": "/node-operators/sequencers/offboarding/account/"
+      },
+      {
+        "key": "/node-operators/block-producers/offboarding/",
+        "value": "/node-operators/sequencers/offboarding/"
+      },
+      {
+        "key": "/node-operators/block-producers/onboarding/account-setup/",
+        "value": "/node-operators/sequencers/onboarding/account-setup/"
+      },
+      {
+        "key": "/node-operators/block-producers/onboarding/",
+        "value": "/node-operators/sequencers/onboarding/"
+      },
+      {
+        "key": "/node-operators/block-producers/onboarding/proxy-accounts/",
+        "value": "/node-operators/sequencers/operational-tasks/proxy-accounts/"
+      },
+      {
+        "key": "/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/",
+        "value": "/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/"
+      },
+      {
+        "key": "/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-systemd/",
+        "value": "/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/"
+      },
+      {
+        "key": "/node-operators/block-producers/onboarding/run-a-block-producer/",
+        "value": "/node-operators/sequencers/onboarding/run-a-sequencer/"
+      },
+      {
+        "key": "/node-operators/block-producers/operational-tasks/",
+        "value": "/node-operators/sequencers/operational-tasks/"
+      },
+      {
+        "key": "/node-operators/block-producers/operational-tasks/proxy-accounts/",
+        "value": "/node-operators/sequencers/operational-tasks/proxy-accounts/"
+      },
+      {
+        "key": "/node-operators/block-producers/operational-tasks/upgrade-your-node/",
+        "value": "/node-operators/sequencers/operational-tasks/upgrade-your-node/"
+      },
+      {
+        "key": "/node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-docker/",
+        "value": "/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/"
+      },
+      {
+        "key": "/node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-systemd/",
+        "value": "/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/"
+      }
+    ]
+  }

@@ -607,6 +607,7 @@ details.function,
 .md-typeset table:not([class]) {
   border-radius: 0.3em;
   display: inline-table;
+  border: .05rem solid var(--charcoal);
 }
 
 .md-typeset .md-typeset__table table th {
@@ -617,6 +618,10 @@ details.function,
 .md-typeset table:not([class]) td,
 .md-typeset table:not([class]) th {
   vertical-align: middle;
+}
+
+.md-typeset table:not([class]) td {
+  border-top: .05rem solid var(--charcoal);
 }
 
 /* Tables centered */
@@ -654,7 +659,11 @@ details.function,
 
 .md-typeset .tabbed-content {
   background: var(--md-default-bg-color);
-  box-shadow: var(--md-shadow-z1);
+  border: 1px solid var(--md-accent-bg-color);
+}
+
+.md-typeset .tabbed-content .tabbed-block > p {
+  padding: 0 1em;
 }
 
 /* Document date styling */

@@ -6,15 +6,15 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: "Branch to build and deploy documentation from"
+        description: 'Branch to build and deploy documentation from'
         required: true
-        default: "main"
-        
+        default: 'main'
+
 permissions:
   contents: write
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
@@ -25,11 +25,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: moondance-labs/tanssi-docs
+          ref: ${{ github.event.inputs.branch }}
           path: tanssi-docs
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}

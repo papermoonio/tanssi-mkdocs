@@ -12,7 +12,7 @@ Neoteroi Mkdocs timeline extension: https://github.com/Neoteroi/mkdocs-plugins/b
     color: var(--coral);
   }
   
-  /* main timeline element*/
+  /* main timeline element */
   .nt-timeline {
     margin-top: 30px;
     max-width: 80%;
@@ -168,6 +168,7 @@ Neoteroi Mkdocs timeline extension: https://github.com/Neoteroi/mkdocs-plugins/b
     position: relative;
   }
   
+  /* Colors and icon styling */
   .nt-timeline-dot {
     position: relative;
     width: 20px;

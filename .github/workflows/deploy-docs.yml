@@ -49,13 +49,8 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Update image paths in Markdown files
         run: |
-          # Change /docs/ to /tanssi-mkdocs/ in all .md files inside tanssi-docs
-          # and all .md/.json files inside .snippets subdirectory
-          find tanssi-docs -type f \( -name "*.md" -or \( -path "tanssi-docs/.snippets/*" -a \( -name "*.md" -or -name "*.json" \) \) \) \
-            -exec sed -i -e 's|](/docs/|](/tanssi-mkdocs/|g' -e 's|href="/docs/|href="/tanssi-mkdocs/|g' {} \;
-          find material-overrides -type f -name "*.html" \
-            -exec sed -i -e 's|/docs/|/tanssi-mkdocs/|g' {} \;
-        
+          # Replace old image paths with new paths in Markdown files
+          find tanssi-docs -type f -name "*.md" -exec sed -i -e 's|](/|](/tanssi-mkdocs/|g' -e 's|href="/|href="/tanssi-mkdocs/|g' {} \;
       - name: Replace `/assets` with `assets`
         run: |
           find . -type f -exec sed -i 's|/assets|assets|g' {} +

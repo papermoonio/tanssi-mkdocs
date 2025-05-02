@@ -46,15 +46,11 @@
     {% endif %}
   {% endif %}
   <div class="md-footer-meta md-typeset">
-  
     <div class="md-footer-meta__inner md-grid">
       <div class="columns-llms-button">
-          <button class="md-button primary copy-llms-btn", title="{{ lang.t('clipboard.copy') }}"
-         >
-            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/>
-            </svg>
-            Llms-Full.txt
+          <button class="md-button primary copy-llms-btn", title="{{ lang.t('clipboard.copy') }}">
+            {% include ".icons/material/content-copy.svg" %} 
+            llms-full.txt
           </button>
       </div>
       {% if config.extra.social %}
@@ -82,7 +78,7 @@
         if (copiedToClipboardMessage.textContent !== "{{ lang.t('clipboard.copied') }}") {
           copiedToClipboardMessage.textContent = "{{ lang.t('clipboard.copied') }}";
         }
-        // Set a timer to remove the after 3 seconds (3000ms)
+        // Set a timer to remove the after 2 seconds (2000ms)
         setTimeout(() => {
           copiedToClipboard.classList.remove('md-dialog--active');
         }, 2000); 

@@ -849,6 +849,28 @@ a.md-content__button.md-icon:hover {
   }
 }
 
+.md-button.copy-llms-btn {
+  display: inline-flex; 
+  align-items: center;
+  gap: 0.4em; 
+  background-color: var(--md-footer-bg-color);
+  color: var(--md-code-fg-color);
+  border: 1px solid var(--md-code-fg-color); ;
+}
+
+.copy-llms-btn svg {
+  width: 1em;   
+  height: 1em;
+  fill: var(--md-code-fg-color);
+  display: inline-block;
+  vertical-align: middle;
+  transition: fill 0.3s ease;
+}
+
+.copy-llms-btn:hover svg {
+  fill: var(--md-footer-bg-color);
+}
+
 /* 404 page */
 .not-found {
   display: flex;

@@ -391,6 +391,59 @@
       {
         "key": "/node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-systemd/",
         "value": "/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/"
+      },
+      {
+        "key": "/node-operators/validators/",
+        "value": "/node-operators/operators/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/account-setup/",
+        "value": "/node-operators/operators/onboarding/account-setup/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/",
+        "value": "/node-operators/operators/onboarding/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/opt-in-to-tanssi/",
+        "value": "/node-operators/operators/onboarding/opt-in-to-tanssi/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/register-in-symbiotic/",
+        "value": "/node-operators/operators/onboarding/register-in-symbiotic/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/run-a-validator/",
+        "value": "/node-operators/operators/onboarding/run-an-operator/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/run-a-validator/validators-docker/",
+        "value": "/node-operators/operators/onboarding/run-an-operator/operators-docker/"
+      },
+      {
+        "key": "/node-operators/validators/onboarding/run-a-validator/validators-systemd/",
+        "value": "/node-operators/operators/onboarding/run-an-operator/operators-systemd/"
+      },
+      {
+        "key": "/node-operators/validators/operational-tasks/",
+        "value": "/node-operators/operators/operational-tasks/"
+      },
+      {
+        "key": "/node-operators/validators/operational-tasks/proxy-accounts/",
+        "value": "/node-operators/operators/operational-tasks/proxy-accounts/"
+      },
+      {
+        "key": "/node-operators/validators/operational-tasks/upgrade-your-node/",
+        "value": "/node-operators/operators/operational-tasks/upgrade-your-node/"
+      },
+      {
+        "key": "/node-operators/validators/operational-tasks/upgrade-your-node/upgrade-docker/",
+        "value": "/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-docker/"
+      },
+      {
+        "key": "/node-operators/validators/operational-tasks/upgrade-your-node/upgrade-systemd/",
+        "value": "/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-systemd/"
       }
     ]
   }
+  

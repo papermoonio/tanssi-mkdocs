@@ -856,6 +856,7 @@ a.md-content__button.md-icon:hover {
   background-color: var(--md-footer-bg-color);
   color: var(--md-code-fg-color);
   border: 1px solid var(--md-code-fg-color); ;
+  margin-top: 1rem;
 }
 
 .copy-llms-btn svg {

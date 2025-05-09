@@ -854,6 +854,7 @@ a.md-content__button.md-icon:hover {
   align-items: center;
   gap: 0.4em; 
   background-color: var(--md-footer-bg-color);
+  border: 1px solid var(--md-code-fg-color);
   color: var(--md-code-fg-color);
   margin-top: 1rem;
 }
@@ -869,6 +870,11 @@ a.md-content__button.md-icon:hover {
 
 .copy-llms-btn:hover svg {
   fill: var(--md-footer-bg-color);
+  border: 1px solid var(--button-hover-bg-color);
+}
+
+.border.copy-llms-btn:focus, .border.copy-llms-btn:hover {
+  border: 1px solid var(--button-hover-bg-color);
 }
 
 /* 404 page */
@@ -880,7 +886,7 @@ a.md-content__button.md-icon:hover {
 /* Modal Styling */
 .external-link-modal-container {
   position: fixed;
-  z-index: 99;
+  z-index: 1;
   top: 10%;
   left: 0;
   right: 0;

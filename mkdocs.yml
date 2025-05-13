@@ -70,6 +70,7 @@ plugins:
       js_files:
         - js/externalLinkModal.js
         - js/fixCreatedDate.js
+        - js/clipboardCopy.js
       css_files: 
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css

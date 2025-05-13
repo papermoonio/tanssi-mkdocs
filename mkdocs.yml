@@ -8,6 +8,7 @@ copyright: © 2025 Moondance Labs. All Rights Reserved.
 extra_javascript:
   - js/externalLinkModal.js
   - js/fixCreatedDate.js
+  - js/clipboardCopy.js
 extra_css:
   - /assets/stylesheets/tanssi.css
   - /assets/stylesheets/termynal.css
@@ -69,6 +70,7 @@ plugins:
       js_files:
         - js/externalLinkModal.js
         - js/fixCreatedDate.js
+        - js/clipboardCopy.js
       css_files: 
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css

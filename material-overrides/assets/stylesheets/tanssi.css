@@ -849,20 +849,22 @@ a.md-content__button.md-icon:hover {
   }
 }
 
-.md-button.copy-llms-btn {
+.md-button.copy-llms-btn,
+.md-button.copy-llms-btn:focus {
   display: inline-flex; 
   align-items: center;
   gap: 0.4em; 
   background-color: var(--md-footer-bg-color);
-  border: 1px solid var(--md-code-fg-color);
-  color: var(--md-code-fg-color);
+  border: 1px solid var(--md-default-fg-color);
+  color: var(--md-default-fg-color);
   margin-top: 1rem;
 }
 
-.copy-llms-btn svg {
+.copy-llms-btn svg,
+.copy-llms-btn:focus svg {
   width: 1em;   
   height: 1em;
-  fill: var(--md-code-fg-color);
+  fill: var(--md-default-fg-color);
   display: inline-block;
   vertical-align: middle;
   transition: fill 0.3s ease;
@@ -870,11 +872,12 @@ a.md-content__button.md-icon:hover {
 
 .copy-llms-btn:hover svg {
   fill: var(--md-footer-bg-color);
-  border: 1px solid var(--button-hover-bg-color);
 }
 
-.border.copy-llms-btn:focus, .border.copy-llms-btn:hover {
+.border.copy-llms-btn:hover {
+  background-color: var(--button-hover-bg-color);
   border: 1px solid var(--button-hover-bg-color);
+  color: var(--md-footer-bg-color);
 }
 
 /* 404 page */

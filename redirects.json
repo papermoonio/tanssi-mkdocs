@@ -330,11 +330,11 @@
       },
       {
         "key": "/node-operators/appchain-node/rpc-docker/",
-        "value": "/node-operators/network-node/rpc-docker/"
+        "value": "/node-operators/network-node/tanssi-powered-network/rpc-docker/"
       },
       {
         "key": "/node-operators/appchain-node/rpc-systemd/",
-        "value": "/node-operators/network-node/rpc-systemd/"
+        "value": "/node-operators/network-node/tanssi-powered-network/rpc-systemd/"
       },
       {
         "key": "/node-operators/block-producers/",
@@ -443,6 +443,14 @@
       {
         "key": "/node-operators/validators/operational-tasks/upgrade-your-node/upgrade-systemd/",
         "value": "/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-systemd/"
+      },
+      {
+        "key": "/node-operators/network-node/rpc-docker/",
+        "value": "/node-operators/network-node/tanssi-powered-network/rpc-docker/"
+      },
+      {
+        "key": "/node-operators/network-node/rpc-systemd/",
+        "value": "/node-operators/network-node/tanssi-powered-network/rpc-systemd/"
       }
     ]
   }

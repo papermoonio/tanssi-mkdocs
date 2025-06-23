@@ -10,8 +10,6 @@ extra_javascript:
   - js/fixCreatedDate.js
   - js/clipboardCopy.js
 extra_css:
-  - assets/stylesheets/home.css
-  - assets/stylesheets/index-page.css
   - /assets/stylesheets/tanssi.css
   - /assets/stylesheets/termynal.css
   - /assets/stylesheets/timeline-neoteroi.css
@@ -73,12 +71,9 @@ plugins:
         - js/externalLinkModal.js
         - js/fixCreatedDate.js
         - js/clipboardCopy.js
-      css_files: 
-        - assets/stylesheets/home.css
-        - assets/stylesheets/index-page.css
+      css_files:
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css
-        - /assets/stylesheets/timeline-neoteroi.css
   - macros:
       include_yaml:
         - tanssi-docs/variables.yml

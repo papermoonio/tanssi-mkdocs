@@ -71,7 +71,7 @@ plugins:
         - js/externalLinkModal.js
         - js/fixCreatedDate.js
         - js/clipboardCopy.js
-      css_files: 
+      css_files:
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css
   - macros:
@@ -87,7 +87,7 @@ extra:
       link: https://t.me/tanssiofficial
       name: Telegram
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/tanssi
+      link: https://discord.com/invite/tanssi
       name: Discord
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/tanssi

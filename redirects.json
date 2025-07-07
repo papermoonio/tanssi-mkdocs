@@ -451,8 +451,7 @@
       {
         "key": "/node-operators/network-node/rpc-systemd/",
         "value": "/node-operators/network-node/tanssi-powered-network/rpc-systemd/"
-      }
-      ,
+      },
       {
         "key": "/builders/tanssi-network/testnet/dancebox/",
         "value": "/builders/tanssi-network/testnet/dancelight/"

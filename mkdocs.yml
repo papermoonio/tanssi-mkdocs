@@ -59,7 +59,7 @@ validation:
 exclude_docs: README.md
 plugins:
   - search
-  - awesome-pages
+  - awesome-nav
   - git-revision-date-localized:
       enable_creation_date: true
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
@@ -74,6 +74,7 @@ plugins:
       css_files:
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css
+        - /assets/stylesheets/timeline-neoteroi.css
   - macros:
       include_yaml:
         - tanssi-docs/variables.yml

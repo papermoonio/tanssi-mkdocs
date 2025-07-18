@@ -63,6 +63,10 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
+  - glightbox
+  - macros:
+      include_yaml:
+        - tanssi-docs/variables.yml
   - minify:
       minify_html: true
       minify_js: true
@@ -75,9 +79,6 @@ plugins:
         - /assets/stylesheets/tanssi.css
         - /assets/stylesheets/termynal.css
         - /assets/stylesheets/timeline-neoteroi.css
-  - macros:
-      include_yaml:
-        - tanssi-docs/variables.yml
 extra:
   generator: false
   social:

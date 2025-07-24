@@ -12,3 +12,6 @@ https://fonts.googleapis.com/
 # Ignore sites that block scrapers (403s or 400s)
 https://x.com/
 https://twitter.com/
+
+# Metamask (error 500)
+https://metamask.io/

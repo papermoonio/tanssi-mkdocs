@@ -15,3 +15,7 @@ https://twitter.com/
 
 # Error 500
 https://metamask.io/
+
+# Ignore known working URLs
+https://dancelight.subscan.io/
+https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts

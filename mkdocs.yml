@@ -9,7 +9,7 @@ extra_javascript:
   - js/externalLinkModal.js
   - js/fixCreatedDate.js
   - js/clipboardCopy.js
-  - js/fix-toc-scroll.js
+  - js/fixToc.js
 extra_css:
   - /assets/stylesheets/tanssi.css
   - /assets/stylesheets/termynal.css

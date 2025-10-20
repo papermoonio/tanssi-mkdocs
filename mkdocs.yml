@@ -18,6 +18,7 @@ theme:
   custom_dir: material-overrides
   favicon: /assets/images/tanssi-favicon.webp
   logo: /assets/images/tanssi-logo-white.webp
+  language: en
   icon:
     edit: material/github
   font:
@@ -86,6 +87,13 @@ plugins:
         index-page.html:
           - assets/stylesheets/index-page.css
 extra:
+  alternate:
+    - name: English
+      link: https://www.google.com/ 
+      lang: en
+    - name: Deutsch
+      link: https://www.google.com/
+      lang: de
   generator: false
   social:
     - icon: fontawesome/brands/x-twitter

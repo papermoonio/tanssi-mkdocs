@@ -23,6 +23,9 @@
       {% endif %}
     {% endif %}
     <div class="md-header__buttons">
+      {% if config.extra.alternate %}
+        {% include "partials/alternate.html" %}
+      {% endif %}
       {% if "material/search" in config["plugins"] %}
         <label class="md-header__button md-icon" for="__search">
           {% include ".icons/material/magnify.svg" %}

@@ -8,14 +8,16 @@ copyright: © 2026 Tanssi Foundation. All Rights Reserved.
 hooks:
   - hooks.py
 extra_javascript:
-  - /js/externalLinkModal.js
-  - /js/fixCreatedDate.js
-  - /js/clipboardCopy.js
-  - /js/lang-toggle.js
+  - js/copy-to-llms.js
+  - js/externalLinkModal.js
+  - js/fixCreatedDate.js
+  - js/clipboardCopy.js
+  - js/lang-toggle.js
 extra_css:
   - /assets/stylesheets/tanssi.css
   - /assets/stylesheets/termynal.css
   - /assets/stylesheets/timeline-neoteroi.css
+  - /assets/stylesheets/copy-to-llm.css
 theme:
   name: material
   custom_dir: material-overrides
@@ -62,6 +64,8 @@ validation:
   unrecognized_links: ignore
 exclude_docs: README.md
 plugins:
+  - resolve_md:
+      llms_config: llms_config.json
   - i18n:
       docs_structure: folder
       fallback_to_default: true
@@ -93,6 +97,7 @@ plugins:
         - assets/stylesheets/tanssi.css
         - assets/stylesheets/termynal.css
         - assets/stylesheets/timeline-neoteroi.css
+        - assets/stylesheets/copy-to-llm.css
       scoped_css_templates:
         home.html:
           - assets/stylesheets/home.css

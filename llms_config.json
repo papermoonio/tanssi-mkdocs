@@ -1,0 +1,52 @@
+{
+    "schema_version": "1.2",
+
+    "project": {
+        "id": "tanssi",
+        "name": "Tanssi",
+        "project_url": "https://tanssi.network",
+        "docs_base_url": "https://docs.tanssi.network/"
+    },
+
+    "repository": {
+        "host": "github",
+        "org": "moondance-labs",
+        "repo": "tanssi-docs",
+        "default_branch": "main",
+        "docs_path": ".",
+        "ai_artifacts_path": "ai/pages"
+    },
+
+    "content": {
+        "docs_dir": ".",
+        "base_context_categories": ["Basics", "Reference"],
+        "categories_order": [
+            "Basics",
+            "Sequencers", 
+            "Operators", 
+            "RPC-Data-Preservers", 
+            "Appchain", 
+            "Substrate-Template", 
+            "EVM-Template", 
+            "Custom-Runtime",
+            "Reference"
+        ],
+        "exclusions": {
+            "skip_basenames": [
+                "index.md",
+                "README.md",
+                ".CONTRIBUTING.md",
+                "LICENSE.md"
+            ],
+            "skip_paths": [".snippets", ".github", "i18n"]
+        }
+    },
+
+    "outputs": {
+        "public_root": "/ai/",
+        "files": {
+            "llms_full": "llms-full.jsonl",
+            "pages_dir": "pages"
+        }
+    }
+}

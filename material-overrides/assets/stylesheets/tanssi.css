@@ -780,6 +780,11 @@ pre:hover > .md-code__nav {
   border-top: 0.05rem solid var(--charcoal);
 }
 
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
 /* Tables centered */
 .md-typeset__scrollwrap {
   text-align: center;

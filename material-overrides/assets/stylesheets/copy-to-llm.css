@@ -18,14 +18,14 @@
 .copy-to-llm-split-container {
   display: inline-flex;
   margin-left: auto;
-  border: 1px solid var(--border-purple-bright);
-  border-radius: var(--border-radius);
+  border: 1px solid var(--white-smoke-transparent-20);
+  border-radius: 6px;
   overflow: visible;
   position: relative;
 }
 
 .copy-to-llm-split-container:hover {
-  background-color: var(--md-accent-fg-color--transparent);
+  background-color: var(--md-default-fg-color--light);
 }
 
 /* Common styles for both parts */
@@ -44,12 +44,12 @@
 
 /* Left button (copy) */
 .copy-to-llm-left {
-  border-right: 1px solid var(--border-purple-bright);
+  border-right: 1px solid var(--white-smoke-transparent-20);
   border-radius: 6px 0 0 6px;
 }
 
 .copy-to-llm-left:hover {
-  background-color: var(--md-accent-fg-color--transparent);
+  background-color: var(--md-default-fg-color--lighter);
 }
 
 /* Right button (dropdown) */
@@ -62,7 +62,7 @@
 
 .copy-to-llm-right:hover,
 .copy-to-llm-right.active {
-  background-color: var(--md-accent-fg-color--transparent);
+  background-color: var(--md-default-fg-color--lighter);
 }
 
 .copy-to-llm-right:focus {
@@ -108,7 +108,7 @@
   top: calc(100% + 4px);
   right: 0;
   background-color: var(--md-default-bg-color);
-  border: 1px solid var(--border-purple-bright);
+  border: 1px solid var(--white-smoke-transparent-20);
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   min-width: 160px;
@@ -144,11 +144,11 @@
 }
 
 .copy-to-llm-dropdown-item:hover {
-  background-color: var(--md-accent-fg-color--transparent);
+  background-color: var(--md-default-fg-color--lighter);
 }
 
 .copy-to-llm-dropdown-item:active {
-  background-color: var(--light-transparent-15);
+  background-color: var(---md-default-fg-color--light);
 }
 
 .copy-to-llm-dropdown-item svg {
@@ -185,7 +185,7 @@
   background-color: var(--md-primary-bg-color);
   color: var(--md-primary-fg-color);
   padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
+  border-radius: 6px;
   font-size: 0.875rem;
   opacity: 0;
   transition: all 0.3s ease;

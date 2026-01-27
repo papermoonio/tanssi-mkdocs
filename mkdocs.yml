@@ -8,22 +8,20 @@ copyright: © 2026 Tanssi Foundation. All Rights Reserved.
 hooks:
   - hooks.py
 extra_javascript:
-  - js/copy-to-llms.js
-  - js/externalLinkModal.js
-  - js/fixCreatedDate.js
-  - js/clipboardCopy.js
-  - js/lang-toggle.js
+  - javascript/externalLinkModal.js
+  - javascript/fixCreatedDate.js
+  - javascript/clipboardCopy.js
+  - javascript/lang-toggle.js
 extra_css:
-  - /assets/stylesheets/tanssi.css
-  - /assets/stylesheets/termynal.css
-  - /assets/stylesheets/timeline-neoteroi.css
-  - /assets/stylesheets/copy-to-llm.css
+  - assets/stylesheets/tanssi.css
+  - assets/stylesheets/termynal.css
+  - assets/stylesheets/timeline-neoteroi.css
 theme:
   name: material
   custom_dir: material-overrides
   language: en
-  favicon: /assets/images/tanssi-favicon.webp
-  logo: /assets/images/tanssi-logo-white.webp
+  favicon: assets/images/tanssi-favicon.webp
+  logo: assets/images/tanssi-logo-white.webp
   icon:
     edit: material/github
   font:
@@ -93,6 +91,11 @@ plugins:
       minify_js: true
       minify_css: true
       cache_safe: true
+      js_files:
+        - javascript/externalLinkModal.js
+        - javascript/fixCreatedDate.js
+        - javascript/clipboardCopy.js
+        - javascript/lang-toggle.js
       css_files:
         - assets/stylesheets/tanssi.css
         - assets/stylesheets/termynal.css

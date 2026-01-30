@@ -1,4 +1,14 @@
-{%- import "partials/languages/" ~ config.theme.language ~ ".html" as language_pack -%}
+{# Pick the correct Material language pack per page/locale. #}
+{% set active_lang = config.theme.language | default("en") %}
+{% if page is defined %}
+  {% if page.lang %}
+    {% set active_lang = page.lang %}
+  {% elif page.file is defined and page.file.locale %}
+    {% set active_lang = page.file.locale %}
+  {% endif %}
+{% endif %}
+
+{%- import "partials/languages/" ~ active_lang ~ ".html" as language_pack -%}
 {%- import "partials/languages/en.html" as fallback_language -%}
 {%- macro translate(key) -%}
   {{ language_pack.t(key) or fallback_language.t(key) or key }}

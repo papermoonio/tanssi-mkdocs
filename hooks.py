@@ -1,12 +1,12 @@
 import io
-from shutil import copy2
 from pathlib import Path
 
 import yaml
 import json
 import re
-import polib
-from babel.messages.pofile import read_po
+from jinja2 import pass_context
+from babel.messages.catalog import Catalog
+from babel.messages.pofile import read_po, write_po
 from babel.messages.mofile import write_mo
 from babel.support import Translations
 from mkdocs.plugins import event_priority
@@ -87,13 +87,34 @@ def _build_translator(config):
     return translate
 
 
+def _has_custom_translation(yaml_translations, gettext_translations, key, lang, default_lang):
+    if key in yaml_translations.get(lang, {}):
+        return True
+    if key in yaml_translations.get(default_lang, {}):
+        return True
+    translator = gettext_translations.get(lang)
+    if translator:
+        value = translator.gettext(key)
+        if value and value != key:
+            return True
+    fallback_translator = gettext_translations.get(default_lang)
+    if fallback_translator:
+        value = fallback_translator.gettext(key)
+        if value and value != key:
+            return True
+    return False
+
+
 def _sync_theme_translations(config):
     docs_dir = Path(config.get("docs_dir", "docs"))
     yaml_translations = _load_yaml_translations(docs_dir / "locale")
     if not yaml_translations:
         return
 
-    custom_dir = config.get("theme", {}).get("custom_dir")
+    theme = config.get("theme", {})
+    custom_dir = getattr(theme, "custom_dir", None)
+    if not custom_dir and hasattr(theme, "get"):
+        custom_dir = theme.get("custom_dir")
     if not custom_dir:
         return
 
@@ -105,64 +126,111 @@ def _sync_theme_translations(config):
     translations_dir = custom_path / ".translations"
     translations_dir.mkdir(parents=True, exist_ok=True)
 
+    project_name = config.get("site_name") or Path(__file__).resolve().parent.name or "Docs"
     for locale, data in yaml_translations.items():
         target = translations_dir / f"{locale}.json"
         target.write_text(
             json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
         )
+        _write_po_translations(docs_dir, locale, data, project_name)
 
 
-def _sync_gettext_translations(config):
-    docs_dir = Path(config.get("docs_dir", "docs"))
-    yaml_translations = _load_yaml_translations(docs_dir / "locale")
-    if not yaml_translations:
+def _get_catalog_metadata(catalog):
+    metadata = getattr(catalog, "metadata", None)
+    if metadata is not None:
+        return dict(metadata)
+    headers = getattr(catalog, "mime_headers", None)
+    if headers is None:
+        return {}
+    return {key: value for key, value in headers}
+
+
+def _set_catalog_metadata(catalog, metadata):
+    if hasattr(catalog, "metadata"):
+        catalog.metadata.update(metadata)
         return
-
-    i18n_dir = docs_dir / "i18n"
-    for locale, data in yaml_translations.items():
-        po_dir = i18n_dir / locale / "LC_MESSAGES"
-        po_dir.mkdir(parents=True, exist_ok=True)
-        po_path = po_dir / "messages.po"
-
-        if po_path.exists():
-            po = polib.pofile(str(po_path))
+    headers = list(getattr(catalog, "mime_headers", []) or [])
+    if not headers:
+        catalog.mime_headers = list(metadata.items())
+        return
+    index = {key: idx for idx, (key, _value) in enumerate(headers)}
+    for key, value in metadata.items():
+        if key in index:
+            headers[index[key]] = (key, value)
         else:
-            po = polib.POFile()
-            po.metadata = {
-                "Project-Id-Version": "tanssi-docs",
-                "Content-Type": "text/plain; charset=UTF-8",
-                "Content-Transfer-Encoding": "8bit",
-                "Language": locale,
-            }
-
-        changed = False
-        for key, value in data.items():
-            if value is None or isinstance(value, (dict, list)):
-                continue
-            msgstr = str(value)
-            entry = po.find(key)
-            if entry is None:
-                po.append(polib.POEntry(msgid=key, msgstr=msgstr))
-                changed = True
-            elif entry.msgstr != msgstr:
-                entry.msgstr = msgstr
-                changed = True
-
-        if changed:
-            po.save(str(po_path))
+            headers.append((key, value))
+    catalog.mime_headers = headers
 
 
-@event_priority(1000)
+def _write_po_translations(docs_dir, locale, data, project_name):
+    i18n_dir = docs_dir / "i18n" / locale / "LC_MESSAGES"
+    i18n_dir.mkdir(parents=True, exist_ok=True)
+    po_path = i18n_dir / "messages.po"
+
+    existing_metadata = {}
+    if po_path.exists():
+        with po_path.open("r", encoding="utf-8") as po_file:
+            existing_catalog = read_po(po_file)
+        existing_metadata = _get_catalog_metadata(existing_catalog)
+
+    catalog = Catalog(
+        locale=locale,
+        project=existing_metadata.get("Project-Id-Version", project_name),
+    )
+    metadata = dict(existing_metadata)
+    metadata.setdefault("Project-Id-Version", project_name)
+    metadata.setdefault("POT-Creation-Date", "2025-01-01 00:00+0000")
+    metadata.setdefault("Language", locale)
+    metadata.setdefault("Content-Type", "text/plain; charset=UTF-8")
+    metadata.setdefault("Content-Transfer-Encoding", "8bit")
+    _set_catalog_metadata(catalog, metadata)
+
+    for key in sorted(data):
+        catalog.add(key, data[key] if data[key] is not None else "")
+
+    with po_path.open("wb") as po_file:
+        write_po(po_file, catalog, width=0)
+
+
 def on_config(config):
-    _sync_gettext_translations(config)
     _sync_theme_translations(config)
     return config
 
 
 def on_env(env, config, files):
     translator = _build_translator(config)
+    docs_dir = Path(config.get("docs_dir", "docs"))
+    yaml_translations = _load_yaml_translations(docs_dir / "locale")
+    gettext_translations = _load_gettext_translations(docs_dir / "i18n")
+    default_lang = config.get("theme", {}).get("language", "en")
+
+    @pass_context
+    def t(context, key):
+        lang_code = None
+        page = context.get("page")
+        if page is not None:
+            lang_code = getattr(page, "lang", None)
+            if not lang_code:
+                lang_code = getattr(getattr(page, "file", None), "locale", None)
+        if not lang_code:
+            cfg = context.get("config", {}) or {}
+            lang_code = cfg.get("theme", {}).get("language")
+        lang_code = lang_code or default_lang
+
+        if _has_custom_translation(
+            yaml_translations, gettext_translations, key, lang_code, default_lang
+        ):
+            return translator(key, lang=lang_code)
+
+        lang_obj = context.get("lang")
+        if lang_obj is not None and hasattr(lang_obj, "t"):
+            return lang_obj.t(key)
+
+        return translator(key, lang=lang_code)
+
     env.globals["trans"] = translator
+    env.globals["t"] = t
     env.filters["trans"] = translator
     return env
 
@@ -180,6 +248,11 @@ def on_page_context(context, page, config, nav):
         config.get("theme", {}).get("language", "en"),
     )
     page_locale = page.file.locale or default_lang
+
+    # Ensure templates can reliably read the current locale.
+    if not getattr(page, "lang", None):
+        page.lang = page_locale
+
     if page_locale == default_lang:
         return context
 
@@ -210,16 +283,40 @@ def on_post_page(output, page, config):
         if is_404:
             return output
 
-        # Adjust base for locale pages
-        if page_locale != default_lang:
-            parts = [p for p in (page.url or "").split("/") if p]
-            if parts and parts[0] == page_locale:
-                depth = max(len(parts) - 1, 0)
-            else:
-                depth = len(parts)
-            new_base = "../" * depth or "."
+        def _config_script_match(doc_html: str):
+            """
+            Find the Material __config JSON script tag.
 
-            m = re.search(r'(<script id="__config" type="application/json">)(.*?)(</script>)', output, flags=re.S)
+            Note: the minify plugin may remove attribute quotes, so match both quoted/unquoted forms.
+            """
+            return re.search(
+                r'(<script[^>]*\bid=(?:"__config"|__config)[^>]*\btype=(?:"application/json"|application/json)[^>]*>)(.*?)(</script>)',
+                doc_html,
+                flags=re.S,
+            )
+
+        def _locale_base_from_dest_path(dest: str, locale: str) -> str:
+            """
+            Compute the base path from a locale page to the locale root.
+
+            Examples:
+              - pt/index.html -> .
+              - zh/builders/index.html -> ..
+              - fr/builders/build/index.html -> ../..
+            """
+            prefix = f"{locale}/"
+            rel = dest[len(prefix) :] if dest.startswith(prefix) else dest
+            parts = [p for p in rel.split("/") if p]
+            if parts and parts[-1].endswith(".html"):
+                parts = parts[:-1]
+            depth = len(parts)
+            return "." if depth == 0 else "/".join([".."] * depth)
+
+        # Adjust base for locale pages (so search pulls the locale search index)
+        if page_locale != default_lang:
+            new_base = _locale_base_from_dest_path(dest_path or "", page_locale)
+
+            m = _config_script_match(output)
             if m:
                 try:
                     cfg = json.loads(m.group(2))
@@ -227,24 +324,27 @@ def on_post_page(output, page, config):
                     new_json = json.dumps(cfg, separators=(",", ":"))
                     output = output[: m.start(2)] + new_json + output[m.end(2) :]
                 except Exception:
-                    # Best-effort update; regex fallback below handles malformed JSON.
                     pass
 
         # Render inline trans() placeholders left in snippets
         translator = _build_translator(config)
         lang = page_locale
 
-        def replace_trans(match):
+        def replace_translation(match):
             key = match.group(1).strip()
             return translator(key, lang=lang)
 
-        # match {{ trans("key") }} including cases where quotes are escaped
-        output = re.sub(r"{{\s*trans\(\s*\\?['\"]([^'\"]+)\\?['\"]\s*\)\s*}}", replace_trans, output)
+        # match {{ t("key") }} or {{ trans("key") }} including cases where quotes are escaped
+        output = re.sub(
+            r"{{\s*(?:trans|t)\(\s*\\?['\"]([^'\"]+)\\?['\"]\s*\)\s*}}",
+            replace_translation,
+            output,
+        )
 
         # normalize html lang attribute to the resolved locale
         output = re.sub(
-            r'(<html[^>]*?lang=")[^"]*(")',
-            lambda m: f"{m.group(1)}{page_locale}{m.group(2)}",
+            r'(<html[^>]*?\blang=)(?:"[^"]*"|[^\s>]+)',
+            lambda m: f'{m.group(1)}"{page_locale}"',
             output,
             count=1,
         )
@@ -260,9 +360,7 @@ def on_post_page(output, page, config):
         # Prevent closing the script tag early if translations contain "</".
         safe_payload = payload.replace("</", "<\\/")
         injections = [
-            '<script id="external-link-modal-strings" type="application/json">'
-            + safe_payload
-            + "</script>"
+            '<script id="external-link-modal-strings" type="application/json">' + safe_payload + "</script>"
         ]
 
         head_close = output.find("</head>")
@@ -281,6 +379,10 @@ def on_post_build(config):
     and produce localized 404 pages with the proper header/footer and language toggle.
     """
     site_dir = Path(config["site_dir"])
+    index_path = site_dir / "search" / "search_index.json"
+    if not index_path.exists():
+        return
+
     i18n_plugin = config.plugins.get("i18n")
     if not i18n_plugin:
         return
@@ -290,24 +392,15 @@ def on_post_build(config):
     if not default_lang:
         default_lang = i18n_plugin.config.default_language
 
-    source = site_dir / "assets" / "images" / "home-background.mp4"
-    if source.exists():
-        for lang in languages:
-            if lang == default_lang:
-                continue
-            target = site_dir / lang / "assets" / "images" / "home-background.mp4"
-            target.parent.mkdir(parents=True, exist_ok=True)
-            copy2(source, target)
-
-    index_path = site_dir / "search" / "search_index.json"
-    if not index_path.exists():
-        return
-
     def _replace_config_base(doc_html: str, base_value: str) -> str:
         """
         Normalize the __config base setting. Prefer JSON rewrite, fall back to regex.
         """
-        m = re.search(r'(<script id="__config" type="application/json">)(.*?)(</script>)', doc_html, re.S)
+        m = re.search(
+            r'(<script[^>]*\bid=(?:"__config"|__config)[^>]*\btype=(?:"application/json"|application/json)[^>]*>)(.*?)(</script>)',
+            doc_html,
+            re.S,
+        )
         if m:
             try:
                 cfg = json.loads(m.group(2))
@@ -382,20 +475,21 @@ def on_post_build(config):
         target_path.write_text(json.dumps(localized, ensure_ascii=False), encoding="utf-8")
 
     translator = _build_translator(config)
-    title_map = {
-        lang_cfg.locale: translator("error.404_title", lang=lang_cfg.locale)
-        for lang_cfg in i18n_plugin.config.languages
-    }
+    title_map = {}
+    for lang_cfg in i18n_plugin.config.languages:
+        locale = lang_cfg.locale
+        title = translator("material_overrides.404.404_not_found", lang=locale)
+        if not title or title == "material_overrides.404.404_not_found":
+            title = translator("error.404_title", lang=locale)
+        title_map[locale] = title
     locale_payload = {
         "locales": languages,
         "default": default_lang,
         "titles": title_map,
     }
     locale_payload_json = json.dumps(locale_payload, ensure_ascii=False)
-    # Prevent closing the script tag early if translations contain "</".
-    safe_locale_payload_json = locale_payload_json.replace("</", "<\\/")
 
-    lang_injection = f"""<script id="lang-404-data" type="application/json">{safe_locale_payload_json}</script>
+    lang_injection = f"""<script id="lang-404-data" type="application/json">{locale_payload_json}</script>
 <script id="lang-404">
 (function() {{
   function getData() {{
@@ -421,13 +515,18 @@ def on_post_build(config):
     if (window.__md_set) {{ try {{ __md_set("language", locale); }} catch(e) {{}} }}
     document.documentElement.setAttribute("lang", locale);
     var label = document.querySelector(".language-picker__label");
-    if (label) label.textContent = locale.toUpperCase();
+    var labelText = locale.toUpperCase();
+    if (locale && locale.toLowerCase().indexOf("zh") === 0) labelText = "\\u4e2d\\u6587";
+    if (label) label.textContent = labelText;
     document.querySelectorAll(".language-picker__code").forEach(function(el) {{
-      el.textContent = el.textContent.trim().toUpperCase();
-      if (el.closest("a")) {{
-        var hrefLang = el.closest("a").getAttribute("hreflang");
-        el.closest("a").classList.toggle("is-active", hrefLang === locale);
+      var link = el.closest("a");
+      var hrefLang = link ? (link.getAttribute("hreflang") || "") : "";
+      if (hrefLang.toLowerCase().indexOf("zh") === 0) {{
+        el.textContent = "\\u4e2d\\u6587";
+      }} else {{
+        el.textContent = el.textContent.trim().toUpperCase();
       }}
+      if (link) link.classList.toggle("is-active", hrefLang === locale);
     }});
     document.querySelectorAll('.language-picker__menu a[hreflang]').forEach(function(a) {{
       a.classList.toggle("is-active", a.getAttribute("hreflang") === locale);
@@ -504,10 +603,7 @@ def on_post_build(config):
   function swapShell(locale) {{
     var indexPath = resolveIndexPath(locale);
     var localeRoot = resolveLocaleRoot(locale);
-    fetch(indexPath).then(function(resp) {{
-      if (!resp.ok) throw new Error("Failed to load locale shell");
-      return resp.text();
-    }}).then(function(html) {{
+    fetch(indexPath).then(function(resp) {{ return resp.text(); }}).then(function(html) {{
       var doc = new DOMParser().parseFromString(html, "text/html");
       var newHeader = doc.querySelector("header.md-header");
       var newFooter = doc.querySelector("footer.md-footer");
@@ -582,8 +678,8 @@ def on_post_build(config):
             translated_title = title_map.get(locale, "404")
 
             localized = re.sub(
-                r'(<html[^>]*?lang=")[^"]*(")',
-                lambda m: f"{m.group(1)}{locale}{m.group(2)}",
+                r'(<html[^>]*?\blang=)(?:"[^"]*"|[^\s>]+)',
+                lambda m: f'{m.group(1)}"{locale}"',
                 html_404,
                 count=1,
             )
@@ -604,7 +700,7 @@ def on_post_build(config):
                     header_match = re.search(r'(<header[^>]*class="[^"]*md-header[^"]*"[^>]*>.*?</header>)', idx_html, re.S)
                     footer_match = re.search(r'(<footer[^>]*class="[^"]*md-footer[^"]*"[^>]*>.*?</footer>)', idx_html, re.S)
                     config_match = re.search(
-                        r'(<script id="__config" type="application/json">.*?</script>)',
+                        r'(<script[^>]*\bid=(?:"__config"|__config)[^>]*\btype=(?:"application/json"|application/json)[^>]*>.*?</script>)',
                         idx_html,
                         re.S,
                     )
@@ -635,7 +731,7 @@ def on_post_build(config):
                 )
             if config_fragment:
                 localized = re.sub(
-                    r'<script id="__config" type="application/json">.*?</script>',
+                    r'<script[^>]*\bid=(?:"__config"|__config)[^>]*\btype=(?:"application/json"|application/json)[^>]*>.*?</script>',
                     lambda _m, frag=config_fragment: frag,
                     localized,
                     flags=re.S,
@@ -649,8 +745,7 @@ def on_post_build(config):
                 )
 
             # 404 pages live at the locale root, so base should be the current dir
-            base_value = "."
-            localized = _replace_config_base(localized, base_value)
+            localized = _replace_config_base(localized, ".")
 
             head_close = localized.find("</head>")
             if head_close != -1:

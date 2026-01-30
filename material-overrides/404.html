@@ -3,6 +3,10 @@
 -#}
 
 {% extends "main.html" %}
+
+{# 404 pages shouldn't show the sidebar feedback/edit block. #}
+{% block site_nav %}{% endblock %}
+
 {% block content %}
   <h1 id="not-found-title" class="not-found">
     {{ trans("error.404_title", lang=page.lang if page is defined else None) }}

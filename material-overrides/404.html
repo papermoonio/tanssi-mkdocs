@@ -4,6 +4,33 @@
 
 {% extends "main.html" %}
 
+{#-
+  When a static host serves 404.html at an arbitrary missing URL (e.g. /builders/egg),
+  relative asset URLs (logo/CSS/JS) can break because they're resolved against that URL.
+  Use a <base> tag derived from site_url's path so relative URLs resolve from the site root
+  (and still work for GitHub Pages subpaths like /<repo>/).
+-#}
+{% block site_meta %}
+  {{ super() }}
+  {% set site_url = config.site_url | default("/") %}
+  {% set base_path = "/" %}
+  {% if "://" in site_url %}
+    {% set after_scheme = site_url.split("://")[-1] %}
+    {% set parts = after_scheme.split("/") %}
+    {% set path_parts = parts[1:] %}
+    {% set joined = "/".join(path_parts) %}
+    {% if joined %}
+      {% set base_path = "/" ~ joined %}
+    {% endif %}
+  {% elif site_url.startswith("/") %}
+    {% set base_path = site_url %}
+  {% endif %}
+  {% if not base_path.endswith("/") %}
+    {% set base_path = base_path ~ "/" %}
+  {% endif %}
+  <base href="{{ base_path }}">
+{% endblock %}
+
 {# 404 pages shouldn't show the sidebar feedback/edit block. #}
 {% block site_nav %}{% endblock %}
 

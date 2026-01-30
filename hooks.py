@@ -487,7 +487,8 @@ def on_post_build(config):
         "default": default_lang,
         "titles": title_map,
     }
-    locale_payload_json = json.dumps(locale_payload, ensure_ascii=False)
+    # Prevent closing the script tag early if translations contain "</".
+    locale_payload_json = json.dumps(locale_payload, ensure_ascii=False).replace("</", "<\\/")
 
     lang_injection = f"""<script id="lang-404-data" type="application/json">{locale_payload_json}</script>
 <script id="lang-404">
@@ -603,7 +604,10 @@ def on_post_build(config):
   function swapShell(locale) {{
     var indexPath = resolveIndexPath(locale);
     var localeRoot = resolveLocaleRoot(locale);
-    fetch(indexPath).then(function(resp) {{ return resp.text(); }}).then(function(html) {{
+    fetch(indexPath).then(function(resp) {{
+      if (!resp.ok) {{ throw new Error("Failed to load localized index"); }}
+      return resp.text();
+    }}).then(function(html) {{
       var doc = new DOMParser().parseFromString(html, "text/html");
       var newHeader = doc.querySelector("header.md-header");
       var newFooter = doc.querySelector("footer.md-footer");
@@ -697,8 +701,16 @@ def on_post_build(config):
             if localized_index.exists():
                 try:
                     idx_html = localized_index.read_text(encoding="utf-8")
-                    header_match = re.search(r'(<header[^>]*class="[^"]*md-header[^"]*"[^>]*>.*?</header>)', idx_html, re.S)
-                    footer_match = re.search(r'(<footer[^>]*class="[^"]*md-footer[^"]*"[^>]*>.*?</footer>)', idx_html, re.S)
+                    header_match = re.search(
+                        r'(<header\b[^>]*\bclass=(?:"[^"]*\bmd-header\b[^"]*"|[^\s>]*\bmd-header\b[^\s>]*)[^>]*>.*?</header>)',
+                        idx_html,
+                        re.S,
+                    )
+                    footer_match = re.search(
+                        r'(<footer\b[^>]*\bclass=(?:"[^"]*\bmd-footer\b[^"]*"|[^\s>]*\bmd-footer\b[^\s>]*)[^>]*>.*?</footer>)',
+                        idx_html,
+                        re.S,
+                    )
                     config_match = re.search(
                         r'(<script[^>]*\bid=(?:"__config"|__config)[^>]*\btype=(?:"application/json"|application/json)[^>]*>.*?</script>)',
                         idx_html,
@@ -717,14 +729,14 @@ def on_post_build(config):
                     header_fragment = footer_fragment = config_fragment = search_fragment = None
             if header_fragment:
                 localized = re.sub(
-                    r'<header[^>]*class="[^"]*md-header[^"]*"[^>]*>.*?</header>',
+                    r'<header\b[^>]*\bclass=(?:"[^"]*\bmd-header\b[^"]*"|[^\s>]*\bmd-header\b[^\s>]*)[^>]*>.*?</header>',
                     lambda _m, frag=header_fragment: frag,
                     localized,
                     flags=re.S,
                 )
             if footer_fragment:
                 localized = re.sub(
-                    r'<footer[^>]*class="[^"]*md-footer[^"]*"[^>]*>.*?</footer>',
+                    r'<footer\b[^>]*\bclass=(?:"[^"]*\bmd-footer\b[^"]*"|[^\s>]*\bmd-footer\b[^\s>]*)[^>]*>.*?</footer>',
                     lambda _m, frag=footer_fragment: frag,
                     localized,
                     flags=re.S,

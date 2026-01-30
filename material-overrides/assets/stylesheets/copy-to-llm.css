@@ -24,10 +24,6 @@
   position: relative;
 }
 
-.copy-to-llm-split-container:hover {
-  background-color: var(--md-default-fg-color--light);
-}
-
 /* Common styles for both parts */
 .copy-to-llm-section {
   padding: 0.6em 0.9em;

@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block content %}
+<!-- Marker element to indicate this is an index page. Used by copy-to-llms.js to disable LLM copy on index pages -->
+<div class="is-index-page" style="display: none;" aria-hidden="true"></div>
 {% macro find_active_page(element, nav) %}
   {% for nav_item in element %}
     {% if nav_item.active %}

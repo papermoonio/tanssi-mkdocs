@@ -123,7 +123,8 @@
 
         // NOTE: same-origin assets: default for everything we ship in docs/ (llms, ai bundles, etc.)
         if (dataPath.startsWith('/')) return `${SITE_BASE}/${stripLeading(dataPath)}`;
-        if (normalized === 'llms.txt' || normalized === 'llms-full.jsonl') return `${SITE_BASE}/${normalized}`;
+        if (normalized === 'llms.txt') return `${SITE_BASE}/${normalized}`;
+        if (normalized === 'llms-full.jsonl') return `${SITE_BASE}/ai/${normalized}`;
 
         // Fallback → site-relative
         return `${SITE_BASE}/${normalized}`;

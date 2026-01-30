@@ -10,7 +10,6 @@ hooks:
 extra_javascript:
   - javascript/externalLinkModal.js
   - javascript/fixCreatedDate.js
-  - javascript/clipboardCopy.js
   - javascript/lang-toggle.js
   - javascript/copy-to-llms.js
 extra_css:
@@ -96,7 +95,6 @@ plugins:
       js_files:
         - javascript/externalLinkModal.js
         - javascript/fixCreatedDate.js
-        - javascript/clipboardCopy.js
         - javascript/lang-toggle.js
         - javascript/copy-to-llms.js
       css_files:

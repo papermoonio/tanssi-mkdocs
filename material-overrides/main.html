@@ -105,6 +105,20 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const SITE_BASE = location.origin.replace(/\/+$/, ''); // current host
+      
+      // Determine language prefix (e.g. '/pt') based on URL path or HTML lang attribute
+      const getLangPrefix = () => {
+        const path = location.pathname;
+        // Check for recognized path prefix for Portuguese
+        if (/^\/pt(\/|$)/.test(path)) return '/pt';
+        
+        // Fallback: check <html> lang attribute
+        const lang = document.documentElement.lang || 'en';
+        const code = lang.split('-')[0];
+        return code === 'pt' ? '/pt' : '';
+      };
+
+      const langPrefix = getLangPrefix();
       const AI_BASE = '/ai'; // relative path to AI content on same host
 
       const stripLeading = (value) => value.replace(/^\/+/, '');
@@ -117,14 +131,15 @@
         const normalized = stripLeading(dataPath);
 
         // All AI content is served from the AI_BASE on the current host
+        // We inject langPrefix if present (e.g. /pt/ai/...)
         if (normalized.startsWith('ai/')) {
-          return `${SITE_BASE}${AI_BASE}/${stripLeading(normalized.replace(/^ai\//, ''))}`;
+          return `${SITE_BASE}${langPrefix}${AI_BASE}/${stripLeading(normalized.replace(/^ai\//, ''))}`;
         }
 
         // NOTE: same-origin assets: default for everything we ship in docs/ (llms, ai bundles, etc.)
+        // llms.txt is served from the site (localized) root; other AI artifacts live under /ai
+        if (normalized === 'llms.txt') return `${SITE_BASE}${langPrefix}/${normalized}`;
         if (dataPath.startsWith('/')) return `${SITE_BASE}/${stripLeading(dataPath)}`;
-        if (normalized === 'llms.txt') return `${SITE_BASE}/${normalized}`;
-        if (normalized === 'llms-full.jsonl') return `${SITE_BASE}/ai/${normalized}`;
 
         // Fallback → site-relative
         return `${SITE_BASE}/${normalized}`;
@@ -197,6 +212,25 @@
             path.split('/').pop() ||
             'download.txt';
           downloadViaFetch(url, filename);
+        });
+      });
+
+      // VIEW buttons: open raw files in a new tab
+      document.querySelectorAll('.llms-view').forEach((a) => {
+        const abs = toAbsolute(a.getAttribute('data-path'));
+        if (abs) {
+          a.setAttribute('href', abs);
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener');
+        }
+
+        a.addEventListener('click', (e) => {
+          const url = toAbsolute(a.getAttribute('data-path') || '');
+          if (!url) return;
+          if (a.getAttribute('target') !== '_blank') {
+            e.preventDefault();
+            window.open(url, '_blank', 'noopener');
+          }
         });
       });
     });

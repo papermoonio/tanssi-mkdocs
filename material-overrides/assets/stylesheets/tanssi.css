@@ -489,8 +489,10 @@ a.md-header__button.md-logo img {
 }
 
 .md-tabs__item {
-  padding-left: 1.75em;
-  padding-right: 1.75em;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 1360px) {

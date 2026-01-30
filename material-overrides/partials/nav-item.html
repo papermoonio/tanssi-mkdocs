@@ -2,6 +2,9 @@
   This file was automatically generated - do not edit
 -#}
 {% macro render(nav_item, path, level) %}
+  {% if nav_item.children and nav_item.children | length == 1 and not nav_item.children[0].children and not nav_item.url %}
+    {{ render(nav_item.children[0], path, level) }}
+  {% else %}
   {% set class = "md-nav__item" %}
   {% if nav_item.active %}
     {% set class = class ~ " md-nav__item--active" %}
@@ -90,6 +93,7 @@
         {{ nav_item.title }}
       </a>
     </li>
+  {% endif %}
   {% endif %}
 {% endmacro %}
 {{ render(nav_item, path, level) }}

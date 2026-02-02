@@ -144,7 +144,7 @@
 }
 
 .copy-to-llm-dropdown-item:active {
-  background-color: var(---md-default-fg-color--light);
+  background-color: var(--md-default-fg-color--light);
 }
 
 .copy-to-llm-dropdown-item svg {

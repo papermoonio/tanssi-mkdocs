@@ -101,21 +101,37 @@
 {% endblock %}
 
 {% block scripts %}
+  <script>
+    window.LLM_CONFIG = {
+      supportedTranslations: {{ config.extra.supported_translations | default([]) | tojson | safe }}
+    };
+  </script>
   {{ super() }}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const SITE_BASE = location.origin.replace(/\/+$/, ''); // current host
       
+      const SUPPORTED_TRANSLATIONS = window.LLM_CONFIG.supportedTranslations || [];
+
       // Determine language prefix (e.g. '/pt') based on URL path or HTML lang attribute
       const getLangPrefix = () => {
+        // Check <html> lang attribute first
+        const langAttr = document.documentElement.lang || 'en';
+        const code = langAttr.split('-')[0];
+
+        if (SUPPORTED_TRANSLATIONS.includes(code)) {
+          return `/${code}`;
+        }
+
+        // Fallback: Check path for any supported translation prefix
         const path = location.pathname;
-        // Check for recognized path prefix for Portuguese
-        if (/^\/pt(\/|$)/.test(path)) return '/pt';
-        
-        // Fallback: check <html> lang attribute
-        const lang = document.documentElement.lang || 'en';
-        const code = lang.split('-')[0];
-        return code === 'pt' ? '/pt' : '';
+        for (const lang of SUPPORTED_TRANSLATIONS) {
+          if (new RegExp(`^/${lang}(\\/|$)`).test(path)) {
+            return `/${lang}`;
+          }
+        }
+
+        return '';
       };
 
       const langPrefix = getLangPrefix();

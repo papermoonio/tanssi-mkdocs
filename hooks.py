@@ -157,6 +157,27 @@ def _sync_gettext_translations(config):
 def on_config(config):
     _sync_gettext_translations(config)
     _sync_theme_translations(config)
+
+    # Load supported languages from llms_config.json into config.extra
+    try:
+        config_path = Path(__file__).parent / "llms_config.json"
+        if config_path.exists():
+            with open(config_path, "r", encoding="utf-8") as f:
+                llm_config = json.load(f)
+                supported = llm_config.get("i18n", {}).get("supported_translations", [])
+                if "extra" not in config:
+                    config["extra"] = {}
+                config["extra"]["supported_translations"] = supported
+        else:
+            if "extra" not in config:
+                config["extra"] = {}
+            config["extra"]["supported_translations"] = []
+    except Exception as e:
+        print(f"Error loading llms_config.json in on_config: {e}")
+        if "extra" not in config:
+            config["extra"] = {}
+        config["extra"]["supported_translations"] = []
+
     return config
 
 

@@ -221,17 +221,8 @@
         if (abs) {
           a.setAttribute('href', abs);
           a.setAttribute('target', '_blank');
-          a.setAttribute('rel', 'noopener');
+          a.setAttribute('rel', 'noopener noreferrer');
         }
-
-        a.addEventListener('click', (e) => {
-          const url = toAbsolute(a.getAttribute('data-path') || '');
-          if (!url) return;
-          if (a.getAttribute('target') !== '_blank') {
-            e.preventDefault();
-            window.open(url, '_blank', 'noopener');
-          }
-        });
       });
     });
   </script>

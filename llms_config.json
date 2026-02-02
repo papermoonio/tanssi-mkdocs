@@ -17,6 +17,11 @@
         "ai_artifacts_path": "ai/pages"
     },
 
+    "i18n": {
+        "default_locale": "en",
+        "supported_translations": ["pt"]
+    },
+
     "content": {
         "docs_dir": ".",
         "base_context_categories": ["Basics", "Reference"],

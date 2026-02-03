@@ -1,10 +1,47 @@
-{#-
-  This file is intentionally minimal; language-specific 404s are produced by hooks.
--#}
-
 {% extends "main.html" %}
+
+{% set page_locale = page.lang | default(config.theme.language) | default("en") %}
+
+{% block site_meta %}
+  {{ super() }}
+  {% if page_locale == "en" %}
+    {# Only add <base> on root 404; it breaks localized links on /pt/404/. #}
+    {% set site_url = config.site_url | default("/") %}
+    {% set base_path = "/" %}
+    {% if "://" in site_url %}
+      {% set rest = site_url.split("://", 1)[1] %}
+      {% if "/" in rest %}
+        {% set base_path = "/" ~ rest.split("/", 1)[1] %}
+      {% endif %}
+    {% elif site_url.startswith("/") %}
+      {% set base_path = site_url %}
+    {% endif %}
+    {% if not base_path.endswith("/") %}{% set base_path = base_path ~ "/" %}{% endif %}
+    <base href="{{ base_path }}">
+  {% endif %}
+{% endblock %}
+
+{# Hide the sidebar feedback/edit block on 404 pages. #}
+{% block site_nav %}{% endblock %}
+
 {% block content %}
-  <h1 id="not-found-title" class="not-found">
-    {{ trans("error.404_title", lang=page.lang if page is defined else None) }}
-  </h1>
+  <h1 style="text-align: center;">{{ trans("error.404_title") if trans is defined else "404 - Not found" }}</h1>
+
+  {% if page_locale == "en" %}
+    {# Derive redirect locales from mkdocs-static-i18n alternates (everything except default locale). #}
+    {% set default_locale = config.theme.language | default("en") %}
+    {% set redirect_locales = [] %}
+    {% if config.extra and config.extra.alternate %}
+      {% for alt in config.extra.alternate %}
+        {% if alt.lang and alt.lang != default_locale %}
+          {% set _ = redirect_locales.append(alt.lang) %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <script
+      src="{{ 'javascript/404-redirect.js' | url }}"
+      data-redirect-locales="{{ redirect_locales | join(',') }}"
+      defer
+    ></script>
+  {% endif %}
 {% endblock %}

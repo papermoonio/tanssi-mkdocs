@@ -63,15 +63,19 @@ validation:
 exclude_docs: README.md
 plugins:
   - i18n:
+      reconfigure_material: true
+      reconfigure_search: true
       docs_structure: folder
       fallback_to_default: true
       build_only_locale: !ENV [BUILD_ONLY_LOCALE]
       languages:
         - locale: pt
           name: Português
+          link: /pt/
           build: true
         - locale: en
           name: English
+          link: /
           default: true
           build: true
   - search

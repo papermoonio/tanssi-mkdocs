@@ -241,14 +241,3 @@ def on_post_page(output, page, config):
     )
 
     return output
-
-
-@event_priority(-1000)
-def on_post_build(config):
-    """
-    404 post-processing disabled for baseline testing.
-
-    Previous custom 404 generation logic was moved to `tanssi-mkdocs/tmp/404-disabled/`
-    so it can be re-enabled later if needed.
-    """
-    return
